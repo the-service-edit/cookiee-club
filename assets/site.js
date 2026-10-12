@@ -102,7 +102,7 @@
     var six = cart.filter(function (l) { return l.pid === 'byo6'; })[0];
     if (six && !has('byo12')) {
       var p6 = prod('byo6'), p12 = prod('byo12');
-      return '<div class="upsell"><p><b>Make it a 12?</b>' + money(perCookie(p12.price, 12)) + ' a cookie delivered, against ' + money(perCookie(p6.price, 6)) + ' for six. Your six picks come with you.</p>' +
+      return '<div class="upsell"><p><b>Make it a 12?</b>Twice the cookies, one shipping fee. Your six picks come with you.</p>' +
         '<a class="btn red" href="' + BASE + 'build-a-box.html?size=12&from=' + encodeURIComponent(six.key) + '">Upgrade</a></div>';
     }
     var imp = prod('imperfect');
@@ -115,7 +115,7 @@
     return '<div class="totals"><div><span>Subtotal (' + t.cookies + ' cookies)</span><span>' + money(t.sub) + '</span></div>' +
       '<div><span>Express post, Australia wide</span><span>' + money(t.ship) + '</span></div>' +
       '<div class="grand"><span>Total</span><span>' + money(t.total) + '</span></div>' +
-      (t.cookies ? '<small>That’s ' + money(t.total / t.cookies) + ' a cookie delivered. Baked and posted within ' + D.turnaround + '. Or 4 payments of ' + money(t.total / 4) + ' with Afterpay.</small>' : '') + '</div>';
+      (t.cookies ? '<small>Baked and posted within ' + D.turnaround + '. Or 4 payments of ' + money(t.total / 4) + ' with Afterpay.</small>' : '') + '</div>';
   }
   function render() {
     var cart = load(), t = totals(cart);
@@ -272,7 +272,6 @@
         return '<li><span>' + counts[k] + '× ' + esc(flav(k).name) + '</span><button type="button" data-f="' + k + '" data-d="-1" aria-label="Remove one ' + esc(flav(k).name) + '">−</button></li>';
       }).join('') : '<li class="empty">Nothing picked yet. Tap + on any flavour.</li>';
       $('#sum-price').textContent = money(pp.price);
-      $('#sum-per').textContent = money(perCookie(pp.price, size)) + ' a cookie delivered';
       $$('.bld-add').forEach(function (b) {
         b.disabled = !full;
         b.textContent = full ? (editKey ? 'Update box' : 'Add box · ' + money(pp.price)) : 'Pick ' + (size - n) + ' more';

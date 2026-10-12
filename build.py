@@ -117,7 +117,7 @@ def card(p, B, two=False):
         tag = f'<span class="tag{" dark" if p.get("badgeDark") else ""}">{e(p["badge"])}</span>'
     out = '<span class="tag out">Sold out</span>' if p['stock'] != 'in' else ''
     price = (f'<s>{money(p["compare"])}</s>' if p.get('compare') else '') + money(p['price'])
-    perl = f'<span class="per">{money(per(p))} a cookie delivered</span>' if p['cookies'] else '<span class="per">Ships with any order</span>'
+    perl = ''
     return (f'<a class="card" href="{url}" data-groups="{" ".join(p["group"])}"><div class="ph">'
             f'<img src="{B}img/p/{p["imgs"][0]}.jpg" alt="{e(p["alt"][0])}" loading="lazy" width="1000" height="1250">{tag}{out}</div>'
             f'<div class="row"><span class="name">{e(p["name"])}</span><span class="price">{price}</span></div>'
@@ -170,7 +170,7 @@ def join_block():
 FAQS = [
  ('How long until my cookies arrive?', '<p>Every order is baked to order. We bake and post within 2 to 4 business days, then express post usually takes 1 to 3 business days depending on where you are. Tracking is emailed when your parcel is posted.</p>'),
  ('Are your cookies nut and egg free?', '<p>Yes. We don’t handle nuts or eggs in our kitchen, and none of our recipes use eggs. Some chocolates we use (Cadbury and Nestlé) carry a “may contain” statement from the manufacturer. <a class="link" href="our-kitchen.html#allergens">Read the full allergen guide</a>.</p>'),
- ('How much is shipping?', '<p>Express post is a flat $16.20 anywhere in Australia, whatever the size of your order. That’s why the box of 12 is the best value per cookie.</p>'),
+ ('How much is shipping?', '<p>Express post is a flat $16.20 anywhere in Australia, whatever the size of your order.</p>'),
  ('Can I choose my own flavours?', '<p>Yes. Build a box of 6 or 12 from any flavours on the menu. <a class="link" href="build-a-box.html">Build a box</a>.</p>'),
  ('Does express shipping mean you bake it faster?', '<p>No. Every order joins the same baking queue. Express applies once your cookies are baked, packed and with Australia Post.</p>'),
  ('How long do the cookies keep?', '<p>Best within <span class="fill">[X]</span> days in an airtight container. <span class="fill">[Ruby’s storage and warming tip]</span></p>'),
@@ -205,7 +205,7 @@ home = f'''
 </div></section>
 
 <section class="sec paper" id="shop"><div class="wrap">
-  <div class="sec-head"><h2>The menu</h2><p>Every box shows what it costs per cookie with shipping, so you can see where the value is.</p></div>
+  <div class="sec-head"><h2>The menu</h2><p>Baked to order, posted Australia wide in 2 to 4 business days.</p></div>
   <div class="grid cards-2 three">{''.join(card(P[i], B) for i in order)}</div>
 </div></section>
 
@@ -266,7 +266,7 @@ page('index.html', 'The Cookiee Club · Nut and egg free cookies, baked to order
 
 # ---------- SHOP ----------
 shop = f'''
-<section class="page-head wrap"><h1>The menu.</h1><p>Six boxes and one extra. Every box shows its price per cookie with $16.20 express post added.</p></section>
+<section class="page-head wrap"><h1>The menu.</h1><p>Six boxes and one extra. $16.20 express post, Australia wide.</p></section>
 <section class="wrap" style="padding-bottom:88px">
   <div class="chips" role="group" aria-label="Filter the menu">
     <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
@@ -291,7 +291,7 @@ for p in D['products']:
     compare = f'<s>{money(p["compare"])}</s>' if p.get('compare') else ''
     count = f'{p["cookies"]} cookies · ' if p['cookies'] else ''
     pricebits = f'<div class="pr"><b id="pr-main">{money(p["price"])}</b>{compare}<span>{count}or 4 payments with Afterpay</span></div>'
-    delivered = (f'<div class="delivered"><span>Price per cookie, delivered</span><b>{money(per(p))}</b><small>{money(p["price"])} + $16.20 express post, divided by {p["cookies"]}. Shipping is one flat price, so bigger boxes cost less per cookie.</small></div>') if p['cookies'] else ''
+    delivered = ''
     flist = ''
     if p.get('fixed'):
         flist = '<div><h2 style="font-size:22px;margin-bottom:12px">What’s in the box</h2><div class="flist">' + ''.join(
@@ -362,8 +362,8 @@ builder = f'''
   <span class="eyebrow">Build your own</span>
   <h1 id="bld-title">Build your box of 6.</h1>
   <fieldset style="border:0;padding:0;margin:0"><legend class="sr">Box size</legend><div class="sizes">
-    <label class="size"><input type="radio" name="size" value="6"><span><b>6 cookies · {money(b6["price"])}</b><small>Six of your favourites</small><em>{money(per(b6))} a cookie delivered</em></span></label>
-    <label class="size"><input type="radio" name="size" value="12"><span><b>12 cookies · {money(b12["price"])}</b><small>Shipping paid once, not twice</small><em>{money(per(b12))} a cookie delivered</em></span></label>
+    <label class="size"><input type="radio" name="size" value="6"><span><b>6 cookies · {money(b6["price"])}</b><small>Six of your favourites</small></span></label>
+    <label class="size"><input type="radio" name="size" value="12"><span><b>12 cookies · {money(b12["price"])}</b><small>Twelve of your favourites</small></span></label>
   </div></fieldset>
 </section>
 <section class="wrap bld" id="builder">
@@ -376,7 +376,7 @@ builder = f'''
     <div class="prog"><div class="lbl"><span class="prog-n">0 of 6</span><span>chosen</span></div><div class="bar"><i></i></div></div>
     <ul class="picked" id="picked"></ul>
     <div class="sum-price"><span>Box price</span><b id="sum-price">$39.95</b></div>
-    <p class="sum-note"><span id="sum-per"></span> with $16.20 express post. Baked to order, posted within 2 to 4 business days.</p>
+    <p class="sum-note">Plus $16.20 express post. Baked to order, posted within 2 to 4 business days.</p>
     <button class="btn red block bld-add" type="button" disabled>Pick 6 more</button>
   </aside>
 </section>
@@ -509,7 +509,7 @@ notes = '''
 <li>Added the Build Your Own (12) and The Little Cookiee Club, both live on Ruby’s store since 11 October. Imperfect Gluten Free is now an option on the Imperfect Box.</li>
 <li>One layout for every screen. v1 had a separate phone version that dropped the kitchen facts and the calendar; both now show on phones.</li>
 <li>A real box builder: photo cards, + and − per flavour, “4 of 6” progress, Surprise me, and “Edit flavours” from the cart.</li>
-<li>Every box shows its price per cookie with $16.20 shipping. The cart offers one upgrade: a 6-box to a 12-box, keeping the flavours already picked.</li>
+<li>The cart offers one upgrade: a 6-box to a 12-box, keeping the flavours already picked.</li>
 <li>Sold-out products swap the buy button for a restock alert form (the Imperfect Box shows this in the demo).</li>
 <li>Product pages: real photos only, what’s in the box, allergens, delivery and refunds, and a sticky add-to-cart bar on phones.</li>
 <li>New pages: Our kitchen and allergen guide, Drops, Delivery, Refunds, FAQ, Contact, Corporate, Cart.</li>
