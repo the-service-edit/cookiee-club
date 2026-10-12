@@ -477,3 +477,8 @@ footer.site{background:var(--crimson);color:#fff}
 @media (max-width:900px){.grid.three{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.grid.cards-2 .tag.out{top:auto;bottom:8px;left:8px;right:auto}}
 .aside .btn{align-self:stretch}
+.vswitch{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;background:var(--ink);font-size:12px;font-weight:600;letter-spacing:.04em}
+.vswitch a,.vswitch span{padding:9px 12px;color:#fff;text-decoration:none}
+.vswitch span{background:var(--pink);color:var(--ink)}
+.vswitch a:hover{background:var(--crimson)}
+@media (max-width:900px){.vswitch{bottom:auto;top:calc(112px + env(safe-area-inset-top,0px));left:auto;right:0;font-size:11px}.vswitch a,.vswitch span{padding:7px 10px}.vswitch a[href$="notes.html"]{display:none}}

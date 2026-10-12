@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>The Cookiee Club</title>
+<link rel="icon" href="img/logo_old.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* Layout: full-bleed real photography + heavy caps statements, square edges, scrolling bands (Butterboy x Gold Coast Cookies) */
+:root{
+  --ground:#ECE8E6; --paper:#FFFFFF; --ink:#160C0C; --muted:#4D3D3D;
+  --crimson:#A51C30; --pink:#F7A8A0; --rule:#C9BFBC; --on-dark:#E8DCDC;
+  --display:'Gabarito','Arial Black','Helvetica Neue',sans-serif;
+  --body:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  --script:'Gabarito','Arial Black',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--crimson);outline-offset:3px}
+img{display:block;max-width:100%}
+.wrap{max-width:1384px;margin:0 auto;padding-inline:clamp(16px,2vw,28px)}
+.caps{font-weight:900;font-family:var(--display);letter-spacing:-.01em;text-wrap:balance}
+h1,h2,h3{margin:0}
+
+/* header */
+.top{background:var(--pink);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding-block:8px}
+.logo{display:block;line-height:0}.logo img{width:84px;height:84px}
+@media (max-width:560px){.logo img{width:64px;height:64px}}
+.nav{display:flex;flex-wrap:wrap;gap:4px 26px;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;padding-block:6px}
+.nav a:hover{color:var(--crimson)}
+
+/* marquee */
+.band{overflow:hidden;white-space:nowrap;padding-block:11px}
+.band.red{background:var(--crimson);color:#fff}
+.band.pink{background:var(--pink);color:var(--ink);padding-block:14px}
+.track{font-weight:900;display:flex;width:max-content;animation:slide 30s linear infinite;font-family:var(--display);font-size:15px;letter-spacing:.04em}
+.band.pink .track{font-size:17px}
+.track span{padding-right:48px}
+.track.slow{animation-duration:70s}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}}
+
+/* hero */
+.hero{position:relative;background:#F4A9A4;overflow:hidden}
+.hero-bg{display:block;width:100%;height:clamp(560px,56vw,900px);object-fit:cover;object-position:18% center}
+.hero-inner{position:absolute;inset:0;max-width:1600px;margin:0 auto;display:flex;align-items:center;justify-content:flex-end;padding-inline:clamp(16px,4vw,72px)}
+.hero-txt{width:min(40%,600px);display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.hero-txt h1{font-size:clamp(40px,4.8vw,80px);line-height:.94;letter-spacing:-.025em}
+.hero-txt p{margin:0;font-size:clamp(16px,1.3vw,19px);max-width:30em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-ctas .btn-dark{display:inline-flex;align-items:center;text-decoration:none;padding:0 30px}
+.hero-ctas .btn-line{padding:0 26px}
+@media (max-width:900px){
+  .hero{min-height:calc(100svh - 110px);display:flex;flex-direction:column;justify-content:flex-end}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-position:center top}
+  .hero-inner{position:relative;inset:auto;display:block;width:100%;max-width:none;margin:0;padding:60px 16px 36px;background:linear-gradient(to top,#F4A9A4 0%,#F4A9A4 70%,rgba(244,169,164,0) 100%)}
+  .hero-txt{width:auto;gap:18px}
+  .hero-txt h1{font-size:clamp(40px,11vw,56px)}
+}
+@media (max-width:700px) and (min-height:900px){.hero{min-height:780px}}
+@media (min-width:701px) and (max-width:900px){.hero-bg{object-position:center 12%}.hero-inner{padding:40px 40px 48px}.hero-txt{max-width:560px}}
+.thesis{max-width:1060px;margin:0 auto;padding:clamp(64px,8vw,104px) 16px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.thesis-logo{width:168px;height:168px;margin-bottom:-4px}
+.thesis h1{letter-spacing:-.025em;font-size:clamp(44px,7.4vw,108px);line-height:.9}
+.thesis p{margin:0;font-size:18px;max-width:36em}
+.btn-line{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 60px;border:2px solid var(--ink);text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.08em;transition:background .2s,color .2s}
+.btn-line:hover{background:var(--ink);color:#fff}
+
+/* menu */
+.menu{background:var(--paper);padding-block:clamp(64px,7vw,96px)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:34px}
+.sec-head h2{font-size:clamp(40px,5vw,72px);line-height:.95}
+.sec-head span{font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:22px}
+.card{text-decoration:none;display:flex;flex-direction:column;gap:12px}
+.card .ph{position:relative;background:var(--pink);overflow:hidden}
+.card .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s ease}
+.card:hover .ph img{transform:scale(1.04)}
+.tag{font-weight:900;position:absolute;top:14px;left:14px;font-family:var(--display);font-size:12px;letter-spacing:.04em;padding:7px 10px;background:var(--pink);color:var(--ink)}
+.tag.dark{background:var(--ink);color:#fff}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.card .name{font-weight:900;font-family:var(--display);font-size:22px;line-height:1.05}
+.card .price{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.card .sub{font-size:15px;color:var(--muted);margin-top:-6px}
+
+/* ruby */
+.ruby{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,4vw,64px);padding:clamp(16px,2vw,28px)}
+.ruby .ph{flex:1 1 520px;min-width:0}
+.ruby .ph img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.ruby .txt{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px;padding-right:clamp(0px,2vw,24px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--crimson)}
+.ruby h2{font-size:clamp(44px,5.6vw,84px);line-height:.92}
+.ruby p{margin:0;font-size:17px;max-width:32em}
+.sig{font-weight:900;font-family:var(--script);font-size:34px;color:var(--crimson);line-height:1}
+
+/* how */
+.how{background:var(--ink);color:#fff;padding-block:clamp(72px,8vw,104px)}
+.how h2{font-size:clamp(40px,5vw,72px);line-height:.95;color:var(--pink);margin-bottom:44px}
+.step{display:flex;flex-wrap:wrap;gap:10px 40px;align-items:baseline;padding-block:30px;border-top:2px solid #fff}
+.step:last-child{border-bottom:2px solid #fff}
+.how-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:start}
+.arrive{margin:0}.arrive img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.arrive figcaption{margin-top:14px;font-family:var(--display);font-weight:800;font-size:22px;color:var(--pink)}
+@media (max-width:900px){.how-grid{grid-template-columns:1fr;gap:36px}}
+.step .n{font-weight:900;flex:0 0 110px;font-family:var(--display);font-size:56px;line-height:1;color:var(--crimson)}
+.step .t{font-weight:900;flex:1 1 340px;font-family:var(--display);font-size:clamp(26px,3vw,40px);line-height:1}
+.step .d{flex:1 1 300px;font-size:17px;color:var(--on-dark);min-width:0}
+
+/* proof */
+.proof{background:var(--paper);padding-block:64px}
+.proof .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:34px}
+.pf{display:flex;gap:14px;align-items:flex-start}
+.pf svg{flex:0 0 auto}
+.pf b{font-weight:900;display:block;font-family:var(--display);font-size:20px;line-height:1.05;margin-bottom:6px}
+.pf span{font-size:15px;color:var(--muted)}
+.fill{background:#fff3d6;padding:0 4px}
+
+.photo-band img{width:100%;height:clamp(300px,40vw,560px);object-fit:cover;object-position:center 55%}
+
+/* dates: tear-off cookie calendar */
+.dates{background:var(--crimson);color:#fff;padding-block:clamp(72px,8vw,104px)}
+.cal-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-bottom:44px}
+.cal-head h2{font-size:clamp(44px,6vw,92px);line-height:.9;max-width:9em}
+.cal-head div{display:flex;flex-direction:column;gap:18px;align-items:flex-start;max-width:340px}
+.cal-head p{margin:0;font-size:17px;color:#FBE3EA}
+.btn-line.light{border-color:#fff;color:#fff}.btn-line.light:hover{background:#fff;color:var(--crimson)}
+.cal-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.cal{position:relative;background:#fff;color:var(--ink);display:flex;flex-direction:column;gap:10px;padding:0 20px 24px;overflow:hidden;min-height:330px}
+.cal::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;background:radial-gradient(circle at 7px 0,var(--crimson) 4px,transparent 4.5px) 0 0/14px 10px repeat-x;z-index:2}
+.cal .mon{font-weight:900;margin:0 -20px;padding:18px 20px 10px;background:var(--ink);color:#fff;font-family:var(--display);font-size:14px;letter-spacing:.12em}
+.cal .day{display:flex;flex-direction:column;gap:6px;padding-top:10px}
+.cal .d{font-weight:900;font-family:var(--display);font-size:clamp(72px,7vw,104px);line-height:.85;font-variant-numeric:tabular-nums}
+.cal .to{font-weight:900;font-family:var(--display);font-size:16px;color:var(--crimson);white-space:nowrap}
+.cal b{font-weight:900;font-family:var(--display);font-size:20px;line-height:1.05;margin-top:auto;padding-top:14px;border-top:2px solid var(--ink)}
+.cal .desc{font-size:15px;color:var(--muted)}
+.cal.hl{background:var(--pink)}
+.cal.hl .mon{background:var(--crimson)}
+.pin{position:absolute;top:15px;right:14px;z-index:3;background:#fff!important;color:var(--crimson)!important;font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--ink);color:#fff;padding:5px 8px}
+.count{font-size:14px;font-weight:600}.count em{font-weight:900;font-family:var(--display);font-style:normal;font-size:28px;color:var(--crimson);margin-right:6px}
+.cal.off{background:#E3DCDA}
+.cal.off .d,.cal.off b{color:#8C7F7C}
+.cal.off .mon{background:#8C7F7C}
+.stamp{font-weight:900;position:absolute;top:66px;bottom:auto;right:10px;transform:rotate(-12deg);font-family:var(--display);font-size:18px;background:#E3DCDA;letter-spacing:.06em;color:var(--crimson);border:3px solid var(--crimson);padding:4px 14px;opacity:.9}
+@media (max-width:1100px){.cal-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(240px,62vw);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.cal{scroll-snap-align:start}}
+
+/* join */
+.join{background:var(--pink);padding-block:clamp(72px,8vw,104px)}
+.join .inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
+.join h2{font-size:clamp(48px,7.4vw,108px);line-height:.9;color:var(--crimson)}
+.join p{margin:0;font-size:18px;max-width:32em}
+.join form{display:flex;flex-wrap:wrap;justify-content:center;width:100%;max-width:560px}
+.join input{flex:1 1 260px;min-height:58px;border:2px solid var(--ink);border-radius:0;padding:0 18px;font:600 15px var(--body);letter-spacing:.05em;background:#fff;color:var(--ink)}
+.join input::placeholder{color:#6d5a5a}
+.btn-dark{font-weight:900;min-height:58px;padding:0 32px;background:var(--ink);color:#fff;border:2px solid var(--ink);border-radius:0;font-family:var(--display);font-size:15px;letter-spacing:.04em;cursor:pointer}
+.btn-dark:hover{background:var(--crimson);border-color:var(--crimson)}
+.join .msg{font-weight:700;min-height:1.5em;margin:0}
+
+/* footer */
+footer{background:var(--crimson);color:#fff}
+.big{font-weight:900;font-family:var(--display);font-size:clamp(80px,11vw,168px);line-height:1;padding-block:32px 18px;overflow:hidden;white-space:nowrap}
+.big .track{font-size:inherit;letter-spacing:0}
+.big .track span{padding-right:64px}
+.foot{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:30px 40px}
+.foot .tl{font-weight:900;font-family:var(--display);font-size:24px}
+.fl{display:flex;align-items:center;gap:22px}.fl img{width:120px;height:120px}
+.soc{display:flex;gap:8px}
+.soc a{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;color:#fff}
+.mail{font-weight:900;font-family:var(--display);font-size:19px;text-decoration:underline;text-underline-offset:5px;user-select:all}
+.legal{border-top:1px solid #C24459;padding-block:16px 24px;display:flex;flex-wrap:wrap;gap:6px 26px;font-size:13px;color:#FBE3EA}
+
+/* product view */
+.pv{display:flex;flex-wrap:wrap;align-items:flex-start}
+.pv .gal{flex:1.2 1 560px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.pv .gal img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.pv .gal img.main{grid-column:1/3;aspect-ratio:5/4}
+.pv .info{flex:1 1 420px;min-width:0;padding:clamp(32px,4vw,56px) clamp(16px,3.4vw,48px) 64px;display:flex;flex-direction:column;gap:24px}
+.pv h1{font-size:clamp(48px,5.6vw,88px);line-height:.9}
+.pv .pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.pv .pr b{font-weight:900;font-family:var(--display);font-size:30px}
+.pv .pr span{color:var(--muted);font-size:15px}
+.pv p{margin:0;font-size:17px}
+.flist{border-top:2px solid var(--ink)}
+.flist div{display:flex;justify-content:space-between;gap:12px;padding-block:14px;border-bottom:1px solid var(--rule)}
+.flist div:last-child{border-bottom:2px solid var(--ink)}
+.flist span:last-child{color:var(--muted);text-align:right}
+.eta{background:#fff;padding:22px;display:flex;flex-direction:column;gap:14px}
+.eta .hd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center}
+.eta .hd b{font-weight:900;font-family:var(--display);}
+.eta .hd span{font-size:14px;font-weight:700;color:var(--crimson)}
+.bar{height:8px;background:#FBE0DC}.bar i{display:block;height:100%;width:62%;background:var(--crimson)}
+.eta .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.eta .cols small{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.eta .cols b{font-weight:900;font-family:var(--display);font-size:clamp(15px,1.4vw,18px)}
+.eta .note{font-size:13px;color:var(--muted)}
+.buy{display:flex;flex-wrap:wrap}
+.qty{display:flex;align-items:center;border:2px solid var(--ink);min-height:58px}
+.qty button{width:50px;height:54px;border:0;background:none;font-size:22px;cursor:pointer;color:var(--ink)}
+.qty output{width:28px;text-align:center;font-weight:700;font-size:17px}
+.buy .btn-dark{flex:1 1 220px}
+details{padding-block:16px;border-bottom:1px solid var(--rule)}
+details:last-child{border-bottom:2px solid var(--ink)}
+summary{font-weight:900;font-family:var(--display);font-size:16px;cursor:pointer}
+details p{margin-top:12px!important;font-size:16px!important}
+.acc{border-top:2px solid var(--ink)}
+.more{background:var(--paper);padding-block:72px 88px}
+.more h2{font-size:clamp(36px,4vw,56px);line-height:.95;margin-bottom:30px}
+.more .card .ph img{aspect-ratio:4/3}
+.more .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.back{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;letter-spacing:.06em;text-decoration:none;padding:18px clamp(16px,2vw,28px) 0}
+
+
+/* value props */
+.vp{background:var(--pink);padding-block:44px}
+.vp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:28px 20px}
+.vpi{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;color:var(--crimson);text-decoration:none}
+.vpi svg{margin-bottom:6px}
+.vpi b{font-weight:900;font-family:var(--display);font-size:20px;line-height:1.1;color:var(--ink)}
+.vpi span{font-size:15px;color:var(--muted)}
+.fill-d{background:#fff3d6;padding:0 4px;color:var(--ink)}
+/* reviews */
+.reviews{background:var(--ground);padding-block:clamp(72px,8vw,104px)}
+.rv-head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:28px 64px;align-items:center;margin-bottom:40px}
+.rv-title{grid-column:1/-1;order:-1;max-width:820px}
+.rv-score{display:flex;align-items:center;gap:18px}
+.big-n{font-weight:900;font-family:var(--display);font-size:clamp(64px,7vw,96px);line-height:.85;color:var(--crimson)}
+.stars{color:var(--crimson);letter-spacing:2px;font-size:16px}
+.stars.lg{display:block;font-size:24px}
+.rv-count{display:block;font-size:15px;font-weight:600;margin-top:4px}
+.rv-title h2{font-size:clamp(40px,5vw,72px);line-height:.95}
+.rv-title p{margin:10px 0 0;font-size:16px;color:var(--muted)}
+.dist div{display:grid;grid-template-columns:34px 1fr 44px;align-items:center;gap:10px;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;padding-block:3px}
+.dist i{display:block;height:8px;background:#DCD3D0}
+.dist i b{display:block;height:100%;background:var(--crimson)}
+.dist em{font-style:normal;color:var(--muted);text-align:right}
+.rv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.rv{background:#fff;padding:28px;display:flex;flex-direction:column;gap:16px}
+.rv-feature{margin:0 0 20px;background:var(--pink);padding:clamp(28px,4vw,56px)}
+.rv-feature blockquote{font-weight:900;margin:0 0 20px;font-family:var(--display);font-size:clamp(24px,2.8vw,40px);line-height:1.15;text-transform:none;color:var(--crimson);text-wrap:balance}
+.rv-feature figcaption{font-size:15px}
+.rv-grid{columns:3 280px;column-gap:20px;display:block!important}
+.rv{break-inside:avoid;margin-bottom:20px}
+.rv.loud .rv-q{font-weight:900;font-family:var(--display);text-transform:uppercase;font-size:22px;line-height:1.1;color:var(--crimson)}
+.rv-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.vb{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.rv-q{margin:0;font-size:18px;line-height:1.5;flex:1}
+.rv-by b{display:block;font-size:15px}
+.rv-by span{font-size:13px;color:var(--muted)}
+.rv-by a,.rv-feature a{color:var(--crimson);font-weight:700}
+.rv-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:32px}
+.rv-foot>span{font-size:13px;color:var(--muted)}
+.prod-rating{text-decoration:none;font-size:15px;margin-top:-10px}
+.credit{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--ink);color:#fff;font-size:12px;font-weight:600;letter-spacing:.04em;padding:8px 12px}
+@media (max-width:560px){.credit{display:none}.step .n{flex-basis:100%}}
+
+/* mobile header + value strip */
+.cart-m,.menu-btn{display:none}
+@media (max-width:760px){
+  .top{position:sticky}
+  .top .wrap{flex-wrap:wrap;gap:0 14px;padding-block:6px}
+  .logo img{width:54px;height:54px}
+  .cart-m{display:block;margin-left:auto;font-size:15px;font-weight:600;text-decoration:none}
+  .menu-btn{display:block;font:inherit;font-weight:800;font-family:var(--display);font-size:15px;letter-spacing:.04em;text-transform:uppercase;background:var(--ink);color:#fff;border:0;padding:10px 16px;cursor:pointer}
+  .nav{display:none;flex-basis:100%;flex-direction:column;gap:0;padding:6px 0 14px;font-size:22px;font-family:var(--display);font-weight:800}
+  .nav a{padding-block:12px;border-top:2px solid var(--ink)}
+  .nav a:last-child{display:none}
+  .top.open .nav{display:flex}
+  .vp{padding-block:32px}
+  .vp-grid{grid-template-columns:1fr 1fr;gap:26px 14px}
+  .vp-grid .vpi:last-child{grid-column:1/-1}
+  .vpi svg{width:32px;height:32px;margin-bottom:2px}
+  .vpi b{font-size:17px}
+  .vpi span{font-size:13.5px}
+}
+
+/* ===== mobile layout (concept D) ===== */
+#m{--pink:#F7A8A0;--crim:#A51C30;--ink:#160C0C;--cream:#F4EFE9;--d:'Gabarito',sans-serif}
+#m,#m *{box-sizing:border-box;margin:0}
+#m{font-family:'DM Sans',sans-serif;color:var(--ink);background:#F4A9A4;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#m img{display:block;max-width:100%}
+#m h1,#m h2,#m h3{font-family:var(--d);font-weight:900;letter-spacing:-.03em;line-height:.88}
+#m .mx-top{display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
+#m .mx-top img{width:52px}
+#m .mx-top a{font:800 14px var(--d);letter-spacing:.06em;text-decoration:none;color:var(--ink);border:2px solid var(--ink);padding:9px 14px}
+#m .mx-hero{padding:6px 16px 0;position:relative;overflow:hidden}
+#m .mx-hero h1{position:relative;z-index:2;font-size:19.5vw;color:var(--crim);text-transform:uppercase;letter-spacing:-.04em}
+#m .mx-hero h1 span{color:var(--ink)}
+#m .mx-hbg{position:absolute;left:0;top:20vw;width:100%;height:auto;z-index:1}
+#m .mx-hfg{position:absolute;left:20.234%;top:60.859vw;width:58.359%;height:auto;z-index:3;pointer-events:none}
+#m .mx-hero p{position:relative;z-index:4;font-size:16px;margin:calc(150vw - 68.6vw - 6px) 0 0;max-width:30ch}
+#m .mx-btn{position:relative;z-index:4;display:block;text-align:center;background:var(--ink);color:#fff;text-decoration:none;font:900 17px var(--d);letter-spacing:.04em;padding:19px;margin:18px 0 0}
+#m .mx-mq{background:var(--crim);color:var(--pink);overflow:hidden;white-space:nowrap;padding:12px 0;margin-top:28px;font:900 22px var(--d);text-transform:uppercase}
+#m .mx-mq div{display:inline-block;animation:mqm 18s linear infinite}
+#m .mx-flav{padding:34px 16px 10px;background:var(--cream)}
+#m .mx-flav h2{font-size:54px;text-transform:uppercase}
+#m .mx-flav .mx-sub{font-size:14px;margin:8px 0 20px}
+#m .item{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6px;padding:16px 0;border-top:3px solid var(--ink)}
+#m .item:nth-child(even) .pic{order:2}
+#m .item .pic img{width:100%;transform:rotate(-6deg)}
+#m .item:nth-child(even) .pic img{transform:rotate(7deg)}
+#m .item h3{font-size:30px;text-transform:uppercase}
+#m .item p{font-size:13px;margin:6px 0 10px}
+#m .item b{font:900 22px var(--d)}
+#m .item .mx-t{display:inline-block;background:var(--crim);color:#fff;font:800 11px var(--d);letter-spacing:.06em;padding:4px 8px;margin-bottom:8px}
+#m .mx-big{background:var(--ink);color:var(--pink);padding:44px 16px}
+#m .mx-big h2{font-size:58px;text-transform:uppercase}
+#m .mx-big h2 em{font-style:normal;color:#fff}
+#m .mx-big ol{list-style:none;padding:0;margin-top:22px}
+#m .mx-big li{display:flex;gap:14px;padding:16px 0;border-top:2px solid rgba(247,168,160,.5);color:#fff}
+#m .mx-big li b{font:900 40px var(--d);color:var(--pink);line-height:.9;flex:none;width:44px}
+#m .mx-big li span{font-size:15px}
+#m .mx-big li strong{display:block;font:900 20px var(--d);margin-bottom:4px}
+#m .mx-photo{position:relative}
+#m .mx-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+#m .mx-photo span{position:absolute;left:16px;bottom:16px;background:var(--pink);font:900 15px var(--d);padding:8px 12px;text-transform:uppercase}
+#m .mx-quotes{padding:40px 16px;background:#fff}
+#m .mx-quotes h2{font-size:52px;text-transform:uppercase;color:var(--crim)}
+#m .mx-q{margin-top:22px;padding-top:18px;border-top:3px solid var(--ink)}
+#m .mx-q p{font:900 26px/1.05 var(--d);letter-spacing:-.02em}
+#m .mx-q small{display:block;margin-top:10px;font-size:12px}
+#m .mx-join{background:var(--crim);color:#fff;padding:40px 16px}
+#m .mx-join h2{font-size:64px;text-transform:uppercase;color:var(--pink)}
+#m .mx-join p{margin:10px 0 16px;font-size:15px}
+#m .mx-join input{width:100%;border:0;padding:17px;font:16px 'DM Sans'}
+#m .mx-join button{width:100%;border:0;background:var(--ink);color:#fff;font:900 16px var(--d);letter-spacing:.06em;padding:17px;margin-top:8px}
+#m .mx-foot{background:var(--crim);color:var(--pink);padding:0 0 30px;overflow:hidden}
+#m .mx-foot .mx-w{font:900 120px/0.8 var(--d);letter-spacing:-.05em;white-space:nowrap;margin-left:-8px}
+#m .mx-foot small{display:block;padding:16px;font-size:12px;color:#fff}
+#m .mx-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-bottom:26px}
+#m .mx-card{background:#fff;border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink)}
+#m .mx-card img{aspect-ratio:1/1;object-fit:cover;width:100%;background:var(--cream)}
+#m .mx-card div{padding:10px 12px 12px}
+#m .mx-card h3{font-size:16px;line-height:1.05;text-transform:none;letter-spacing:-.01em}
+#m .mx-card p{font-size:12px;color:#5A4A48;margin-top:3px}
+#m .mx-card b{display:block;margin-top:6px;font-size:15px}
+#m .mx-card .mx-t{display:inline-block;font:800 10px var(--d);background:var(--pink);padding:3px 7px;border-radius:99px;margin-bottom:5px}
+#m .mx-mbtn{font:800 14px var(--d);letter-spacing:.06em;color:var(--ink);background:none;border:2px solid var(--ink);padding:9px 14px;cursor:pointer}
+#m-nav{display:flex;flex-direction:column;padding:0 16px 10px;background:#F4A9A4}
+#m-nav[hidden]{display:none}
+#m-nav a{font:900 26px 'Gabarito',sans-serif;color:#160C0C;text-decoration:none;padding:12px 0;border-top:2px solid #160C0C}
+#m .mx-q a,#m .mx-q small a{color:inherit;font-weight:700}
+#m .mx-top{position:sticky;top:0;z-index:30;background:#F4A9A4}
+#m{display:none}
+#m [id^="m-"]{scroll-margin-top:72px}
+#m .mx-top>a:first-child{border:0;padding:0;display:block}
+@media (max-width:700px){
+  #m{display:block}
+  body:not(.is-product)>header.top, body:not(.is-product)>.band.red, #view-home, body>footer, body>.credit{display:none!important}
+  body.is-product #m{display:none}
+  body{background:#F4A9A4}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="The Cookiee Club home"><img src="img/logo_old.png" alt="The Cookiee Club" width="84" height="84"></a>
+    <a class="cart-m" href="#home">Cart (0)</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" onclick="var h=this.closest('.top');var o=h.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu'">Menu</button>
+    <nav class="nav" id="main-nav" aria-label="Main" onclick="if(event.target.tagName==='A'){var h=this.closest('.top');h.classList.remove('open');var b=h.querySelector('.menu-btn');b.setAttribute('aria-expanded','false');b.textContent='Menu'}">
+      <a href="#shop">Shop</a>
+      <a href="#shop">Build a Box</a>
+      <a href="#how">How Ordering Works</a>
+      <a href="#next">What's Next</a>
+      <a href="#kitchen">FAQ</a>
+      <a href="#home">Cart (0)</a>
+    </nav>
+  </div>
+</header>
+
+<div class="band red" aria-label="Next restock [day] at 7pm. Back to 2 to 4 days.">
+  <div class="track" aria-hidden="true">
+    <span>NEXT RESTOCK [DAY] 7PM, SET YOUR ALARMS</span><span>BACK TO 2 TO 4 DAYS</span><span>MUM'S RECIPE</span><span>NUT &amp; EGG FREE</span>
+    <span>NEXT RESTOCK [DAY] 7PM, SET YOUR ALARMS</span><span>BACK TO 2 TO 4 DAYS</span><span>MUM'S RECIPE</span><span>NUT &amp; EGG FREE</span>
+  </div>
+</div>
+
+<div id="m">
+
+<header class="mx-top"><a href="#m-top" aria-label="The Cookiee Club home"><img src="img/logo_old.png" alt="The Cookiee Club"></a><button class="mx-mbtn" type="button" aria-expanded="false" onclick="var n=document.getElementById('m-nav');var o=n.hidden;n.hidden=!o;this.setAttribute('aria-expanded',o);this.textContent=o?'CLOSE':'MENU'">MENU</button></header>
+<nav id="m-nav" hidden onclick="if(event.target.tagName==='A'){this.hidden=true;var b=document.querySelector('#m .mx-mbtn');b.textContent='MENU';b.setAttribute('aria-expanded','false')}"><a href="#m-shop">Shop the menu</a><a href="#haunted-batch">The Haunted Batch</a><a href="#m-how">How ordering works</a><a href="#m-reviews">Reviews</a><a href="#m-join">Join the club</a></nav>
+<section class="mx-hero" id="m-top">
+  <h1>What you see <span>is what arrives.</span></h1>
+  <img class="mx-hbg" src="img/s_hero_mobile2.jpg" alt="">
+  <img class="mx-hfg" src="img/s_hero_fg.webp" alt="A hand holding a stack of Caramello Koala, Mini M&amp;M and Cinnamon Scroll cookies">
+  <p>Mum&#39;s recipe, baked fresh in small batches. Out the door in 2 to 4 days, Australia wide.</p>
+  <a class="mx-btn" href="#m-shop">SHOP THE MENU</a>
+</section>
+<div class="mx-mq"><div>Nut &amp; egg free ✦ Baked to order ✦ Afterpay ✦ Australia wide ✦ Weekly drops ✦ Nut &amp; egg free ✦ Baked to order ✦ Afterpay ✦ Australia wide ✦ Weekly drops ✦&nbsp;</div></div>
+<section class="mx-flav" id="m-shop">
+  <h2>The menu</h2><p class="mx-sub">Restocks [day] at 7pm. Set your alarms.</p>
+  <div class="mx-grid">
+    <a class="mx-card" href="#haunted-batch"><img src="img/m_haunted.jpg" alt="A Haunted Batch cookie"><div><span class="mx-t">11 TO 25 OCT</span><h3>The Haunted Batch</h3><p>4 Halloween cookies</p><b>$30</b></div></a>
+    <a class="mx-card" href="#m-shop"><img src="img/m_box6.jpg" alt="A Caramello Koala cookie"><div><span class="mx-t">MOST ORDERED</span><h3>Build Your Own (6)</h3><p>Any six flavours</p><b>$39.95</b></div></a>
+    <a class="mx-card" href="#m-shop"><img src="img/m_gf.jpg" alt="A gluten free churro cookie"><div><h3>Gluten Free Range</h3><p>4 GF flavours</p><b>$40</b></div></a>
+    <a class="mx-card" href="#m-shop"><img src="img/m_imperfect.jpg" alt="A cracked Mini M&amp;M cookie"><div><span class="mx-t">ONE EACH</span><h3>The Imperfect Box</h3><p>4 wonky ones</p><b>$12.95</b></div></a>
+  </div>
+</section>
+<section class="mx-big" id="m-how">
+  <h2>Back to <em>2 to 4</em> days.</h2>
+  <ol>
+    <li><b>1</b><span><strong>Order to out the door.</strong>2 to 4 days, like the Cookiee Club used to be.</span></li>
+    <li><b>2</b><span><strong>More hands on deck.</strong>A bigger team baking and packing every order.</span></li>
+    <li><b>3</b><span><strong>We'll keep you posted.</strong>An email when it's confirmed, baked and on its way.</span></li>
+  </ol>
+</section>
+<section class="mx-photo"><img src="img/real_packbox.jpg" alt="Real packaging"><span>Real box. Real photo.</span></section>
+<section class="mx-quotes" id="m-reviews">
+  <h2>Word for word.</h2>
+  <div class="mx-q"><p>"All I have to say is, these were DELICIOUS! 😍"</p><small><b>Sade Sitaloto</b> · TikTok · 30 Sep 2026 · <a href="https://www.tiktok.com/@sade.sitaloto/video/7691478128849440021">Watch</a></small></div>
+  <div class="mx-q"><p>"GUYS WHAT THE HECK THESE TASTE INSANEEE"</p><small><b>Katie Hennessey</b> · TikTok · 7 Aug 2026 · <a href="https://www.tiktok.com/@katie_hennessey_official/video/7671174224802745608">Watch</a></small></div>
+  <div class="mx-q"><p>"Oh, look at how soft they are."</p><small><b>Georgia Reilly</b> · TikTok · 30 Sep 2026 · <a href="https://www.tiktok.com/@georgia_reilly77/video/7691193500661976338">Watch</a></small></div>
+</section>
+<section class="mx-join" id="m-join"><h2>Join the club.</h2><p>Restock alerts, new flavours and first go at the 50 advent calendars.</p><input placeholder="Your email" aria-label="Email"><button type="button" onclick="this.textContent='YOU\'RE IN'">SIGN ME UP</button></section>
+<footer class="mx-foot"><div class="mx-w">Cookiee Club</div><small>Nut &amp; egg free, baked to order · Concept by The Service Edit</small></footer>
+
+</div>
+
+<main id="view-home">
+  <section class="hero" id="home">
+    <picture><source media="(max-width:900px)" srcset="img/s_hero_mobile.jpg"><img class="hero-bg" src="img/s_hero_wide_icing.jpg" alt="A hand holding a stack of Caramello Koala, Mini M&amp;M and Cinnamon Scroll cookies" width="2600" height="1051"></picture>
+    <div class="hero-inner">
+      <div class="hero-txt">
+        <h1 class="caps">What you see is what arrives.</h1>
+        <p>Mum&#39;s recipe, baked fresh in small batches by two sisters. Nut and egg free, and out the door in 2 to 4 days, Australia wide.</p>
+        <div class="hero-ctas"><a class="btn-dark" href="#shop">SHOP THE MENU</a><a class="btn-line" href="#how">HOW ORDERING WORKS</a></div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="vp" aria-label="Why the Cookiee Club">
+    <div class="wrap vp-grid">
+      <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><b>Nut &amp; egg free</b><span>Safe for more people to enjoy</span></div>
+      <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><b>Australia wide shipping</b><span>Packed with care, tracked to your door</span></div>
+      <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg><b>Afterpay available</b><span>Treat now, pay later</span></div>
+      <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8 6.8 19.5l1-5.8-4.2-4.1 5.8-.8z"/></svg><b>Seasonal flavour drops</b><span>Halloween now, Christmas next</span></div>
+      <a class="vpi" href="#reviews"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="9" cy="9.5" r="1"/><circle cx="14.5" cy="8.5" r="1"/><circle cx="15" cy="14" r="1"/><circle cx="9.5" cy="15" r="1"/></svg><b>Real customer reviews</b><span>Word for word, read them below</span></a>
+    </div>
+  </section>
+
+  <section class="menu" id="shop">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="caps">The menu</h2>
+        <span>Restocks [day] at 7pm. Set your alarms.</span>
+      </div>
+      <div class="grid">
+        <a class="card" href="#haunted-batch">
+          <div class="ph"><img src="img/m_haunted.jpg" alt="A Haunted Batch cookie: chocolate drizzle and a chocolate-coated pretzel"><span class="tag dark">11 TO 25 OCT ONLY</span></div>
+          <div class="row"><span class="name">The Haunted Batch</span><span class="price">$30</span></div>
+          <span class="sub">4 limited-edition Halloween cookies</span>
+        </a>
+        <a class="card" href="#shop">
+          <div class="ph"><img src="img/m_box6.jpg" alt="A Caramello Koala cookie, one of the flavours you can pick"><span class="tag">MOST ORDERED</span></div>
+          <div class="row"><span class="name">Build Your Own (6)</span><span class="price">$39.95</span></div>
+          <span class="sub">Pick any six flavours</span>
+        </a>
+        <a class="card" href="#shop">
+          <div class="ph"><img src="img/m_gf.jpg" alt="A gluten free churro cookie with cinnamon buttercream"></div>
+          <div class="row"><span class="name">Gluten Free Range</span><span class="price">$40</span></div>
+          <span class="sub">Choc Chip, Fairy Bread, Churro, Mini M&amp;M</span>
+        </a>
+        <a class="card" href="#shop">
+          <div class="ph"><img src="img/m_imperfect.jpg" alt="A cracked Mini M&amp;M cookie from the Imperfect Box"><span class="tag">ONE PER CUSTOMER</span></div>
+          <div class="row"><span class="name">The Imperfect Box</span><span class="price">$12.95</span></div>
+          <span class="sub">4 wonky ones. Same taste.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="band pink" aria-label="Flavours">
+    <div class="track" aria-hidden="true">
+      <span>CARAMELLO KOALA</span><span>MINI M&amp;M</span><span>FAIRY BREAD</span><span>CINNAMON SCROLL</span><span>COSMIC BROWNIE</span><span>OREO MILKSHAKE</span>
+      <span>CARAMELLO KOALA</span><span>MINI M&amp;M</span><span>FAIRY BREAD</span><span>CINNAMON SCROLL</span><span>COSMIC BROWNIE</span><span>OREO MILKSHAKE</span>
+    </div>
+  </div>
+
+  <section class="ruby">
+    <div class="ph"><img src="img/s_ruby_koala.jpg" alt="A tray of freshly baked Caramello Koala cookies in Ruby's kitchen"></div>
+    <div class="txt">
+      <span class="eyebrow">FROM RUBY &amp; RACHEL · IN THEIR WORDS, FOR THEM TO APPROVE</span>
+      <h2 class="caps">We&#39;re so, so sorry.</h2>
+      <p>We went from a few orders a day to hundreds overnight, and some of you waited way too long for your cookies. To everyone who stuck with us, we can&#39;t thank you enough.</p>
+      <p>So we&#39;ve changed a few things. We&#39;ve got a bigger team now, more hands in the kitchen and more hands packing, and we&#39;re back to how the Cookiee Club used to be: 2 to 4 days.</p>
+      <span class="sig">Ruby &amp; Rachel x</span>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <h2 class="caps">How ordering works now</h2>
+      <div class="how-grid">
+        <div class="how-steps">
+      <div class="step"><span class="n">01</span><span class="t">Back to 2 to 4 days.</span><span class="d">From your order to out the door, like the Cookiee Club used to be.</span></div>
+      <div class="step"><span class="n">02</span><span class="t">More hands on deck.</span><span class="d">A bigger team in the kitchen and a bigger team packing, so every order gets out on time.</span></div>
+      <div class="step"><span class="n">03</span><span class="t">We&#39;ll keep you posted.</span><span class="d">An email when your order&#39;s confirmed, when it&#39;s baked and when it&#39;s on its way.</span></div>
+        </div>
+        <figure class="arrive"><img src="img/s_arrive15.jpg" alt="An order of six in its mailer: hot pink tissue, every cookie sealed and stickered"><figcaption>What turns up at your door.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof" id="kitchen">
+    <div class="wrap grid">
+      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Registered to bake all week</b><span>Our health inspector checks in every year, sometimes unannounced. <span class="fill">[Council reg. no.]</span></span></div></div>
+      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Gluten free, kept separate</b><span>GF cookies are baked in their own space, approved by our allergen specialist.</span></div></div>
+      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Nut free, egg free</b><span>No nuts in our house, ever, and none of our recipes use eggs. Some chocolates carry a "may contain".</span></div></div>
+    </div>
+  </section>
+
+  <section class="photo-band"><img src="img/s_band17.jpg" alt="Fairy Bread and pink swirl cookies fresh off the tray"></section>
+
+
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="rv-head">
+        <div class="rv-title">
+          <h2 class="caps">In their words.</h2>
+          <p>Copied word for word from customers' own TikToks. Tap any review to watch it.</p>
+        </div>
+      </div>
+      <figure class="rv-feature">
+        <blockquote>&ldquo;All I have to say is, these were DELICIOUS! 😍 Obviously, there was a wait to receive them 😂 Yes, the girls are going through drama, yes, they went viral, but YES, the cookies are delicious! &hellip; 10/10, will be returning to order more!&rdquo;</blockquote>
+        <figcaption><b>Sade Sitaloto</b> · TikTok caption · 30 Sep 2026 · <a href="https://www.tiktok.com/@sade.sitaloto/video/7691478128849440021">Watch</a></figcaption>
+      </figure>
+      <div class="rv-grid">
+        <article class="rv">
+          <p class="rv-q">&ldquo;Her cookie dough is amazing. My favourite is the cinnamon, hands down. &hellip; She&#39;s definitely worth the hype.&rdquo;</p>
+          <div class="rv-by"><b>ALAÍA MUSE</b><span>TikTok video · 3 Sep 2026 · <a href="https://www.tiktok.com/@alaiamuse_/video/7681237616687172872">Watch</a></span></div>
+        </article>
+        <article class="rv">
+          <p class="rv-q">&ldquo;It is super soft. Like it&#39;s low key breaking in my hands. &hellip; That one is by far the best one.&rdquo;</p>
+          <div class="rv-by"><b>jordan.and.zara</b><span>TikTok video, on the Cinnamon Roll · 2 Oct 2026 · <a href="https://www.tiktok.com/@jordan.and.zara/video/7692187335189941524">Watch</a></span></div>
+        </article>
+        <article class="rv loud">
+          <p class="rv-q">&ldquo;GUYS WHAT THE HECK THESE TASTE INSANEEE OMGGG AHH&rdquo;</p>
+          <div class="rv-by"><b>Katie Hennessey</b><span>TikTok caption · 7 Aug 2026 · <a href="https://www.tiktok.com/@katie_hennessey_official/video/7671174224802745608">Watch</a></span></div>
+        </article>
+        <article class="rv">
+          <p class="rv-q">&ldquo;I need to eat the cinnamon one 24:7 😩❤️ Ps. These are the gluten free ones!!&rdquo;</p>
+          <div class="rv-by"><b>Hannah Jayde</b><span>TikTok caption · 24 Sep 2026 · <a href="https://www.tiktok.com/@hannahhjayde/video/7689046787625274625">Watch</a></span></div>
+        </article>
+        <article class="rv">
+          <p class="rv-q">&ldquo;Oh, look at how soft they are.&rdquo;</p>
+          <div class="rv-by"><b>Georgia Reilly</b><span>TikTok video · 30 Sep 2026 · <a href="https://www.tiktok.com/@georgia_reilly77/video/7691193500661976338">Watch</a></span></div>
+        </article>
+      </div>
+      <div class="rv-foot"><a class="btn-line" href="#reviews">LEAVE A REVIEW</a><span>Every review links to the original video. Ordered from us? Tell us how they went.</span></div>
+    </div>
+  </section>
+
+  <section class="dates" id="next">
+    <div class="wrap">
+      <div class="cal-head">
+        <h2 class="caps">The cookie calendar</h2>
+        <div><p>Stick it on the fridge. We'll email the club before each one opens.</p><a class="btn-line light" href="#join">GET REMINDERS</a></div>
+      </div>
+      <ol class="cal-row">
+        <li class="cal ">
+          <span class="mon">OCTOBER</span>
+          <div class="day"><span class="d">11</span><span class="to">TO 25 OCT</span></div>
+          <b>The Haunted Batch</b>
+          <span class="desc">Halloween flavours. Gone on the 25th.</span>
+        </li>
+        <li class="cal ">
+          <span class="mon">OCTOBER</span>
+          <div class="day"><span class="d">26</span><span class="to">TO 4 NOV</span></div>
+          <b>Christmas, early</b>
+          <span class="desc">New Chrissy flavours, a week before anyone else.</span>
+        </li>
+        <li class="cal hl">
+          <span class="mon">NOVEMBER</span>
+          <div class="day"><span class="d">12</span><span class="to">TO 15 NOV</span></div>
+          <b>Perth pop-up</b>
+          <span class="desc">Come say hi. <span class="fill-d">[Venue]</span></span><span class="pin">PERTH, WA</span>
+        </li>
+        <li class="cal ">
+          <span class="mon">NOVEMBER</span>
+          <div class="day"><span class="d">16</span></div>
+          <b>Advent calendars</b>
+          <span class="desc">Club gets the link first.</span><span class="count"><em>50</em> boxes only</span>
+        </li>
+        <li class="cal off">
+          <span class="mon">NOVEMBER</span>
+          <div class="day"><span class="d">16</span><span class="to">TO 6 DEC</span></div>
+          <b>Shop closed</b>
+          <span class="desc">Resting up. Back 6 Dec with Christmas in full.</span><span class="stamp" aria-hidden="true">CLOSED</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="join" id="join">
+    <div class="inner wrap">
+      <h2 class="caps">Join the club.</h2>
+      <p>Restock alerts, new flavours and first go at the 50 advent calendars. Straight to your inbox, not buried in a feed.</p>
+      <form id="join-form" novalidate>
+        <label for="join-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+        <input id="join-email" type="email" placeholder="YOUR EMAIL" autocomplete="email">
+        <button class="btn-dark" type="submit">SIGN ME UP</button>
+      </form>
+      <p class="msg" id="join-msg" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<main id="view-product" hidden>
+  <a class="back" href="#shop">← BACK TO THE MENU</a>
+  <div class="pv">
+    <div class="gal">
+      <img class="main" src="img/s_p1.jpg" alt="The Haunted Batch">
+      <img src="img/s_p2_14.jpg" alt="The Haunted Batch packed in its mailer">
+      <img src="img/real_packbox.jpg" alt="How it arrives: mailer box, pink tissue, every cookie sealed">
+    </div>
+    <div class="info">
+      <span class="tag dark" style="position:static;align-self:flex-start">LIMITED · 11 TO 25 OCT</span>
+      <h1 class="caps">The Haunted Batch</h1>
+      <div class="pr"><b>$30</b><span>4 cookies · or 4 payments with Afterpay</span></div>
+      <p>Four limited-edition cookies made for spooky season. No tricks here, just treats. Once the Haunted Batch is gone, it's gone for good.</p>
+      <div class="flist">
+        <div><span><b>[Flavour one]</b></span><span>[one-line description]</span></div>
+        <div><span><b>[Flavour two]</b></span><span>[one-line description]</span></div>
+        <div><span><b>[Flavour three]</b></span><span>[one-line description]</span></div>
+        <div><span><b>[Flavour four]</b></span><span>[one-line description]</span></div>
+      </div>
+      <div class="eta">
+        <div class="hd"><b>IF YOU ORDER NOW</b><span>[X] of [Y] boxes left this week</span></div>
+        <div class="bar"><i></i></div>
+        <div class="cols">
+          <div><small>BAKED</small><b>TUE 14 OCT</b></div>
+          <div><small>POSTED</small><b>TUE 14 OCT</b></div>
+          <div><small>AT YOUR DOOR</small><b>15 TO 17 OCT</b></div>
+        </div>
+        <span class="note">Example dates. The real ones update with each week's bake. Express post shown.</span>
+      </div>
+      <div class="buy">
+        <div class="qty"><button type="button" id="q-minus" aria-label="Decrease quantity">−</button><output id="q-val" aria-live="polite">1</output><button type="button" id="q-plus" aria-label="Increase quantity">+</button></div>
+        <button class="btn-dark" type="button" id="add">ADD TO CART · $30</button>
+      </div>
+      <div class="acc">
+        <details open><summary>WHAT ARRIVES</summary><p>Four flat, chewy cookies about [size] cm across, each sealed in its own bag. Best within [X] days. [Ruby's storage and warming tip]</p></details>
+        <details><summary>ALLERGENS</summary><p>Made in our nut and egg free kitchen. Contains [allergens]. Some toppings carry a "may contain" statement.</p></details>
+        <details><summary>SHIPPING</summary><p>Tracking is emailed the moment your box is posted. Need it by a date? Message us before you order and we'll tell you honestly if we can make it.</p></details>
+      </div>
+    </div>
+  </div>
+  <section class="more">
+    <div class="wrap">
+      <h2 class="caps">Add one of these</h2>
+      <div class="grid">
+        <a class="card" href="#shop"><div class="ph"><img src="img/m_gf.jpg" alt="Gluten Free Range"></div><div class="row"><span class="name">Gluten Free Range</span><span class="price">$40</span></div></a>
+        <a class="card" href="#shop"><div class="ph"><img src="img/m_imperfect.jpg" alt="The Imperfect Box"></div><div class="row"><span class="name">The Imperfect Box</span><span class="price">$12.95</span></div></a>
+        <a class="card" href="#shop"><div class="ph"><img src="img/m_box6.jpg" alt="Build Your Own box of six"></div><div class="row"><span class="name">Build Your Own (6)</span><span class="price">$39.95</span></div></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="big" aria-hidden="true">
+    <div class="track slow"><span>Cookiee Club</span><span>Cookiee Club</span><span>Cookiee Club</span><span>Cookiee Club</span><span>Cookiee Club</span><span>Cookiee Club</span></div>
+  </div>
+  <div class="wrap foot">
+    <div class="fl"><img src="img/logo_old.png" alt="The Cookiee Club" width="120" height="120"><span class="tl">Nut &amp; egg free, baked to order</span></div>
+    <div class="soc">
+      <a href="https://www.tiktok.com/@rubyrosedemiroski" aria-label="TikTok"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.4 5 4.6"/></svg></a>
+    </div>
+    <span class="mail">[hello@thecookieeclub.com]</span>
+  </div>
+  <div class="wrap legal"><span>© 2026 The Cookiee Club</span><span>Prices in AUD. Afterpay available.</span><span>Privacy</span><span>Refunds</span><span>Shipping</span></div>
+</footer>
+
+<div class="credit">Concept by The Service Edit</div>
+
+<script>
+(function(){
+  var home=document.getElementById('view-home'), prod=document.getElementById('view-product');
+  function route(){
+    var isP = location.hash === '#haunted-batch';
+    prod.hidden = !isP; home.hidden = isP; document.body.classList.toggle('is-product', isP);
+    if(isP){ window.scrollTo(0,0); }
+    else if(location.hash){ var id=location.hash.slice(1), mob=window.matchMedia('(max-width:700px)').matches; var t=(mob&&document.getElementById('m-'+id))||document.getElementById(id); if(t) t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', route); route();
+
+  var q=1, out=document.getElementById('q-val'), add=document.getElementById('add');
+  function setQ(n){ q=Math.max(1,Math.min(6,n)); out.textContent=q; add.textContent='ADD TO CART · $'+(q*30); }
+  document.getElementById('q-minus').addEventListener('click',function(){setQ(q-1)});
+  document.getElementById('q-plus').addEventListener('click',function(){setQ(q+1)});
+  add.addEventListener('click',function(){ add.textContent='ADDED TO CART'; setTimeout(function(){setQ(q)},2200); });
+
+  document.getElementById('join-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=document.getElementById('join-email').value.trim(), m=document.getElementById('join-msg');
+    m.textContent = /.+@.+\..+/.test(v) ? "You're in. We'll email you before the next restock." : 'Pop in a valid email address to join.';
+  });
+})();
+</script>
+
+<nav class="vswitch" aria-label="Concept versions" style="position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:99;display:flex;background:#160C0C;font:600 12px 'DM Sans',sans-serif;letter-spacing:.04em"><span style="padding:9px 12px;background:#F7A8A0;color:#160C0C">v1</span><a href="../" style="padding:9px 12px;color:#fff;text-decoration:none">View v2 →</a></nav>
+</body>
+</html>

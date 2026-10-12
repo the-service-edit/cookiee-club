@@ -96,7 +96,7 @@ def page(path, title, body, desc, active='', extra_head=''):
   <div class="dr-body"></div>
   <div class="dr-foot" hidden></div>
 </aside>
-<a class="credit" href="{B}notes.html">Concept by The Service Edit · v2</a>
+<nav class="vswitch" aria-label="Concept versions"><a href="{B}v1/">View v1</a><span>v2</span><a href="{B}notes.html">What changed</a></nav>
 <script>window.TCC_BASE='{B}';</script>
 <script src="{B}assets/data.js"></script>
 <script src="{B}assets/site.js"></script>
