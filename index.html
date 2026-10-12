@@ -279,6 +279,83 @@ details p{margin-top:12px!important;font-size:16px!important}
   .vpi b{font-size:17px}
   .vpi span{font-size:13.5px}
 }
+
+/* ===== mobile layout (concept D) ===== */
+#m{--pink:#F7A8A0;--crim:#A51C30;--ink:#160C0C;--cream:#F4EFE9;--d:'Gabarito',sans-serif}
+#m,#m *{box-sizing:border-box;margin:0}
+#m{font-family:'DM Sans',sans-serif;color:var(--ink);background:#F4A9A4;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#m img{display:block;max-width:100%}
+#m h1,#m h2,#m h3{font-family:var(--d);font-weight:900;letter-spacing:-.03em;line-height:.88}
+#m .mx-top{display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
+#m .mx-top img{width:52px}
+#m .mx-top a{font:800 14px var(--d);letter-spacing:.06em;text-decoration:none;color:var(--ink);border:2px solid var(--ink);padding:9px 14px}
+#m .mx-hero{padding:6px 16px 0;position:relative}
+#m .mx-hero h1{position:relative;z-index:2;font-size:76px;color:var(--crim);text-transform:uppercase;letter-spacing:-.04em}
+#m .mx-hero h1 span{color:var(--ink)}
+#m .mx-hero .mx-stack{margin:-58px -16px 0;position:relative;z-index:1}
+#m .mx-hero .mx-stack img{width:100%;aspect-ratio:1/1.02;object-fit:cover;object-position:center 6%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 22%,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 22%,#000 80%,transparent 100%)}
+#m .mx-hero p{font-size:16px;margin:16px 0 0;max-width:30ch}
+#m .mx-btn{display:block;text-align:center;background:var(--ink);color:#fff;text-decoration:none;font:900 17px var(--d);letter-spacing:.04em;padding:19px;margin:18px 0 0}
+#m .mx-mq{background:var(--crim);color:var(--pink);overflow:hidden;white-space:nowrap;padding:12px 0;margin-top:28px;font:900 22px var(--d);text-transform:uppercase}
+#m .mx-mq div{display:inline-block;animation:mqm 18s linear infinite}
+#m .mx-flav{padding:34px 16px 10px;background:var(--cream)}
+#m .mx-flav h2{font-size:54px;text-transform:uppercase}
+#m .mx-flav .mx-sub{font-size:14px;margin:8px 0 20px}
+#m .item{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6px;padding:16px 0;border-top:3px solid var(--ink)}
+#m .item:nth-child(even) .pic{order:2}
+#m .item .pic img{width:100%;transform:rotate(-6deg)}
+#m .item:nth-child(even) .pic img{transform:rotate(7deg)}
+#m .item h3{font-size:30px;text-transform:uppercase}
+#m .item p{font-size:13px;margin:6px 0 10px}
+#m .item b{font:900 22px var(--d)}
+#m .item .mx-t{display:inline-block;background:var(--crim);color:#fff;font:800 11px var(--d);letter-spacing:.06em;padding:4px 8px;margin-bottom:8px}
+#m .mx-big{background:var(--ink);color:var(--pink);padding:44px 16px}
+#m .mx-big h2{font-size:58px;text-transform:uppercase}
+#m .mx-big h2 em{font-style:normal;color:#fff}
+#m .mx-big ol{list-style:none;padding:0;margin-top:22px}
+#m .mx-big li{display:flex;gap:14px;padding:16px 0;border-top:2px solid rgba(247,168,160,.5);color:#fff}
+#m .mx-big li b{font:900 40px var(--d);color:var(--pink);line-height:.9;flex:none;width:44px}
+#m .mx-big li span{font-size:15px}
+#m .mx-big li strong{display:block;font:900 20px var(--d);margin-bottom:4px}
+#m .mx-photo{position:relative}
+#m .mx-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+#m .mx-photo span{position:absolute;left:16px;bottom:16px;background:var(--pink);font:900 15px var(--d);padding:8px 12px;text-transform:uppercase}
+#m .mx-quotes{padding:40px 16px;background:var(--pink)}
+#m .mx-quotes h2{font-size:52px;text-transform:uppercase;color:var(--crim)}
+#m .mx-q{margin-top:22px;padding-top:18px;border-top:3px solid var(--ink)}
+#m .mx-q p{font:900 26px/1.05 var(--d);letter-spacing:-.02em}
+#m .mx-q small{display:block;margin-top:10px;font-size:12px}
+#m .mx-join{background:var(--crim);color:#fff;padding:40px 16px}
+#m .mx-join h2{font-size:64px;text-transform:uppercase;color:var(--pink)}
+#m .mx-join p{margin:10px 0 16px;font-size:15px}
+#m .mx-join input{width:100%;border:0;padding:17px;font:16px 'DM Sans'}
+#m .mx-join button{width:100%;border:0;background:var(--ink);color:#fff;font:900 16px var(--d);letter-spacing:.06em;padding:17px;margin-top:8px}
+#m .mx-foot{background:var(--crim);color:var(--pink);padding:0 0 30px;overflow:hidden}
+#m .mx-foot .mx-w{font:900 120px/0.8 var(--d);letter-spacing:-.05em;white-space:nowrap;margin-left:-8px}
+#m .mx-foot small{display:block;padding:16px;font-size:12px;color:#fff}
+#m .mx-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-bottom:26px}
+#m .mx-card{background:#fff;border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink)}
+#m .mx-card img{aspect-ratio:1/1;object-fit:cover;width:100%;background:var(--cream)}
+#m .mx-card div{padding:10px 12px 12px}
+#m .mx-card h3{font-size:16px;line-height:1.05;text-transform:none;letter-spacing:-.01em}
+#m .mx-card p{font-size:12px;color:#5A4A48;margin-top:3px}
+#m .mx-card b{display:block;margin-top:6px;font-size:15px}
+#m .mx-card .mx-t{display:inline-block;font:800 10px var(--d);background:var(--pink);padding:3px 7px;border-radius:99px;margin-bottom:5px}
+#m .mx-mbtn{font:800 14px var(--d);letter-spacing:.06em;color:var(--ink);background:none;border:2px solid var(--ink);padding:9px 14px;cursor:pointer}
+#m-nav{display:flex;flex-direction:column;padding:0 16px 10px;background:#F4A9A4}
+#m-nav[hidden]{display:none}
+#m-nav a{font:900 26px 'Gabarito',sans-serif;color:#160C0C;text-decoration:none;padding:12px 0;border-top:2px solid #160C0C}
+#m .mx-q a,#m .mx-q small a{color:inherit;font-weight:700}
+#m .mx-top{position:sticky;top:0;z-index:30;background:#F4A9A4}
+#m{display:none}
+#m [id^="m-"]{scroll-margin-top:72px}
+#m .mx-top>a:first-child{border:0;padding:0;display:block}
+@media (max-width:700px){
+  #m{display:block}
+  body:not(.is-product)>header.top, body:not(.is-product)>.band.red, #view-home, body>footer, body>.credit{display:none!important}
+  body.is-product #m{display:none}
+  body{background:#F4A9A4}
+}
 </style>
 </head>
 <body>
@@ -304,6 +381,46 @@ details p{margin-top:12px!important;font-size:16px!important}
     <span>ORDERS RE-OPEN SAT 11 OCT, 7PM AEST</span><span>THIS WEEK'S BAKE: [X] BOXES LEFT</span><span>BAKED TO ORDER</span><span>NUT &amp; EGG FREE</span>
     <span>ORDERS RE-OPEN SAT 11 OCT, 7PM AEST</span><span>THIS WEEK'S BAKE: [X] BOXES LEFT</span><span>BAKED TO ORDER</span><span>NUT &amp; EGG FREE</span>
   </div>
+</div>
+
+<div id="m">
+
+<header class="mx-top"><a href="#m-top" aria-label="The Cookiee Club home"><img src="img/logo_old.png" alt="The Cookiee Club"></a><button class="mx-mbtn" type="button" aria-expanded="false" onclick="var n=document.getElementById('m-nav');var o=n.hidden;n.hidden=!o;this.setAttribute('aria-expanded',o);this.textContent=o?'CLOSE':'MENU'">MENU</button></header>
+<nav id="m-nav" hidden onclick="if(event.target.tagName==='A'){this.hidden=true;var b=document.querySelector('#m .mx-mbtn');b.textContent='MENU';b.setAttribute('aria-expanded','false')}"><a href="#m-shop">Shop the menu</a><a href="#haunted-batch">The Haunted Batch</a><a href="#m-how">How ordering works</a><a href="#m-reviews">Reviews</a><a href="#m-join">Join the club</a></nav>
+<section class="mx-hero" id="m-top">
+  <h1>What you see <span>is what arrives.</span></h1>
+  <div class="mx-stack"><img src="img/s_hero_mobile.jpg" alt="A stack of cookies"></div>
+  <p>Flat, chewy, loaded. Baked to order in small batches, posted Australia wide.</p>
+  <a class="mx-btn" href="#m-shop">SHOP · OPENS SAT 7PM</a>
+</section>
+<div class="mx-mq"><div>Nut &amp; egg free ✦ Baked to order ✦ Afterpay ✦ Australia wide ✦ Weekly drops ✦ Nut &amp; egg free ✦ Baked to order ✦ Afterpay ✦ Australia wide ✦ Weekly drops ✦&nbsp;</div></div>
+<section class="mx-flav" id="m-shop">
+  <h2>The menu</h2><p class="mx-sub">Back Saturday 11 October, 7pm AEST.</p>
+  <div class="mx-grid">
+    <a class="mx-card" href="#haunted-batch"><img src="img/m_haunted.jpg" alt="A Haunted Batch cookie"><div><span class="mx-t">11 TO 25 OCT</span><h3>The Haunted Batch</h3><p>4 Halloween cookies</p><b>$30</b></div></a>
+    <a class="mx-card" href="#m-shop"><img src="img/m_box6.jpg" alt="A Caramello Koala cookie"><div><span class="mx-t">MOST ORDERED</span><h3>Build Your Own (6)</h3><p>Any six flavours</p><b>$39.95</b></div></a>
+    <a class="mx-card" href="#m-shop"><img src="img/m_gf.jpg" alt="A gluten free churro cookie"><div><h3>Gluten Free Range</h3><p>4 GF flavours</p><b>$40</b></div></a>
+    <a class="mx-card" href="#m-shop"><img src="img/m_imperfect.jpg" alt="A cracked Mini M&amp;M cookie"><div><span class="mx-t">ONE EACH</span><h3>The Imperfect Box</h3><p>4 wonky ones</p><b>$12.95</b></div></a>
+  </div>
+</section>
+<section class="mx-big" id="m-how">
+  <h2>No more <em>waiting</em> weeks.</h2>
+  <ol>
+    <li><b>1</b><span><strong>We cap each week.</strong>When it's full, the shop says so.</span></li>
+    <li><b>2</b><span><strong>You see your bake day.</strong>Before you pay. Never frozen dough.</span></li>
+    <li><b>3</b><span><strong>We email every step.</strong>Confirmed, in the oven, posted.</span></li>
+  </ol>
+</section>
+<section class="mx-photo"><img src="img/real_packbox.jpg" alt="Real packaging"><span>Real box. Real photo.</span></section>
+<section class="mx-quotes" id="m-reviews">
+  <h2>Word for word.</h2>
+  <div class="mx-q"><p>"All I have to say is, these were DELICIOUS! 😍"</p><small><b>Sade Sitaloto</b> · TikTok · 30 Sep 2026 · <a href="https://www.tiktok.com/@sade.sitaloto/video/7691478128849440021">Watch</a></small></div>
+  <div class="mx-q"><p>"GUYS WHAT THE HECK THESE TASTE INSANEEE"</p><small><b>Katie Hennessey</b> · TikTok · 7 Aug 2026 · <a href="https://www.tiktok.com/@katie_hennessey_official/video/7671174224802745608">Watch</a></small></div>
+  <div class="mx-q"><p>"Oh, look at how soft they are."</p><small><b>Georgia Reilly</b> · TikTok · 30 Sep 2026 · <a href="https://www.tiktok.com/@georgia_reilly77/video/7691193500661976338">Watch</a></small></div>
+</section>
+<section class="mx-join" id="m-join"><h2>Join the club.</h2><p>Re-open alerts, new flavours, first go at the 50 advent calendars.</p><input placeholder="Your email" aria-label="Email"><button type="button" onclick="this.textContent='YOU\'RE IN'">SIGN ME UP</button></section>
+<footer class="mx-foot"><div class="mx-w">Cookiee Club</div><small>Nut &amp; egg free, baked to order · Concept by The Service Edit</small></footer>
+
 </div>
 
 <main id="view-home">
@@ -569,9 +686,9 @@ details p{margin-top:12px!important;font-size:16px!important}
   var home=document.getElementById('view-home'), prod=document.getElementById('view-product');
   function route(){
     var isP = location.hash === '#haunted-batch';
-    prod.hidden = !isP; home.hidden = isP;
+    prod.hidden = !isP; home.hidden = isP; document.body.classList.toggle('is-product', isP);
     if(isP){ window.scrollTo(0,0); }
-    else if(location.hash){ var t=document.getElementById(location.hash.slice(1)); if(t) t.scrollIntoView(); }
+    else if(location.hash){ var id=location.hash.slice(1), mob=window.matchMedia('(max-width:700px)').matches; var t=(mob&&document.getElementById('m-'+id))||document.getElementById(id); if(t) t.scrollIntoView(); }
   }
   window.addEventListener('hashchange', route); route();
 
