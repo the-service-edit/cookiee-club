@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <title>The Cookiee Club</title>
 <link rel="icon" href="img/logo_old.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -244,13 +250,37 @@ details p{margin-top:12px!important;font-size:16px!important}
 .rv-foot>span{font-size:13px;color:var(--muted)}
 .prod-rating{text-decoration:none;font-size:15px;margin-top:-10px}
 .credit{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--ink);color:#fff;font-size:12px;font-weight:600;letter-spacing:.04em;padding:8px 12px}
-@media (max-width:560px){.top{position:static}.credit{display:none}.step .n{flex-basis:100%}}
+@media (max-width:560px){.credit{display:none}.step .n{flex-basis:100%}}
+
+/* mobile header + value strip */
+.cart-m,.menu-btn{display:none}
+@media (max-width:760px){
+  .top{position:sticky}
+  .top .wrap{flex-wrap:wrap;gap:0 14px;padding-block:6px}
+  .logo img{width:54px;height:54px}
+  .cart-m{display:block;margin-left:auto;font-size:15px;font-weight:600;text-decoration:none}
+  .menu-btn{display:block;font:inherit;font-weight:800;font-family:var(--display);font-size:15px;letter-spacing:.04em;text-transform:uppercase;background:var(--ink);color:#fff;border:0;padding:10px 16px;cursor:pointer}
+  .nav{display:none;flex-basis:100%;flex-direction:column;gap:0;padding:6px 0 14px;font-size:22px;font-family:var(--display);font-weight:800}
+  .nav a{padding-block:12px;border-top:2px solid var(--ink)}
+  .nav a:last-child{display:none}
+  .top.open .nav{display:flex}
+  .vp{padding-block:32px}
+  .vp-grid{grid-template-columns:1fr 1fr;gap:26px 14px}
+  .vp-grid .vpi:last-child{grid-column:1/-1}
+  .vpi svg{width:32px;height:32px;margin-bottom:2px}
+  .vpi b{font-size:17px}
+  .vpi span{font-size:13.5px}
+}
 </style>
+</head>
+<body>
 
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#home" aria-label="The Cookiee Club home"><img src="img/logo_old.png" alt="The Cookiee Club" width="84" height="84"></a>
-    <nav class="nav" aria-label="Main">
+    <a class="cart-m" href="#home">Cart (0)</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" onclick="var h=this.closest('.top');var o=h.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu'">Menu</button>
+    <nav class="nav" id="main-nav" aria-label="Main" onclick="if(event.target.tagName==='A'){var h=this.closest('.top');h.classList.remove('open');var b=h.querySelector('.menu-btn');b.setAttribute('aria-expanded','false');b.textContent='Menu'}">
       <a href="#shop">Shop</a>
       <a href="#shop">Build a Box</a>
       <a href="#how">How Ordering Works</a>
@@ -550,3 +580,6 @@ details p{margin-top:12px!important;font-size:16px!important}
   });
 })();
 </script>
+
+</body>
+</html>
