@@ -123,7 +123,9 @@ def card(p, B, two=False):
             f'<div class="row"><span class="name">{e(p["name"])}</span><span class="price">{price}</span></div>'
             f'<span class="sub">{e(p["short"])}</span>{perl}</a>')
 
-def flav_img(f, B, cls=''):
+def flav_img(f, B, cls='', studio=False):
+    if studio and os.path.exists(os.path.join(ROOT, 'img/m', f['id'] + '.jpg')):
+        return f'<img src="{B}img/m/{f["id"]}.jpg" alt="{e(f["name"])} cookie" loading="lazy" width="1000" height="1250">'
     if f.get('img'):
         return f'<img src="{B}img/f/{f["img"]}.jpg" alt="{e(f["name"])} cookie" loading="lazy" width="700" height="700">'
     return f'<div class="noimg {cls}" role="img" aria-label="{e(f["name"])}: photo to come"><strong>{e(f["name"])}</strong><small>Photo from Ruby</small></div>'
@@ -210,8 +212,8 @@ home = f'''
 <div class="band pink" aria-hidden="true"><div class="track">{''.join(f'<span>{e(f["name"])}</span>' for f in D['flavours'])*2}</div></div>
 
 <section class="sec cream" id="flavours"><div class="wrap">
-  <div class="sec-head"><h2>Pick your flavours</h2><div class="side"><p>Eleven on the menu right now, including two Halloween specials until 25 October.</p><a class="btn" href="build-a-box.html">Build a box</a></div></div>
-  <div class="rail">{''.join(f'<a class="fl" href="build-a-box.html" style="text-decoration:none">{flav_img(f, B)}<div class="t"><b>{e(f["name"])}</b><span>{e(f["desc"])}</span></div></a>' for f in D['flavours'])}</div>
+  <div class="sec-head"><h2>Pick your flavours</h2><div class="side"><p>Eleven on the menu right now, including two Halloween specials until 25 October. Studio shots made from Ruby’s own photos of each cookie.</p><a class="btn" href="build-a-box.html">Build a box</a></div></div>
+  <div class="rail">{''.join(f'<a class="fl" href="build-a-box.html" style="text-decoration:none">{flav_img(f, B, studio=True)}<div class="t"><b>{e(f["name"])}</b><span>{e(f["desc"])}</span></div></a>' for f in D['flavours'])}</div>
 </div></section>
 
 <section class="sec" id="story"><div class="wrap">
@@ -351,7 +353,7 @@ for p in D['products']:
 
 # ---------- BUILDER ----------
 B = ''
-fcards = ''.join(f'''<article class="fcard" data-card="{f["id"]}"><div class="pic">{flav_img(f, B)}<span class="cnt" hidden>0</span>{f'<span class="ftag">{e(f["tag"])}</span>' if f.get("tag") else ''}</div>
+fcards = ''.join(f'''<article class="fcard" data-card="{f["id"]}"><div class="pic">{flav_img(f, B, studio=True)}<span class="cnt" hidden>0</span>{f'<span class="ftag">{e(f["tag"])}</span>' if f.get("tag") else ''}</div>
 <div class="t"><b>{e(f["name"])}</b><span>{e(f["desc"])}</span></div>
 <div class="step-ctl"><button type="button" data-f="{f["id"]}" data-d="-1" aria-label="Remove one {e(f["name"])}">−</button><output aria-live="polite">0</output><button type="button" data-f="{f["id"]}" data-d="1" aria-label="Add one {e(f["name"])}">+</button></div></article>''' for f in D['flavours'])
 b6, b12 = P['byo6'], P['byo12']
@@ -513,12 +515,13 @@ notes = '''
 <li>New pages: Our kitchen and allergen guide, Drops, Delivery, Refunds, FAQ, Contact, Corporate, Cart.</li>
 <li>Removed the unverified “Most ordered” label. Badges now state facts only.</li>
 <li>The AI hero image is kept as it was.</li>
+<li>Flavour images in “Pick your flavours” and the box builder are studio shots in v1’s menu style, made with Higgsfield (Nano Banana Pro) from Ruby’s real photo of each cookie. Product pages still use her untouched photos.</li>
 </ul>
 <h2>Still needed from Ruby</h2>
 <ul>
 <li>Restock day and time, cookie size, shelf life and her warming tip.</li>
 <li>Allergens per flavour (milk, soy, wheat) and the council registration number.</li>
-<li>Photos for Cinnamon Scroll, Biscoff White Choco, Oreo Milkshake and Plain Vanilla (shown as “Photo from Ruby” tiles).</li>
+<li>Confirm the flavour shots for Cinnamon Scroll, Biscoff White Choco, Oreo Milkshake and Plain Vanilla. They were made from her photos, but I matched which cookie is which by eye.</li>
 <li>Confirm which Halloween photo is which flavour (matched from her product photos).</li>
 <li>Contact email, ABN, Perth pop-up venue, reply time, and whether shipping is flat $16.20 or weight-based.</li>
 <li>Sign-off on the delivery and refund drafts, and whether Afterpay is switched on.</li>

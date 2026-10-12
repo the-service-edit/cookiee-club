@@ -482,3 +482,9 @@ footer.site{background:var(--crimson);color:#fff}
 .vswitch span{background:var(--pink);color:var(--ink)}
 .vswitch a:hover{background:var(--crimson)}
 @media (max-width:900px){.vswitch{bottom:auto;top:calc(112px + env(safe-area-inset-top,0px));left:auto;right:0;font-size:11px}.vswitch a,.vswitch span{padding:7px 10px}.vswitch a[href$="notes.html"]{display:none}}
+
+/* studio flavour shots (v1 menu style) */
+.fl{background:var(--cream)}
+.fl img[src*="img/m/"]{aspect-ratio:4/5;object-fit:cover;background:var(--cream)}
+.fl div.t{background:#fff}
+.fcard img[src*="img/m/"]{aspect-ratio:1/1;object-fit:cover;object-position:center 48%;background:var(--cream)}
