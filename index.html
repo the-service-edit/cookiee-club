@@ -289,13 +289,13 @@ details p{margin-top:12px!important;font-size:16px!important}
 #m .mx-top{display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
 #m .mx-top img{width:52px}
 #m .mx-top a{font:800 14px var(--d);letter-spacing:.06em;text-decoration:none;color:var(--ink);border:2px solid var(--ink);padding:9px 14px}
-#m .mx-hero{padding:6px 16px 0;position:relative}
-#m .mx-hero h1{position:relative;z-index:2;font-size:76px;color:var(--crim);text-transform:uppercase;letter-spacing:-.04em}
+#m .mx-hero{padding:6px 16px 0;position:relative;overflow:hidden}
+#m .mx-hero h1{position:relative;z-index:2;font-size:19.5vw;color:var(--crim);text-transform:uppercase;letter-spacing:-.04em}
 #m .mx-hero h1 span{color:var(--ink)}
-#m .mx-hero .mx-stack{margin:-58px -16px 0;position:relative;z-index:1}
-#m .mx-hero .mx-stack img{width:100%;aspect-ratio:1/1.02;object-fit:cover;object-position:center 6%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 22%,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 22%,#000 80%,transparent 100%)}
-#m .mx-hero p{font-size:16px;margin:16px 0 0;max-width:30ch}
-#m .mx-btn{display:block;text-align:center;background:var(--ink);color:#fff;text-decoration:none;font:900 17px var(--d);letter-spacing:.04em;padding:19px;margin:18px 0 0}
+#m .mx-hbg{position:absolute;left:0;top:20vw;width:100%;height:auto;z-index:1}
+#m .mx-hfg{position:absolute;left:20.234%;top:60.859vw;width:58.359%;height:auto;z-index:3;pointer-events:none}
+#m .mx-hero p{position:relative;z-index:4;font-size:16px;margin:calc(150vw - 68.6vw - 6px) 0 0;max-width:30ch}
+#m .mx-btn{position:relative;z-index:4;display:block;text-align:center;background:var(--ink);color:#fff;text-decoration:none;font:900 17px var(--d);letter-spacing:.04em;padding:19px;margin:18px 0 0}
 #m .mx-mq{background:var(--crim);color:var(--pink);overflow:hidden;white-space:nowrap;padding:12px 0;margin-top:28px;font:900 22px var(--d);text-transform:uppercase}
 #m .mx-mq div{display:inline-block;animation:mqm 18s linear infinite}
 #m .mx-flav{padding:34px 16px 10px;background:var(--cream)}
@@ -320,7 +320,7 @@ details p{margin-top:12px!important;font-size:16px!important}
 #m .mx-photo{position:relative}
 #m .mx-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
 #m .mx-photo span{position:absolute;left:16px;bottom:16px;background:var(--pink);font:900 15px var(--d);padding:8px 12px;text-transform:uppercase}
-#m .mx-quotes{padding:40px 16px;background:var(--pink)}
+#m .mx-quotes{padding:40px 16px;background:#fff}
 #m .mx-quotes h2{font-size:52px;text-transform:uppercase;color:var(--crim)}
 #m .mx-q{margin-top:22px;padding-top:18px;border-top:3px solid var(--ink)}
 #m .mx-q p{font:900 26px/1.05 var(--d);letter-spacing:-.02em}
@@ -376,10 +376,10 @@ details p{margin-top:12px!important;font-size:16px!important}
   </div>
 </header>
 
-<div class="band red" aria-label="Orders re-open Saturday 11 October, 7pm AEST">
+<div class="band red" aria-label="Next restock [day] at 7pm. Back to 2 to 4 days.">
   <div class="track" aria-hidden="true">
-    <span>ORDERS RE-OPEN SAT 11 OCT, 7PM AEST</span><span>THIS WEEK'S BAKE: [X] BOXES LEFT</span><span>BAKED TO ORDER</span><span>NUT &amp; EGG FREE</span>
-    <span>ORDERS RE-OPEN SAT 11 OCT, 7PM AEST</span><span>THIS WEEK'S BAKE: [X] BOXES LEFT</span><span>BAKED TO ORDER</span><span>NUT &amp; EGG FREE</span>
+    <span>NEXT RESTOCK [DAY] 7PM, SET YOUR ALARMS</span><span>BACK TO 2 TO 4 DAYS</span><span>MUM'S RECIPE</span><span>NUT &amp; EGG FREE</span>
+    <span>NEXT RESTOCK [DAY] 7PM, SET YOUR ALARMS</span><span>BACK TO 2 TO 4 DAYS</span><span>MUM'S RECIPE</span><span>NUT &amp; EGG FREE</span>
   </div>
 </div>
 
@@ -389,13 +389,14 @@ details p{margin-top:12px!important;font-size:16px!important}
 <nav id="m-nav" hidden onclick="if(event.target.tagName==='A'){this.hidden=true;var b=document.querySelector('#m .mx-mbtn');b.textContent='MENU';b.setAttribute('aria-expanded','false')}"><a href="#m-shop">Shop the menu</a><a href="#haunted-batch">The Haunted Batch</a><a href="#m-how">How ordering works</a><a href="#m-reviews">Reviews</a><a href="#m-join">Join the club</a></nav>
 <section class="mx-hero" id="m-top">
   <h1>What you see <span>is what arrives.</span></h1>
-  <div class="mx-stack"><img src="img/s_hero_mobile.jpg" alt="A stack of cookies"></div>
-  <p>Flat, chewy, loaded. Baked to order in small batches, posted Australia wide.</p>
-  <a class="mx-btn" href="#m-shop">SHOP · OPENS SAT 7PM</a>
+  <img class="mx-hbg" src="img/s_hero_mobile2.jpg" alt="">
+  <img class="mx-hfg" src="img/s_hero_fg.webp" alt="A hand holding a stack of Caramello Koala, Mini M&amp;M and Cinnamon Scroll cookies">
+  <p>Mum&#39;s recipe, baked fresh in small batches. Out the door in 2 to 4 days, Australia wide.</p>
+  <a class="mx-btn" href="#m-shop">SHOP THE MENU</a>
 </section>
 <div class="mx-mq"><div>Nut &amp; egg free ✦ Baked to order ✦ Afterpay ✦ Australia wide ✦ Weekly drops ✦ Nut &amp; egg free ✦ Baked to order ✦ Afterpay ✦ Australia wide ✦ Weekly drops ✦&nbsp;</div></div>
 <section class="mx-flav" id="m-shop">
-  <h2>The menu</h2><p class="mx-sub">Back Saturday 11 October, 7pm AEST.</p>
+  <h2>The menu</h2><p class="mx-sub">Restocks [day] at 7pm. Set your alarms.</p>
   <div class="mx-grid">
     <a class="mx-card" href="#haunted-batch"><img src="img/m_haunted.jpg" alt="A Haunted Batch cookie"><div><span class="mx-t">11 TO 25 OCT</span><h3>The Haunted Batch</h3><p>4 Halloween cookies</p><b>$30</b></div></a>
     <a class="mx-card" href="#m-shop"><img src="img/m_box6.jpg" alt="A Caramello Koala cookie"><div><span class="mx-t">MOST ORDERED</span><h3>Build Your Own (6)</h3><p>Any six flavours</p><b>$39.95</b></div></a>
@@ -404,11 +405,11 @@ details p{margin-top:12px!important;font-size:16px!important}
   </div>
 </section>
 <section class="mx-big" id="m-how">
-  <h2>No more <em>waiting</em> weeks.</h2>
+  <h2>Back to <em>2 to 4</em> days.</h2>
   <ol>
-    <li><b>1</b><span><strong>We cap each week.</strong>When it's full, the shop says so.</span></li>
-    <li><b>2</b><span><strong>You see your bake day.</strong>Before you pay. Never frozen dough.</span></li>
-    <li><b>3</b><span><strong>We email every step.</strong>Confirmed, in the oven, posted.</span></li>
+    <li><b>1</b><span><strong>Order to out the door.</strong>2 to 4 days, like the Cookiee Club used to be.</span></li>
+    <li><b>2</b><span><strong>More hands on deck.</strong>A bigger team baking and packing every order.</span></li>
+    <li><b>3</b><span><strong>We'll keep you posted.</strong>An email when it's confirmed, baked and on its way.</span></li>
   </ol>
 </section>
 <section class="mx-photo"><img src="img/real_packbox.jpg" alt="Real packaging"><span>Real box. Real photo.</span></section>
@@ -418,7 +419,7 @@ details p{margin-top:12px!important;font-size:16px!important}
   <div class="mx-q"><p>"GUYS WHAT THE HECK THESE TASTE INSANEEE"</p><small><b>Katie Hennessey</b> · TikTok · 7 Aug 2026 · <a href="https://www.tiktok.com/@katie_hennessey_official/video/7671174224802745608">Watch</a></small></div>
   <div class="mx-q"><p>"Oh, look at how soft they are."</p><small><b>Georgia Reilly</b> · TikTok · 30 Sep 2026 · <a href="https://www.tiktok.com/@georgia_reilly77/video/7691193500661976338">Watch</a></small></div>
 </section>
-<section class="mx-join" id="m-join"><h2>Join the club.</h2><p>Re-open alerts, new flavours, first go at the 50 advent calendars.</p><input placeholder="Your email" aria-label="Email"><button type="button" onclick="this.textContent='YOU\'RE IN'">SIGN ME UP</button></section>
+<section class="mx-join" id="m-join"><h2>Join the club.</h2><p>Restock alerts, new flavours and first go at the 50 advent calendars.</p><input placeholder="Your email" aria-label="Email"><button type="button" onclick="this.textContent='YOU\'RE IN'">SIGN ME UP</button></section>
 <footer class="mx-foot"><div class="mx-w">Cookiee Club</div><small>Nut &amp; egg free, baked to order · Concept by The Service Edit</small></footer>
 
 </div>
@@ -429,8 +430,8 @@ details p{margin-top:12px!important;font-size:16px!important}
     <div class="hero-inner">
       <div class="hero-txt">
         <h1 class="caps">What you see is what arrives.</h1>
-        <p>Flat, chewy, loaded cookies, baked to order in small batches and posted Australia wide. You'll know your bake day before you pay.</p>
-        <div class="hero-ctas"><a class="btn-dark" href="#shop">SHOP THE RE-OPEN</a><a class="btn-line" href="#how">HOW ORDERING WORKS</a></div>
+        <p>Mum&#39;s recipe, baked fresh in small batches by two sisters. Nut and egg free, and out the door in 2 to 4 days, Australia wide.</p>
+        <div class="hero-ctas"><a class="btn-dark" href="#shop">SHOP THE MENU</a><a class="btn-line" href="#how">HOW ORDERING WORKS</a></div>
       </div>
       
     </div>
@@ -441,7 +442,7 @@ details p{margin-top:12px!important;font-size:16px!important}
       <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><b>Nut &amp; egg free</b><span>Safe for more people to enjoy</span></div>
       <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><b>Australia wide shipping</b><span>Packed with care, tracked to your door</span></div>
       <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg><b>Afterpay available</b><span>Treat now, pay later</span></div>
-      <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8 6.8 19.5l1-5.8-4.2-4.1 5.8-.8z"/></svg><b>Weekly flavour drops</b><span>New cookies every week</span></div>
+      <div class="vpi"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8 6.8 19.5l1-5.8-4.2-4.1 5.8-.8z"/></svg><b>Seasonal flavour drops</b><span>Halloween now, Christmas next</span></div>
       <a class="vpi" href="#reviews"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="9" cy="9.5" r="1"/><circle cx="14.5" cy="8.5" r="1"/><circle cx="15" cy="14" r="1"/><circle cx="9.5" cy="15" r="1"/></svg><b>Real customer reviews</b><span>Word for word, read them below</span></a>
     </div>
   </section>
@@ -450,7 +451,7 @@ details p{margin-top:12px!important;font-size:16px!important}
     <div class="wrap">
       <div class="sec-head">
         <h2 class="caps">The menu</h2>
-        <span>Back Saturday 11 October, 7pm AEST</span>
+        <span>Restocks [day] at 7pm. Set your alarms.</span>
       </div>
       <div class="grid">
         <a class="card" href="#haunted-batch">
@@ -487,11 +488,11 @@ details p{margin-top:12px!important;font-size:16px!important}
   <section class="ruby">
     <div class="ph"><img src="img/s_ruby_koala.jpg" alt="A tray of freshly baked Caramello Koala cookies in Ruby's kitchen"></div>
     <div class="txt">
-      <span class="eyebrow">A NOTE FROM RUBY · DRAFT, RUBY TO REWRITE</span>
-      <h2 class="caps">Sorry we kept you waiting.</h2>
-      <p>You found us faster than our little kitchen could keep up. Some of you waited weeks, and we didn't keep you in the loop the way we should have. That's on us.</p>
-      <p>So ordering works differently now. We only take what we can bake that week, you see your bake day before you pay, and we email you when your cookies go in the oven and when they're posted.</p>
-      <span class="sig">Ruby x</span>
+      <span class="eyebrow">FROM RUBY &amp; RACHEL · IN THEIR WORDS, FOR THEM TO APPROVE</span>
+      <h2 class="caps">We&#39;re so, so sorry.</h2>
+      <p>We went from a few orders a day to hundreds overnight, and some of you waited way too long for your cookies. To everyone who stuck with us, we can&#39;t thank you enough.</p>
+      <p>So we&#39;ve changed a few things. We&#39;ve got a bigger team now, more hands in the kitchen and more hands packing, and we&#39;re back to how the Cookiee Club used to be: 2 to 4 days.</p>
+      <span class="sig">Ruby &amp; Rachel x</span>
     </div>
   </section>
 
@@ -500,9 +501,9 @@ details p{margin-top:12px!important;font-size:16px!important}
       <h2 class="caps">How ordering works now</h2>
       <div class="how-grid">
         <div class="how-steps">
-      <div class="step"><span class="n">01</span><span class="t">We cap each week's bake.</span><span class="d">When the week is full, the shop says so. Your order never sits in a queue for weeks.</span></div>
-      <div class="step"><span class="n">02</span><span class="t">You see your bake day.</span><span class="d">Bake and dispatch dates show before checkout. Baked on the day, never frozen dough.</span></div>
-      <div class="step"><span class="n">03</span><span class="t">We email every step.</span><span class="d">Confirmed, in the oven, posted with tracking. Express is usually 1 to 3 business days from there.</span></div>
+      <div class="step"><span class="n">01</span><span class="t">Back to 2 to 4 days.</span><span class="d">From your order to out the door, like the Cookiee Club used to be.</span></div>
+      <div class="step"><span class="n">02</span><span class="t">More hands on deck.</span><span class="d">A bigger team in the kitchen and a bigger team packing, so every order gets out on time.</span></div>
+      <div class="step"><span class="n">03</span><span class="t">We&#39;ll keep you posted.</span><span class="d">An email when your order&#39;s confirmed, when it&#39;s baked and when it&#39;s on its way.</span></div>
         </div>
         <figure class="arrive"><img src="img/s_arrive15.jpg" alt="An order of six in its mailer: hot pink tissue, every cookie sealed and stickered"><figcaption>What turns up at your door.</figcaption></figure>
       </div>
@@ -511,9 +512,9 @@ details p{margin-top:12px!important;font-size:16px!important}
 
   <section class="proof" id="kitchen">
     <div class="wrap grid">
-      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Registered food business</b><span><span class="fill">[Council]</span> registration no. <span class="fill">[X]</span></span></div></div>
-      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Baked on the day</b><span>Baked to order and posted. Never frozen dough.</span></div></div>
-      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Allergens on every product</b><span>No nuts or eggs handled in our kitchen. Some chocolates carry a "may contain".</span></div></div>
+      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Registered to bake all week</b><span>Our health inspector checks in every year, sometimes unannounced. <span class="fill">[Council reg. no.]</span></span></div></div>
+      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Gluten free, kept separate</b><span>GF cookies are baked in their own space, approved by our allergen specialist.</span></div></div>
+      <div class="pf"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Nut free, egg free</b><span>No nuts in our house, ever, and none of our recipes use eggs. Some chocolates carry a "may contain".</span></div></div>
     </div>
   </section>
 
@@ -602,7 +603,7 @@ details p{margin-top:12px!important;font-size:16px!important}
   <section class="join" id="join">
     <div class="inner wrap">
       <h2 class="caps">Join the club.</h2>
-      <p>Re-open alerts, new flavours and first go at the 50 advent calendars. Straight to your inbox, not buried in a feed.</p>
+      <p>Restock alerts, new flavours and first go at the 50 advent calendars. Straight to your inbox, not buried in a feed.</p>
       <form id="join-form" novalidate>
         <label for="join-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
         <input id="join-email" type="email" placeholder="YOUR EMAIL" autocomplete="email">
@@ -696,12 +697,12 @@ details p{margin-top:12px!important;font-size:16px!important}
   function setQ(n){ q=Math.max(1,Math.min(6,n)); out.textContent=q; add.textContent='ADD TO CART · $'+(q*30); }
   document.getElementById('q-minus').addEventListener('click',function(){setQ(q-1)});
   document.getElementById('q-plus').addEventListener('click',function(){setQ(q+1)});
-  add.addEventListener('click',function(){ add.textContent='ADDED · ORDERS OPEN SAT 7PM'; setTimeout(function(){setQ(q)},2200); });
+  add.addEventListener('click',function(){ add.textContent='ADDED TO CART'; setTimeout(function(){setQ(q)},2200); });
 
   document.getElementById('join-form').addEventListener('submit',function(e){
     e.preventDefault();
     var v=document.getElementById('join-email').value.trim(), m=document.getElementById('join-msg');
-    m.textContent = /.+@.+\..+/.test(v) ? "You're in. We'll email you before orders re-open." : 'Pop in a valid email address to join.';
+    m.textContent = /.+@.+\..+/.test(v) ? "You're in. We'll email you before the next restock." : 'Pop in a valid email address to join.';
   });
 })();
 </script>
