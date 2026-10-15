@@ -488,3 +488,7 @@ footer.site{background:var(--crimson);color:#fff}
 .fl img[src*="img/m/"]{aspect-ratio:4/5;object-fit:cover;background:var(--cream)}
 .fl div.t{background:#fff}
 .fcard img[src*="img/m/"]{aspect-ratio:1/1;object-fit:cover;object-position:center 48%;background:var(--cream)}
+
+.flist .th{display:block;width:64px;height:64px;overflow:hidden;background:var(--cream)}
+.flist .th img{width:64px;height:64px;object-fit:cover}
+.flist .th img[src*="img/m/"]{transform:scale(1.22);object-position:center 47%}

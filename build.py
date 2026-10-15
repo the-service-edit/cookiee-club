@@ -286,7 +286,7 @@ for p in D['products']:
     B = '../'
     gal = ''.join(f'<img src="{B}img/p/{im}.jpg" alt="{e(p["alt"][i])}" {"fetchpriority=\"high\"" if i == 0 else "loading=\"lazy\""} width="1000" height="1000">' for i, im in enumerate(p['imgs']))
     gal += f'<img src="{B}img/real_packbox.jpg" alt="How it arrives: a mailer box with hot pink tissue and a thank-you sticker" loading="lazy" width="1000" height="1000">' if p['cookies'] else ''
-    gal += '<p class="gal-note">Every photo on this page is our real cookies.</p>'
+    gal += '<p class="gal-note">Gallery photos are our real cookies.</p>'
     badge = f'<span class="tag static{" dark" if p.get("badgeDark") else ""}">{e(p["badge"])}</span>' if p.get('badge') else ''
     compare = f'<s>{money(p["compare"])}</s>' if p.get('compare') else ''
     count = f'{p["cookies"]} cookies · ' if p['cookies'] else ''
@@ -295,7 +295,7 @@ for p in D['products']:
     flist = ''
     if p.get('fixed'):
         flist = '<div><h2 style="font-size:22px;margin-bottom:12px">What’s in the box</h2><div class="flist">' + ''.join(
-            f'<div class="fi">{flav_img(F[i], B)}<div><b>{e(F[i]["name"])}</b><span>{e(F[i]["desc"])}</span></div></div>' for i in p['fixed']) + '</div></div>'
+            f'<div class="fi"><span class="th">{flav_img(F[i], B, studio=True)}</span><div><b>{e(F[i]["name"])}</b><span>{e(F[i]["desc"])}</span></div></div>' for i in p['fixed']) + '</div></div>'
     variants = ''
     if p.get('variants'):
         variants = '<fieldset style="border:0;padding:0;margin:0"><legend style="font-weight:700;margin-bottom:8px">Choose</legend><div class="variants">' + ''.join(
@@ -515,7 +515,7 @@ notes = '''
 <li>New pages: Our kitchen and allergen guide, Drops, Delivery, Refunds, FAQ, Contact, Corporate, Cart.</li>
 <li>Removed the unverified “Most ordered” label. Badges now state facts only.</li>
 <li>The AI hero image is kept as it was.</li>
-<li>Flavour images in “Pick your flavours” and the box builder are studio shots in v1’s menu style, made with Higgsfield (Nano Banana Pro) from Ruby’s real photo of each cookie. Product pages still use her untouched photos.</li>
+<li>Flavour images in “Pick your flavours” and the box builder are studio shots in v1’s menu style, made with Higgsfield (Nano Banana Pro) from Ruby’s real photo of each cookie. Product page galleries still use her untouched photos; the “What’s in the box” thumbnails use the studio shots.</li>
 </ul>
 <h2>Still needed from Ruby</h2>
 <ul>
