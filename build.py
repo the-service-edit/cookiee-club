@@ -123,6 +123,9 @@ def card(p, B, two=False):
             f'<div class="row"><span class="name">{e(p["name"])}</span><span class="price">{price}</span></div>'
             f'<span class="sub">{e(p["short"])}</span>{perl}</a>')
 
+def best_tag(f):
+    return '<span class="ftag best">Best seller</span>' if f.get('best') else ''
+
 def flav_img(f, B, cls='', studio=False):
     if studio and os.path.exists(os.path.join(ROOT, 'img/m', f['id'] + '.jpg')):
         return f'<img src="{B}img/m/{f["id"]}.jpg" alt="{e(f["name"])} cookie" loading="lazy" width="1000" height="1250">'
@@ -213,7 +216,7 @@ home = f'''
 
 <section class="sec cream" id="flavours"><div class="wrap">
   <div class="sec-head"><h2>Pick your flavours</h2><div class="side"><p>Eleven on the menu right now, including two Halloween specials until 25 October. Studio shots made from Ruby’s own photos of each cookie.</p><a class="btn" href="build-a-box.html">Build a box</a></div></div>
-  <div class="rail">{''.join(f'<a class="fl" href="build-a-box.html" style="text-decoration:none">{flav_img(f, B, studio=True)}<div class="t"><b>{e(f["name"])}</b><span>{e(f["desc"])}</span></div></a>' for f in D['flavours'])}</div>
+  <div class="rail">{''.join(f'<a class="fl" href="build-a-box.html" style="text-decoration:none;position:relative">{flav_img(f, B, studio=True)}{best_tag(f)}<div class="t"><b>{e(f["name"])}</b><span>{e(f["desc"])}</span></div></a>' for f in D['flavours'])}</div>
 </div></section>
 
 <section class="sec" id="story"><div class="wrap">
@@ -295,7 +298,7 @@ for p in D['products']:
     flist = ''
     if p.get('fixed'):
         flist = '<div><h2 style="font-size:22px;margin-bottom:12px">What’s in the box</h2><div class="flist">' + ''.join(
-            f'<div class="fi"><span class="th">{flav_img(F[i], B, studio=True)}</span><div><b>{e(F[i]["name"])}</b><span>{e(F[i]["desc"])}</span></div></div>' for i in p['fixed']) + '</div></div>'
+            f'<div class="fi"><span class="th">{flav_img(F[i], B, studio=True)}</span><div><b>{e(F[i]["name"])}{' <em class="bs">Best seller</em>' if F[i].get("best") else ''}</b><span>{e(F[i]["desc"])}</span></div></div>' for i in p['fixed']) + '</div></div>'
     variants = ''
     if p.get('variants'):
         variants = '<fieldset style="border:0;padding:0;margin:0"><legend style="font-weight:700;margin-bottom:8px">Choose</legend><div class="variants">' + ''.join(
@@ -353,7 +356,7 @@ for p in D['products']:
 
 # ---------- BUILDER ----------
 B = ''
-fcards = ''.join(f'''<article class="fcard" data-card="{f["id"]}"><div class="pic">{flav_img(f, B, studio=True)}<span class="cnt" hidden>0</span>{f'<span class="ftag">{e(f["tag"])}</span>' if f.get("tag") else ''}</div>
+fcards = ''.join(f'''<article class="fcard" data-card="{f["id"]}"><div class="pic">{flav_img(f, B, studio=True)}<span class="cnt" hidden>0</span>{f'<span class="ftag">{e(f["tag"])}</span>' if f.get("tag") else ''}{'<span class="ftag best">Best seller</span>' if f.get("best") else ''}</div>
 <div class="t"><b>{e(f["name"])}</b><span>{e(f["desc"])}</span></div>
 <div class="step-ctl"><button type="button" data-f="{f["id"]}" data-d="-1" aria-label="Remove one {e(f["name"])}">−</button><output aria-live="polite">0</output><button type="button" data-f="{f["id"]}" data-d="1" aria-label="Add one {e(f["name"])}">+</button></div></article>''' for f in D['flavours'])
 b6, b12 = P['byo6'], P['byo12']

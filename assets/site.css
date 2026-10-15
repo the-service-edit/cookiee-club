@@ -492,3 +492,8 @@ footer.site{background:var(--crimson);color:#fff}
 .flist .th{display:block;width:64px;height:64px;overflow:hidden;background:var(--cream)}
 .flist .th img{width:64px;height:64px;object-fit:cover}
 .flist .th img[src*="img/m/"]{transform:scale(1.22);object-position:center 47%}
+
+/* best seller tags */
+.ftag.best{left:10px;top:10px;background:var(--crimson);color:#fff}
+.fl .ftag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;z-index:2}
+.flist em.bs{font-style:normal;font-family:var(--body);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--crimson);color:#fff;padding:3px 7px;margin-left:8px;vertical-align:3px}

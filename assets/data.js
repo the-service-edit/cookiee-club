@@ -7,10 +7,10 @@ window.TCC = {
   restock: '[day] 7pm AEST',
 
   flavours: [
-    { id: 'caramello-koala',      name: 'Caramello Koala',      desc: 'Vanilla cookie, a Caramello Koala, milk chocolate and gooey caramel.', img: 'caramello-koala' },
-    { id: 'mini-mm',              name: 'Mini M&M',             desc: 'The classic vanilla cookie, packed with Mini M&M’s.', img: 'mini-mm' },
-    { id: 'fairy-bread',          name: 'Fairy Bread',          desc: 'The Aussie favourite: pink frosting and plenty of sprinkles.', img: 'fairy-bread' },
-    { id: 'cinnamon-scroll',      name: 'Cinnamon Scroll',      desc: 'A cinnamon-swirled cookie finished with a sweet glaze.', img: null },
+    { id: 'caramello-koala',      name: 'Caramello Koala',      desc: 'Vanilla cookie, a Caramello Koala, milk chocolate and gooey caramel.', img: 'caramello-koala', best: true },
+    { id: 'mini-mm',              name: 'Mini M&M',             desc: 'The classic vanilla cookie, packed with Mini M&M’s.', img: 'mini-mm', best: true },
+    { id: 'fairy-bread',          name: 'Fairy Bread',          desc: 'The Aussie favourite: pink frosting and plenty of sprinkles.', img: 'fairy-bread', best: true },
+    { id: 'cinnamon-scroll',      name: 'Cinnamon Scroll',      desc: 'A cinnamon-swirled cookie finished with a sweet glaze.', img: null, best: true },
     { id: 'chocolate-chip',       name: 'Chocolate Chip',       desc: 'Mum’s cookie, loaded with chocolate chips.', img: 'chocolate-chip' },
     { id: 'marvellous-creations', name: 'Marvellous Creations', desc: 'Topped with Cadbury Marvellous Creations and a chocolate drizzle.', img: 'marvellous-creations' },
     { id: 'biscoff-white-choco',  name: 'Biscoff White Choco',  desc: 'Biscoff and white chocolate.', img: null },
