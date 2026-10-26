@@ -15,9 +15,7 @@ window.TCC = {
     { id: 'marvellous-creations', name: 'Marvellous Creations', desc: 'Topped with Cadbury Marvellous Creations and a chocolate drizzle.', img: 'marvellous-creations' },
     { id: 'biscoff-white-choco',  name: 'Biscoff White Choco',  desc: 'Biscoff and white chocolate.', img: null },
     { id: 'oreo-milkshake',       name: 'Oreo Milkshake',       desc: 'Cookies-and-cream, milkshake style.', img: null },
-    { id: 'plain-vanilla',        name: 'Plain Vanilla',        desc: 'Mum’s vanilla cookie, nothing on top.', img: null },
-    { id: 'mint-aero',            name: 'Mint Aero',            desc: 'Chocolate cookie, mint drizzle and a piece of Aero.', img: 'mint-aero', tag: 'Halloween only' },
-    { id: 'boo-kie',              name: 'Boo-kie',              desc: 'Half brownie, half cookie: the brookie.', img: 'boo-kie', tag: 'Halloween only' }
+    { id: 'plain-vanilla',        name: 'Plain Vanilla',        desc: 'Mum’s vanilla cookie, nothing on top.', img: null }
   ],
 
   products: [
@@ -32,13 +30,6 @@ window.TCC = {
       imgs: ['byo6_0', 'byo6_1', 'byo6_2', 'byo6_3'],
       intro: 'Six cookies, any mix of the menu. Pick one of everything you’ve been eyeing, or six of the one you can’t stop thinking about.',
       alt: ['Caramello Koala cookies on a board', 'A plate of Mini M&M cookies', 'Marvellous Creations cookies with the chocolate bars', 'A hand holding a Caramello Koala cookie'] },
-
-    { id: 'haunted', handle: 'the-haunted-batch', name: 'The Haunted Batch', short: '4 Halloween cookies', cookies: 4,
-      price: 30, stock: 'in', badge: '11 to 25 Oct only', badgeDark: true, group: ['seasonal'],
-      fixed: ['midnight-monster', 'boo-kie', 'trick-or-treat', 'mint-aero'],
-      imgs: ['haunted_0', 'haunted_1', 'haunted_2', 'haunted_3'],
-      intro: 'Four limited-edition cookies for spooky season. No tricks, just treats. Once the Haunted Batch is gone, it’s gone for good.',
-      alt: ['Midnight Monster cookies with candy eyes', 'Boo-kie brookie cookies', 'Trick or Treat cookies with a white drizzle', 'Mint Aero cookies with green drizzle'] },
 
     { id: 'gf', handle: 'gluten-free-range', name: 'Gluten Free Range', short: 'Choc Chip, Fairy Bread, Churro, Mini M&M', cookies: 4,
       price: 40, stock: 'in', badge: 'Gluten free', group: ['gf'],

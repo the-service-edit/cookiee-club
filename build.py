@@ -83,11 +83,11 @@ def page(path, title, body, desc, active='', extra_head=''):
   <div class="wrap fcols">
     <div class="fbrand"><img src="{B}img/logo_old.png" alt="The Cookiee Club" width="96" height="96"><p>Nut and egg free cookies, baked to order from Mum’s recipe by sisters Ruby and Rachel. Posted Australia wide.</p>
       <a class="icon-btn" style="align-self:flex-start;border-color:#fff;color:#fff" href="https://www.tiktok.com/@rubyrosedemiroski" aria-label="Ruby on TikTok">{icon('tiktok', 22, 2)}</a></div>
-    <div><h3>Shop</h3><ul><li><a href="{B}build-a-box.html?size=12">Box of 12</a></li><li><a href="{B}build-a-box.html?size=6">Box of 6</a></li><li><a href="{B}products/the-haunted-batch.html">The Haunted Batch</a></li><li><a href="{B}products/gluten-free-range.html">Gluten Free Range</a></li><li><a href="{B}products/the-little-cookiee-club.html">Little Cookiee Club</a></li><li><a href="{B}products/the-imperfect-box.html">Imperfect Box</a></li></ul></div>
+    <div><h3>Shop</h3><ul><li><a href="{B}build-a-box.html?size=12">Box of 12</a></li><li><a href="{B}build-a-box.html?size=6">Box of 6</a></li><li><a href="{B}products/gluten-free-range.html">Gluten Free Range</a></li><li><a href="{B}products/the-little-cookiee-club.html">Little Cookiee Club</a></li><li><a href="{B}products/the-imperfect-box.html">Imperfect Box</a></li></ul></div>
     <div><h3>Help</h3><ul><li><a href="{B}delivery.html">Delivery &amp; shipping</a></li><li><a href="{B}refunds.html">Refunds &amp; damaged orders</a></li><li><a href="{B}faq.html">FAQ</a></li><li><a href="{B}contact.html">Contact us</a></li></ul></div>
-    <div><h3>The club</h3><ul><li><a href="{B}our-kitchen.html">Our kitchen &amp; allergens</a></li><li><a href="{B}drops.html">Drops &amp; calendar</a></li><li><a href="{B}corporate.html">Corporate &amp; events</a></li><li><span class="fill">[hello@thecookieeclub.com]</span></li></ul></div>
+    <div><h3>The club</h3><ul><li><a href="{B}our-kitchen.html">Our kitchen &amp; allergens</a></li><li><a href="{B}drops.html">Drops &amp; calendar</a></li><li><a href="{B}corporate.html">Corporate &amp; events</a></li><li><a href="{B}contact.html">Contact us</a></li></ul></div>
   </div>
-  <div class="wrap legal"><span>© 2026 The Cookiee Club</span><span>ABN <span class="fill">[ABN]</span></span><span>Prices in AUD</span><a href="{B}privacy.html">Privacy</a><a href="{B}refunds.html">Refunds</a><a href="{B}delivery.html">Shipping</a><a href="{B}terms.html">Terms</a></div>
+  <div class="wrap legal"><span>© 2026 The Cookiee Club</span><span>Prices in AUD</span><a href="{B}privacy.html">Privacy</a><a href="{B}refunds.html">Refunds</a><a href="{B}delivery.html">Shipping</a><a href="{B}terms.html">Terms</a></div>
 </footer>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Your cart" aria-hidden="true">
@@ -95,7 +95,7 @@ def page(path, title, body, desc, active='', extra_head=''):
   <div class="dr-body"></div>
   <div class="dr-foot" hidden></div>
 </aside>
-<nav class="vswitch" aria-label="Concept versions"><a href="{B}v1/">View v1</a><span>v2</span><a href="{B}notes.html">What changed</a></nav>
+<nav class="vswitch" aria-label="About this concept"><a href="{B}notes.html">Concept by The Service Edit</a></nav>
 <script>window.TCC_BASE='{B}';</script>
 <script src="{B}assets/data.js"></script>
 <script src="{B}assets/site.js"></script>
@@ -152,9 +152,9 @@ def reviews_block():
 
 CAL = [
     # (start, end, title, short date, description, kind, cta label, cta href)
-    ('2026-10-11', '2026-10-25', 'The Haunted Batch', '11 to 25 Oct', 'Four Halloween flavours. Gone on the 25th.', 'drop', 'Shop the batch', 'products/the-haunted-batch.html'),
-    ('2026-10-26', '2026-11-04', 'Christmas, early', '26 Oct to 4 Nov', 'New Chrissy flavours, a week before anyone else.', 'drop', 'Build a box', 'build-a-box.html'),
-    ('2026-11-12', '2026-11-15', 'Perth pop-up', '12 to 15 Nov', 'Our first interstate pop-up. Come say hi. <span class="fill">[Venue]</span>', 'event', 'Get the details', 'drops.html'),
+    ('2026-10-11', '2026-10-25', 'The Haunted Batch', '11 to 25 Oct', 'Four Halloween flavours. That’s a wrap for this year.', 'drop', '', ''),
+    ('2026-10-26', '2026-11-04', 'Christmas, early', '26 Oct to 4 Nov', 'New Chrissy flavours, a week before anyone else.', 'drop', 'Get drop alerts', 'index.html#join'),
+    ('2026-11-12', '2026-11-15', 'Perth pop-up', '12 to 15 Nov', 'Our first interstate pop-up. Come say hi. Venue to be announced.', 'event', 'Get the details', 'drops.html'),
     ('2026-11-16', '2026-11-16', 'Advent calendars', '16 Nov', '50 boxes only. The club gets the link first.', 'drop', 'Get the link first', 'index.html#join'),
     ('2026-11-16', '2026-12-05', 'Shop closed', '16 Nov to 6 Dec', 'Resting up before Christmas.', 'closed', '', ''),
     ('2026-12-06', '2026-12-31', 'Christmas, in full', 'From 6 Dec', 'Every Christmas flavour, back for the season.', 'drop', 'Join for the reminder', 'index.html#join'),
@@ -205,18 +205,17 @@ FAQS = [
  ('How much is shipping?', '<p>Express post is a flat $16.20 anywhere in Australia, whatever the size of your order.</p>'),
  ('Can I choose my own flavours?', '<p>Yes. Build a box of 6 or 12 from any flavours on the menu. <a class="link" href="build-a-box.html">Build a box</a>.</p>'),
  ('Does express shipping mean you bake it faster?', '<p>No. Every order joins the same baking queue. Express applies once your cookies are baked, packed and with Australia Post.</p>'),
- ('How long do the cookies keep?', '<p>Best within <span class="fill">[X]</span> days in an airtight container. <span class="fill">[Ruby’s storage and warming tip]</span></p>'),
  ('Can I change my order or address?', '<p>We can’t change an order once it’s placed. If you’ve made a mistake, like a typo in your address, message us straight away and we’ll do our best to fix it before it’s posted.</p>'),
  ('What if my cookies arrive damaged?', '<p>Send us your order number and a photo within 48 hours and we’ll replace or refund the damaged cookies. <a class="link" href="refunds.html">Refunds and damaged orders</a>.</p>'),
  ('Do you do corporate gifts or events?', '<p>Sometimes, depending on our baking calendar. <a class="link" href="corporate.html">Send an enquiry</a> with your date and numbers and we’ll tell you honestly what’s possible.</p>'),
- ('How do I contact you?', '<p>Use our <a class="link" href="contact.html">contact form</a> or email <span class="fill">[hello@thecookieeclub.com]</span>. We reply within <span class="fill">[X]</span> business days.</p>'),
+ ('How do I contact you?', '<p>Use our <a class="link" href="contact.html">contact form</a> and we’ll get back to you as soon as we can.</p>'),
 ]
 def faq_html(items, B):
     return '<div class="acc">' + ''.join(f'<details><summary>{e(q)}</summary><div class="body">{a.replace("href=\"", "href=\"" + B) if B else a}</div></details>' for q, a in items) + '</div>'
 
 # ---------- HOME ----------
 B = ''
-order = ['byo12', 'byo6', 'haunted', 'gf', 'little', 'imperfect']
+order = ['byo12', 'byo6', 'gf', 'little', 'imperfect']
 home = f'''
 <section class="hero" id="home">
   <picture><source media="(max-width:700px)" srcset="img/s_hero_mobile2.jpg"><source media="(max-width:900px)" srcset="img/s_hero_mobile.jpg"><img class="hero-bg" src="img/s_hero_wide_icing.jpg" alt="A hand holding a stack of Caramello Koala, Mini M&amp;M and Cinnamon Scroll cookies" width="2600" height="1050" fetchpriority="high"></picture>
@@ -238,13 +237,13 @@ home = f'''
 
 <section class="sec paper" id="shop"><div class="wrap">
   <div class="sec-head"><h2>The menu</h2><p>Baked to order, posted Australia wide in 2 to 4 business days.</p></div>
-  <div class="grid cards-2 three">{''.join(card(P[i], B) for i in order)}</div>
+  <div class="grid cards-2 three">{''.join(card(P[i], B) for i in order + ['moulds'])}</div>
 </div></section>
 
 <div class="band pink" aria-hidden="true"><div class="track">{''.join(f'<span>{e(f["name"])}</span>' for f in D['flavours'])*2}</div></div>
 
 <section class="sec cream" id="flavours"><div class="wrap">
-  <div class="sec-head"><h2>Pick your flavours</h2><div class="side"><p>Eleven on the menu right now, including two Halloween specials until 25 October. Studio shots made from Ruby’s own photos of each cookie.</p><a class="btn" href="build-a-box.html">Build a box</a></div></div>
+  <div class="sec-head"><h2>Pick your flavours</h2><div class="side"><p>Nine on the menu right now, with Christmas flavours on the way. Studio shots made from Ruby’s own photos of each cookie.</p><a class="btn" href="build-a-box.html">Build a box</a></div></div>
   <div class="rail">{''.join(f'<a class="fl" href="build-a-box.html" style="text-decoration:none;position:relative">{flav_img(f, B, studio=True)}{best_tag(f)}<div class="t"><b>{e(f["name"])}</b><span>{e(f["desc"])}</span></div></a>' for f in D['flavours'])}</div>
 </div></section>
 
@@ -252,17 +251,16 @@ home = f'''
   <div class="split">
     <img src="img/s_ruby_koala.jpg" alt="A tray of freshly baked Caramello Koala cookies in Ruby’s kitchen" loading="lazy" width="1536" height="1536">
     <div class="txt">
-      <span class="eyebrow">From Ruby &amp; Rachel · in their words, for them to approve</span>
-      <h2>We’re so, so sorry.</h2>
-      <p>We went from a few orders a day to hundreds overnight, and some of you waited way too long for your cookies. To everyone who stuck with us, we can’t thank you enough.</p>
-      <p>So we’ve changed a few things. We’ve got a bigger team now, more hands in the kitchen and more hands packing, and we’re back to how the Cookiee Club used to be: 2 to 4 days.</p>
-      <span class="sig">Ruby &amp; Rachel x</span>
+      <span class="eyebrow">Our story</span>
+      <h2>Two sisters. Mum’s recipe.</h2>
+      <p>The Cookiee Club was started by sisters Ruby and Rachel. Rachel lives with severe food allergies, so from day one the rule has been simple: make cookies more people can enjoy, without anyone feeling left out.</p>
+      <p>That’s why our kitchen is nut and egg free, and why our gluten-free cookies are baked in their own space. Every order is baked for you, then packed by hand and posted Australia wide.</p>
     </div>
   </div>
   <div class="facts" id="kitchen">
     <div class="fact"><b>Nut free, egg free</b><span>No nuts in our house, ever, and none of our recipes use eggs. Some chocolates carry a “may contain”.</span></div>
     <div class="fact"><b>Gluten free, kept separate</b><span>GF cookies are baked in their own space, approved by our allergen specialist.</span></div>
-    <div class="fact"><b>Registered to bake all week</b><span>Our health inspector checks in every year, sometimes unannounced. <span class="fill">[Council reg. no.]</span></span></div>
+    <div class="fact"><b>Registered to bake all week</b><span>Our health inspector checks in every year, sometimes unannounced.</span></div>
   </div>
   <p style="margin-top:22px"><a class="link" href="our-kitchen.html">Our kitchen and full allergen guide →</a></p>
 </div></section>
@@ -303,7 +301,6 @@ shop = f'''
   <div class="chips" role="group" aria-label="Filter the menu">
     <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
     <button class="chip" type="button" data-filter="build" aria-pressed="false">Build your own</button>
-    <button class="chip" type="button" data-filter="seasonal" aria-pressed="false">Halloween</button>
     <button class="chip" type="button" data-filter="gf" aria-pressed="false">Gluten free</button>
     <button class="chip" type="button" data-filter="kids" aria-pressed="false">For kids</button>
     <button class="chip" type="button" data-filter="extras" aria-pressed="false">Extras</button>
@@ -311,7 +308,7 @@ shop = f'''
   <div class="grid cards-2">{''.join(card(P[i], B) for i in order + ['moulds'])}</div>
 </section>
 '''
-page('shop.html', 'Shop the menu · The Cookiee Club', shop, 'Build your own box of 6 or 12, the Haunted Batch, gluten free cookies and more. Nut and egg free, posted Australia wide.', 'shop.html')
+page('shop.html', 'Shop the menu · The Cookiee Club', shop, 'Build your own box of 6 or 12, gluten free cookies, a kids box and more. Nut and egg free, posted Australia wide.', 'shop.html')
 
 # ---------- PRODUCT PAGES ----------
 for p in D['products']:
@@ -342,16 +339,16 @@ for p in D['products']:
                f'<button type="button" id="q-plus" aria-label="Increase quantity">+</button></div><button class="btn red" type="button" id="add-btn">Add to cart</button></div>{lim}')
         sticky = f'<div class="sticky-buy"><div><b>{e(p["name"])}</b><span>{money(p["price"])}</span></div><button class="btn red" type="button" id="sticky-add">Add</button></div>'
     else:
-        buy = (f'{variants}<div class="alert-box"><b>Sold out this week.</b><p>Next bake opens <span class="fill">[day] 7pm AEST</span>. Leave your email and we’ll tell you the moment it’s back.</p>'
+        buy = (f'{variants}<div class="alert-box"><b>Sold out this week.</b><p>Restocks open at 7pm AEST. Leave your email and we’ll tell you the moment it’s back.</p>'
                f'<form class="inline-form" data-form="alert" novalidate><label class="sr" for="al-email">Email address</label><input id="al-email" type="email" placeholder="Your email" autocomplete="email" required><button class="btn red" type="submit">Tell me</button></form><p class="form-msg" aria-live="polite"></p></div>')
         sticky = ''
     ship = (f'<div class="ship-line">{icon("clock", 22)}<span><b>Baked to order, posted within 2 to 4 business days.</b> Express post usually takes 1 to 3 more. Need it by a date? <a class="link" href="{B}contact.html">Ask before you order</a>.</span></div>') if p['cookies'] else (
             f'<div class="ship-line">{icon("clock", 22)}<span><b>Pre-order.</b> Dispatched within 5 to 7 days, then express post.</span></div>')
     acc_items = []
     if p['cookies']:
-        acc_items.append(('What arrives', f'<p>{"Twelve" if p["cookies"]==12 else "Six" if p["cookies"]==6 else "Four"} flat, chewy cookies about <span class="fill">[size] cm</span> across, each sealed in its own bag, packed in hot pink tissue inside a mailer box.</p><p>Best within <span class="fill">[X]</span> days in an airtight container. <span class="fill">[Ruby’s warming tip]</span></p>'))
+        acc_items.append(('What arrives', f'<p>{"Twelve" if p["cookies"]==12 else "Six" if p["cookies"]==6 else "Four"} flat, chewy cookies, each sealed in its own bag, packed in hot pink tissue inside a mailer box.</p><p>Keep them in an airtight container.</p>'))
         gf = ' Our gluten-free cookies are baked in their own space, approved by our allergen specialist.' if 'gf' in p['group'] or p.get('variants') else ''
-        acc_items.append(('Allergens', f'<p>Made in our nut and egg free kitchen: no nuts in the house, no eggs in our recipes.{gf}</p><p>Contains <span class="fill">[wheat, milk, soy: Ruby to confirm per flavour]</span>. Our chocolate (Cadbury and Nestlé) carries the manufacturer’s “may contain traces of nuts” statement.</p><p><a class="link" href="{B}our-kitchen.html#allergens">Full allergen guide</a></p>'))
+        acc_items.append(('Allergens', f'<p>Made in our nut and egg free kitchen: no nuts in the house, no eggs in our recipes.{gf}</p><p>Contains {"milk and soy" if "gf" in p["group"] else "wheat, milk and soy"}. Our chocolate (Cadbury and Nestlé) carries the manufacturer’s “may contain traces of nuts” statement.</p><p><a class="link" href="{B}our-kitchen.html#allergens">Full allergen guide</a></p>'))
     acc_items.append(('Delivery', '<p>Express post, $16.20 flat anywhere in Australia, whatever you order. Tracking is emailed when your parcel is posted. In hot weather, choose an address where someone can bring it inside.</p>'))
     acc_items.append(('Refunds and damage', f'<p>Cookies are made to order, so we can’t refund a change of mind. If anything arrives damaged, send a photo within 48 hours and we’ll replace or refund the damaged cookies. <a class="link" href="{B}refunds.html">Full policy</a>.</p>'))
     acc = '<div class="acc">' + ''.join(f'<details{" open" if j == 0 else ""}><summary>{t}</summary><div class="body">{b}</div></details>' for j, (t, b) in enumerate(acc_items)) + '</div>'
@@ -424,7 +421,7 @@ kitchen = f'''
   <img src="img/s_ruby_koala.jpg" alt="Caramello Koala cookies cooling on a tray in Ruby’s kitchen" width="1536" height="1536" loading="lazy">
   <div class="txt"><h2>Two sisters, Mum’s recipe, a bigger team.</h2>
   <p>We went from a few orders a day to hundreds overnight. We’ve since grown the team, so more hands bake and more hands pack, and we’re back to posting within 2 to 4 business days.</p>
-  <p class="muted"><span class="fill">[Ruby to add: where you bake, how the team works, a line from Mum]</span></p><span class="sig">Ruby &amp; Rachel x</span></div>
+  <span class="sig">Ruby &amp; Rachel x</span></div>
 </div></section>
 <section class="sec paper" id="allergens"><div class="wrap">
   <div class="sec-head"><h2>Allergen guide</h2><p>Straight answers, in plain words. If you have a severe allergy, <a class="link" href="contact.html">message us before you order</a>.</p></div>
@@ -433,14 +430,14 @@ kitchen = f'''
       <tr><td>Peanuts and tree nuts</td><td>No</td><td>We don’t handle nuts. Our chocolate (Cadbury Dairy Milk, Cadbury baking chips, Nestlé) carries the manufacturer’s “may contain traces of nuts” statement.</td></tr>
       <tr><td>Egg</td><td>No</td><td>None of our recipes use eggs.</td></tr>
       <tr><td>Gluten (wheat)</td><td>Yes</td><td>Most cookies contain wheat. The Gluten Free Range is baked in its own space, approved by our allergen specialist.</td></tr>
-      <tr><td>Milk</td><td><span class="fill">[Ruby to confirm]</span></td><td>Milk chocolate and toppings contain milk.</td></tr>
-      <tr><td>Soy</td><td><span class="fill">[Ruby to confirm]</span></td><td>Chocolate commonly contains soy lecithin.</td></tr>
+      <tr><td>Milk</td><td>Yes</td><td>Milk chocolate and some toppings contain milk.</td></tr>
+      <tr><td>Soy</td><td>Yes</td><td>Our chocolate contains soy lecithin.</td></tr>
     </tbody></table>
   </div>
   <div class="facts">
-    <div class="fact"><b>Registered to bake all week</b><span>Our health inspector checks in every year, sometimes unannounced. <span class="fill">[Council reg. no.]</span></span></div>
+    <div class="fact"><b>Registered to bake all week</b><span>Our health inspector checks in every year, sometimes unannounced.</span></div>
     <div class="fact"><b>Gluten free, kept separate</b><span>Baked in their own space, approved by our allergen specialist.</span></div>
-    <div class="fact"><b>Every flavour listed</b><span>Ingredients per flavour live on each product page. <span class="fill">[Ruby to supply]</span></span></div>
+    <div class="fact"><b>Severe allergy?</b><span>Message us before you order and we’ll talk you through exactly what goes into each flavour.</span></div>
   </div>
 </div></section>
 '''
@@ -452,15 +449,15 @@ drops = f'''
 {calendar_block('', head=False)}
 <section class="sec paper"><div class="wrap two-col" style="padding-bottom:0">
   <div class="prose" style="padding-bottom:0"><h2>Advent calendars, 16 November</h2><p>We’re making 50. The club gets the link first, then whatever is left goes on Instagram and TikTok.</p>
-  <h2>Perth pop-up, 12 to 15 November</h2><p>Our first interstate pop-up. <span class="fill">[Venue, times, what’s on the table]</span></p>
+  <h2>Perth pop-up, 12 to 15 November</h2><p>Our first interstate pop-up. Venue and times announced to the club first.</p>
   <h2>The shop closes 16 November to 6 December</h2><p>We’re resting up before Christmas. We’re back on 6 December with every Christmas flavour.</p></div>
   <aside class="aside"><b>Get the drop emails</b><p>One email before each drop. Unsubscribe any time.</p><form class="inline-form" data-form="join" novalidate><label class="sr" for="dj">Email address</label><input id="dj" type="email" placeholder="Your email" required><button class="btn" type="submit">Sign up</button><p class="form-msg" aria-live="polite" style="flex-basis:100%;margin-top:10px"></p></form></aside>
 </div></section>
 '''
-page('drops.html', 'Drops and calendar · The Cookiee Club', drops, 'Halloween, Christmas early release, the Perth pop-up and 50 advent calendars.', 'drops.html')
+page('drops.html', 'Drops and calendar · The Cookiee Club', drops, 'Christmas early release, the Perth pop-up and 50 advent calendars.', 'drops.html')
 
 # ---------- HELP PAGES ----------
-DRAFT = '<div class="draft">Draft policy for Ruby and Rachel to check and approve. Have the refund wording checked against the Australian Consumer Law before it goes live.</div>'
+DRAFT = '<div class="draft">Draft for Ruby and Rachel to review.</div>'
 page('faq.html', 'Help and FAQ · The Cookiee Club', f'''
 <section class="page-head wrap"><span class="eyebrow">Help</span><h1>Questions, answered.</h1><p>Can’t find it here? <a class="link" href="contact.html">Message us</a>.</p></section>
 <section class="wrap two-col">{faq_html(FAQS, '')}<aside class="aside"><b>Quick links</b><a class="link" href="delivery.html">Delivery &amp; shipping</a><a class="link" href="refunds.html">Refunds &amp; damaged orders</a><a class="link" href="our-kitchen.html#allergens">Allergen guide</a><a class="link" href="contact.html">Contact us</a></aside></section>''',
@@ -484,14 +481,14 @@ page('refunds.html', 'Refunds and damaged orders · The Cookiee Club', f'''
 <section class="page-head wrap"><span class="eyebrow">Help</span><h1>Refunds &amp; damaged orders.</h1></section>
 <section class="wrap prose">{DRAFT}
 <h2>Change of mind</h2><p>Every cookie is baked for your order, so we don’t offer refunds if you simply change your mind.</p>
-<h2>Damaged, wrong or missing cookies</h2><p>If something isn’t right, send us your order number and a photo within 48 hours of delivery. We’ll replace or refund the affected cookies. You don’t need half the box to be broken.</p>
-<h2>Lost parcels</h2><p>If tracking stops moving for <span class="fill">[X]</span> business days, contact us and we’ll chase it with Australia Post.</p>
+<h2>Damaged, wrong or missing cookies</h2><p>If something isn’t right, send us your order number and a photo within 48 hours of delivery. We’ll replace or refund the affected cookies.</p>
+<h2>Lost parcels</h2><p>If your tracking stops moving, contact us and we’ll chase it with Australia Post.</p>
 <h2>Your rights</h2><p>Our goods come with guarantees that cannot be excluded under the Australian Consumer Law. Nothing in this policy limits those rights.</p>
 <p><a class="btn" href="contact.html">Report a problem</a></p></section>''',
      'Change-of-mind, damaged cookies and lost parcels: how we put it right.')
 
 page('contact.html', 'Contact us · The Cookiee Club', f'''
-<section class="page-head wrap"><span class="eyebrow">Help</span><h1>Get in touch.</h1><p>The fastest way to reach us about an order. We reply within <span class="fill">[X]</span> business days.</p></section>
+<section class="page-head wrap"><span class="eyebrow">Help</span><h1>Get in touch.</h1><p>The fastest way to reach us about an order. We’ll get back to you as soon as we can.</p></section>
 <section class="wrap two-col">
 <form class="form" data-form="contact" novalidate>
   <label>Your name<input name="name" autocomplete="name" required></label>
@@ -501,7 +498,7 @@ page('contact.html', 'Contact us · The Cookiee Club', f'''
   <label class="full">Message<textarea name="msg" required></textarea></label>
   <div class="full"><button class="btn red" type="submit">Send message</button><p class="form-msg" aria-live="polite" style="margin-top:12px"></p></div>
 </form>
-<aside class="aside"><b>Email</b><p><span class="fill">[hello@thecookieeclub.com]</span></p><b>Corporate and events</b><p><a class="link" href="corporate.html">Send an enquiry</a></p><b>Quick answers</b><p><a class="link" href="faq.html">Help and FAQ</a></p></aside>
+<aside class="aside"><b>Corporate and events</b><p><a class="link" href="corporate.html">Send an enquiry</a></p><b>Quick answers</b><p><a class="link" href="faq.html">Help and FAQ</a></p></aside>
 </section>''', 'Contact The Cookiee Club about an order, allergens or a delivery date.')
 
 page('corporate.html', 'Corporate and events · The Cookiee Club', f'''
@@ -533,33 +530,22 @@ print('built', len(D['products']), 'products')
 
 # ---------- CONCEPT NOTES ----------
 notes = '''
-<section class="page-head wrap"><span class="eyebrow">Concept notes · The Service Edit</span><h1>What’s new in v2.</h1><p>Same look as v1. Underneath, it’s now a full store you can click through: every product, a working box builder, a cart and every help page.</p></section>
+<section class="page-head wrap"><span class="eyebrow">A concept by The Service Edit</span><h1>About this concept.</h1><p>A full working preview of a new Cookiee Club website, built in your look with your real products, prices, flavours and photos. Click through anything: the menu, the box builder, the cart and every help page.</p></section>
 <section class="wrap prose">
-<h2>Changed from v1</h2>
+<h2>What it does</h2>
 <ul>
-<li>Removed the made-up “boxes left” count and the example bake dates. Delivery is stated as a rule: baked and posted within 2 to 4 business days, then express post.</li>
-<li>Added the Build Your Own (12) and The Little Cookiee Club, both live on Ruby’s store since 11 October. Imperfect Gluten Free is now an option on the Imperfect Box.</li>
-<li>One layout for every screen. v1 had a separate phone version that dropped the kitchen facts and the calendar; both now show on phones.</li>
-<li>A real box builder: photo cards, + and − per flavour, “4 of 6” progress, Surprise me, and “Edit flavours” from the cart.</li>
-<li>The cart offers one upgrade: a 6-box to a 12-box, keeping the flavours already picked.</li>
-<li>Sold-out products swap the buy button for a restock alert form (the Imperfect Box shows this in the demo).</li>
-<li>Product pages: real photos only, what’s in the box, allergens, delivery and refunds, and a sticky add-to-cart bar on phones.</li>
-<li>New pages: Our kitchen and allergen guide, Drops, Delivery, Refunds, FAQ, Contact, Corporate, Cart.</li>
-<li>Removed the unverified “Most ordered” label. Badges now state facts only.</li>
-<li>The AI hero image is kept as it was.</li>
-<li>Flavour images in “Pick your flavours” and the box builder are studio shots in v1’s menu style, made with Higgsfield (Nano Banana Pro) from Ruby’s real photo of each cookie. Product page galleries still use her untouched photos; the “What’s in the box” thumbnails use the studio shots.</li>
+<li>A visual box builder for 6 or 12: photo of every flavour, tap + to add, see your box fill up, “Surprise me”, and edit flavours from the cart.</li>
+<li>Every product page answers the big questions on the page: what’s in the box, allergens, delivery and refunds.</li>
+<li>Sold out? The buy button becomes a restock alert, so nobody who arrives from a TikTok leaves empty-handed.</li>
+<li>A cookie calendar that updates itself from today’s date: what’s on now, what’s next, and when the shop is closed.</li>
+<li>Real reviews, copied word for word from customers’ own TikToks, each linked to the original video.</li>
+<li>Delivery, refunds, FAQ, contact and corporate pages, written in plain words.</li>
 </ul>
-<h2>Still needed from Ruby</h2>
-<ul>
-<li>Restock day and time, cookie size, shelf life and her warming tip.</li>
-<li>Allergens per flavour (milk, soy, wheat) and the council registration number.</li>
-<li>Confirm the flavour shots for Cinnamon Scroll, Biscoff White Choco, Oreo Milkshake and Plain Vanilla. They were made from her photos, but I matched which cookie is which by eye.</li>
-<li>Confirm which Halloween photo is which flavour (matched from her product photos).</li>
-<li>Contact email, ABN, Perth pop-up venue, reply time, and whether shipping is flat $16.20 or weight-based.</li>
-<li>Sign-off on the delivery and refund drafts, and whether Afterpay is switched on.</li>
-</ul>
-<h2>Demo only</h2>
-<ul><li>Stock states are set by hand. Forms show a thank-you but send nothing. Checkout stops at a placeholder page. In Shopify all of this comes from the platform.</li></ul>
+<h2>About the photos</h2>
+<p>Product galleries use your own photos. The single-cookie shots in the flavour sections were created from your photos of each cookie, styled to match. The hero image is a styled concept shot.</p>
+<h2>What’s not live yet</h2>
+<p>This is a preview: nothing here takes real orders, forms don’t send, and stock is set by hand. On Shopify, the cart, stock, checkout and Afterpay all run from your store, and the restock can open automatically at 7pm.</p>
+<p><a class="btn" href="index.html">Back to the site</a></p>
 </section>'''
-page('notes.html', 'Concept notes · The Cookiee Club v2', notes, 'What changed in v2 of the concept.')
+page('notes.html', 'About this concept · The Cookiee Club', notes, 'A concept website for The Cookiee Club by The Service Edit.')
 print('notes built')

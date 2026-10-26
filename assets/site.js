@@ -15,7 +15,7 @@
 
   /* ---------- storage (works without it) ---------- */
   var mem = [];
-  function load() { try { var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return mem; } }
+  function load() { var v; try { v = JSON.parse(localStorage.getItem(KEY) || '[]'); if (!Array.isArray(v)) v = []; } catch (e) { v = mem; } return v.filter(function (l) { return prod(l.pid) && (!l.flavours || Object.keys(l.flavours).every(function (k) { return flav(k); })); }); }
   function save(c) { mem = c; try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} render(); }
 
   function lineKey(pid, variant, fl) {
