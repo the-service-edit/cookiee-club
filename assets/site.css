@@ -540,3 +540,9 @@ footer.site{background:var(--crimson);color:#fff}
   .cal-now .btn{width:100%}
 }
 @media (prefers-reduced-motion:reduce){.cn-tag i{animation:none}}
+
+/* TikTok marks in reviews */
+.rv-h{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.tt-badge{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:7px 12px 7px 9px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.rv-by a,.rv-feature a{display:inline-flex;align-items:center;gap:4px;vertical-align:-2px}
+.rv-by a .tt,.rv-feature a .tt{flex:none}
