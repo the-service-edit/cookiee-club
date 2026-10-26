@@ -80,7 +80,6 @@ def page(path, title, body, desc, active='', extra_head=''):
 {body}
 </main>
 <footer class="site">
-  <div class="big-word" aria-hidden="true">Cookiee Club</div>
   <div class="wrap fcols">
     <div class="fbrand"><img src="{B}img/logo_old.png" alt="The Cookiee Club" width="96" height="96"><p>Nut and egg free cookies, baked to order from Mum’s recipe by sisters Ruby and Rachel. Posted Australia wide.</p>
       <a class="icon-btn" style="align-self:flex-start;border-color:#fff;color:#fff" href="https://www.tiktok.com/@rubyrosedemiroski" aria-label="Ruby on TikTok">{icon('tiktok', 22, 2)}</a></div>
@@ -151,16 +150,46 @@ def reviews_block():
   </div>
 </section>'''
 
+CAL = [
+    # (start, end, title, short date, description, kind, cta label, cta href)
+    ('2026-10-11', '2026-10-25', 'The Haunted Batch', '11 to 25 Oct', 'Four Halloween flavours. Gone on the 25th.', 'drop', 'Shop the batch', 'products/the-haunted-batch.html'),
+    ('2026-10-26', '2026-11-04', 'Christmas, early', '26 Oct to 4 Nov', 'New Chrissy flavours, a week before anyone else.', 'drop', 'Build a box', 'build-a-box.html'),
+    ('2026-11-12', '2026-11-15', 'Perth pop-up', '12 to 15 Nov', 'Our first interstate pop-up. Come say hi. <span class="fill">[Venue]</span>', 'event', 'Get the details', 'drops.html'),
+    ('2026-11-16', '2026-11-16', 'Advent calendars', '16 Nov', '50 boxes only. The club gets the link first.', 'drop', 'Get the link first', 'index.html#join'),
+    ('2026-11-16', '2026-12-05', 'Shop closed', '16 Nov to 6 Dec', 'Resting up before Christmas.', 'closed', '', ''),
+    ('2026-12-06', '2026-12-31', 'Christmas, in full', 'From 6 Dec', 'Every Christmas flavour, back for the season.', 'drop', 'Join for the reminder', 'index.html#join'),
+]
+import datetime as _dt
+BUILD_DAY = _dt.date(2026, 10, 26)
+
+def _status(st, en, today=BUILD_DAY):
+    s, e = _dt.date.fromisoformat(st), _dt.date.fromisoformat(en)
+    return 'done' if e < today else 'now' if s <= today else 'next'
+
 def calendar_block(B, head=True):
-    h = f'''<div class="sec-head"><h2>The cookie calendar</h2><div class="side"><p>Stick it on the fridge. We email the club before each one opens.</p><a class="btn light" href="{B}index.html#join">Get reminders</a></div></div>''' if head else ''
-    return f'''<section class="sec red" id="calendar"><div class="wrap">{h}
-<ol class="cal-row">
-  <li class="cal"><span class="mon">OCTOBER</span><span class="d">11</span><span class="to">TO 25 OCT</span><b>The Haunted Batch</b><span class="desc">Halloween flavours. Gone on the 25th.</span></li>
-  <li class="cal"><span class="mon">OCTOBER</span><span class="d">26</span><span class="to">TO 4 NOV</span><b>Christmas, early</b><span class="desc">New Chrissy flavours, a week before anyone else.</span></li>
-  <li class="cal hl"><span class="mon">NOVEMBER</span><span class="d">12</span><span class="to">TO 15 NOV</span><b>Perth pop-up</b><span class="desc">Come say hi. <span class="fill">[Venue]</span></span><span class="pin">PERTH, WA</span></li>
-  <li class="cal"><span class="mon">NOVEMBER</span><span class="d">16</span><span class="to">ONE DAY</span><b>Advent calendars</b><span class="desc">50 boxes only. The club gets the link first.</span></li>
-  <li class="cal off"><span class="mon">NOVEMBER</span><span class="d">16</span><span class="to">TO 6 DEC</span><b>Shop closed</b><span class="desc">Resting up. Back 6 Dec with Christmas in full.</span></li>
-</ol></div></section>'''
+    sts = [_status(c[0], c[1]) for c in CAL]
+    cur = sts.index('now') if 'now' in sts else None
+    upnext = next((i for i, x in enumerate(sts) if x == 'next'), None)
+    def label(i, st):
+        return 'Done' if st == 'done' else 'On now' if st == 'now' else ('Up next' if i == upnext else 'Coming up')
+    def item(i, c):
+        st = sts[i]
+        cls = st + (' up' if i == upnext else '') + (' closed' if c[5] == 'closed' else '')
+        return (f'<li class="tl-item {cls}" data-start="{c[0]}" data-end="{c[1]}"><span class="tl-dot" aria-hidden="true"></span>'
+                f'<span class="tl-when">{c[3]}</span><span class="tl-chip">{label(i, st)}</span>'
+                f'<b class="tl-title">{c[2]}</b><span class="tl-desc">{c[4]}</span></li>')
+    feat = ''
+    if cur is not None:
+        c = CAL[cur]
+        days = (_dt.date.fromisoformat(c[1]) - BUILD_DAY).days + 1
+        feat = (f'<div class="cal-now" data-end="{c[1]}"><div class="cn-l"><span class="cn-tag"><i></i>On now</span>'
+                f'<h3>{c[2]}</h3><p>{c[4]}</p>'
+                f'<a class="btn" href="{B}{c[7]}">{c[6]}</a></div>'
+                f'<div class="cn-r"><span class="cn-n" data-countdown>{days}</span><span class="cn-u">days left</span><span class="cn-d">{c[3]}</span></div></div>')
+    h = (f'<div class="sec-head"><h2>The cookie calendar</h2><div class="side"><p>Stick it on the fridge. '
+         f'We email the club before each one opens.</p><a class="btn light" href="{B}index.html#join">Get reminders</a></div></div>') if head else ''
+    items = ''.join(item(i, c) for i, c in enumerate(CAL))
+    return f'<section class="sec red cal2" id="calendar"><div class="wrap">{h}{feat}<ol class="tl">{items}</ol></div></section>'
 
 def join_block():
     return '''<section class="sec pink join" id="join"><div class="inner wrap">

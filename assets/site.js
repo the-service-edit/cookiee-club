@@ -281,5 +281,28 @@
     draw();
   }
 
+
+  /* ---------- calendar: status from today's date (Perth) ---------- */
+  (function () {
+    var tl = $('.tl'); if (!tl) return;
+    var t = new Date(new Date().toLocaleString('en-US', { timeZone: 'Australia/Perth' }));
+    var today = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+    var items = $$('.tl-item', tl), nextSet = false;
+    items.forEach(function (li) {
+      var s = li.getAttribute('data-start'), e = li.getAttribute('data-end');
+      var st = e < today ? 'done' : s <= today ? 'now' : 'next';
+      li.classList.remove('done', 'now', 'next', 'up'); li.classList.add(st);
+      var chip = $('.tl-chip', li);
+      if (st === 'next' && !nextSet) { li.classList.add('up'); nextSet = true; chip.textContent = 'Up next'; }
+      else chip.textContent = st === 'done' ? 'Done' : st === 'now' ? 'On now' : 'Coming up';
+    });
+    var cn = $('.cal-now');
+    if (cn) {
+      var end = cn.getAttribute('data-end');
+      var days = Math.round((new Date(end + 'T00:00:00') - new Date(today + 'T00:00:00')) / 864e5) + 1;
+      if (days < 1) cn.hidden = true; else { $('[data-countdown]', cn).textContent = days; $('.cn-u', cn).textContent = days === 1 ? 'last day' : 'days left'; }
+    }
+  })();
+
   render();
 })();
