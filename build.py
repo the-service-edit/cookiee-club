@@ -133,23 +133,36 @@ def flav_img(f, B, cls='', studio=False):
         return f'<img src="{B}img/f/{f["img"]}.jpg" alt="{e(f["name"])} cookie" loading="lazy" width="700" height="700">'
     return f'<div class="noimg {cls}" role="img" aria-label="{e(f["name"])}: photo to come"><strong>{e(f["name"])}</strong><small>Photo from Ruby</small></div>'
 
-def reviews_block():
-    return '''<section class="sec" id="reviews">
+TT = '<svg class="tt" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.78.12V9.77a5.7 5.7 0 0 0-.78-.05A5.69 5.69 0 1 0 15.54 15.4V9.06a7.33 7.33 0 0 0 4.28 1.37V7.35a4.29 4.29 0 0 1-3.22-1.53z"/></svg>'
+REVIEWS = [
+    # (quote, name, handle-ish label, date, url, colour, flavour chip or '', wide)
+    ('All I have to say is, these were DELICIOUS! 😍 … 10/10, will be returning to order more!', 'Sade Sitaloto', '30 Sep', 'https://www.tiktok.com/@sade.sitaloto/video/7691478128849440021', 'butter', '', True),
+    ('Her cookie dough is amazing. My favourite is the cinnamon, hands down. … She’s definitely worth the hype.', 'ALAÍA MUSE', '3 Sep', 'https://www.tiktok.com/@alaiamuse_/video/7681237616687172872', 'lilac', 'Cinnamon Scroll', False),
+    ('It is super soft. Like it’s low key breaking in my hands. … That one is by far the best one.', 'jordan.and.zara', '2 Oct', 'https://www.tiktok.com/@jordan.and.zara/video/7692187335189941524', 'sky', 'Cinnamon Scroll', False),
+    ('I need to eat the cinnamon one 24:7 😩❤️ Ps. These are the gluten free ones!!', 'Hannah Jayde', '24 Sep', 'https://www.tiktok.com/@hannahhjayde/video/7689046787625274625', 'mint', 'Gluten free', False),
+    ('Oh, look at how soft they are.', 'Georgia Reilly', '30 Sep', 'https://www.tiktok.com/@georgia_reilly77/video/7691193500661976338', 'pink', '', False),
+]
+def reviews_block(B=''):
+    chip_href = {'Cinnamon Scroll': 'build-a-box.html?size=6', 'Gluten free': 'products/gluten-free-range.html'}
+    def card(r):
+        q, n, d, u, col, chip, wide = r
+        ch = f'<a class="rv2-chip" href="{B}{chip_href[chip]}">{chip}</a>' if chip else ''
+        return (f'<article class="rv2 t-{col}{" wide" if wide else ""}"><div class="rv2-main">{ch}<p class="rv2-q">“{q}”</p></div>'
+                f'<div class="rv2-by"><span class="rv2-av" aria-hidden="true">{n[0]}</span><span class="rv2-n"><b>{n}</b><small>{d} 2026</small></span>'
+                f'<a class="rv2-watch" href="{u}" target="_blank" rel="noopener" aria-label="Watch {n} on TikTok">{TT}<span>Watch</span></a></div></article>')
+    cards = ''.join(card(r) for r in REVIEWS)
+    return f"""<section class="sec red rv3" id="reviews">
   <div class="wrap">
-    <div class="sec-head"><div class="rv-h"><span class="tt-badge"><svg class="tt" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.78.12V9.77a5.7 5.7 0 0 0-.78-.05A5.69 5.69 0 1 0 15.54 15.4V9.06a7.33 7.33 0 0 0 4.28 1.37V7.35a4.29 4.29 0 0 1-3.22-1.53z"/></svg><span>From TikTok</span></span><h2>In their words.</h2></div><p>Copied word for word from customers’ own TikToks. Tap any review to watch the original.</p></div>
-    <figure class="rv-feature">
-      <blockquote>“All I have to say is, these were DELICIOUS! 😍 Obviously, there was a wait to receive them 😂 Yes, the girls are going through drama, yes, they went viral, but YES, the cookies are delicious! … 10/10, will be returning to order more!”</blockquote>
-      <figcaption><b>Sade Sitaloto</b> · TikTok caption · 30 Sep 2026 · <a href="https://www.tiktok.com/@sade.sitaloto/video/7691478128849440021"><svg class="tt" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.78.12V9.77a5.7 5.7 0 0 0-.78-.05A5.69 5.69 0 1 0 15.54 15.4V9.06a7.33 7.33 0 0 0 4.28 1.37V7.35a4.29 4.29 0 0 1-3.22-1.53z"/></svg>Watch</a></figcaption>
-    </figure>
-    <div class="rv-grid">
-      <article class="rv"><p class="rv-q">“Her cookie dough is amazing. My favourite is the cinnamon, hands down. … She’s definitely worth the hype.”</p><div class="rv-by"><b>ALAÍA MUSE</b><span>TikTok video · 3 Sep 2026 · <a href="https://www.tiktok.com/@alaiamuse_/video/7681237616687172872"><svg class="tt" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.78.12V9.77a5.7 5.7 0 0 0-.78-.05A5.69 5.69 0 1 0 15.54 15.4V9.06a7.33 7.33 0 0 0 4.28 1.37V7.35a4.29 4.29 0 0 1-3.22-1.53z"/></svg>Watch</a></span></div></article>
-      <article class="rv"><p class="rv-q">“It is super soft. Like it’s low key breaking in my hands. … That one is by far the best one.”</p><div class="rv-by"><b>jordan.and.zara</b><span>TikTok video, on the Cinnamon Roll · 2 Oct 2026 · <a href="https://www.tiktok.com/@jordan.and.zara/video/7692187335189941524"><svg class="tt" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.78.12V9.77a5.7 5.7 0 0 0-.78-.05A5.69 5.69 0 1 0 15.54 15.4V9.06a7.33 7.33 0 0 0 4.28 1.37V7.35a4.29 4.29 0 0 1-3.22-1.53z"/></svg>Watch</a></span></div></article>
-      <article class="rv loud"><p class="rv-q">“GUYS WHAT THE HECK THESE TASTE INSANEEE OMGGG AHH”</p><div class="rv-by"><b>Katie Hennessey</b><span>TikTok caption · 7 Aug 2026 · <a href="https://www.tiktok.com/@katie_hennessey_official/video/7671174224802745608"><svg class="tt" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.78.12V9.77a5.7 5.7 0 0 0-.78-.05A5.69 5.69 0 1 0 15.54 15.4V9.06a7.33 7.33 0 0 0 4.28 1.37V7.35a4.29 4.29 0 0 1-3.22-1.53z"/></svg>Watch</a></span></div></article>
-      <article class="rv"><p class="rv-q">“I need to eat the cinnamon one 24:7 😩❤️ Ps. These are the gluten free ones!!”</p><div class="rv-by"><b>Hannah Jayde</b><span>TikTok caption · 24 Sep 2026 · <a href="https://www.tiktok.com/@hannahhjayde/video/7689046787625274625"><svg class="tt" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.78.12V9.77a5.7 5.7 0 0 0-.78-.05A5.69 5.69 0 1 0 15.54 15.4V9.06a7.33 7.33 0 0 0 4.28 1.37V7.35a4.29 4.29 0 0 1-3.22-1.53z"/></svg>Watch</a></span></div></article>
-      <article class="rv"><p class="rv-q">“Oh, look at how soft they are.”</p><div class="rv-by"><b>Georgia Reilly</b><span>TikTok video · 30 Sep 2026 · <a href="https://www.tiktok.com/@georgia_reilly77/video/7691193500661976338"><svg class="tt" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.78.12V9.77a5.7 5.7 0 0 0-.78-.05A5.69 5.69 0 1 0 15.54 15.4V9.06a7.33 7.33 0 0 0 4.28 1.37V7.35a4.29 4.29 0 0 1-3.22-1.53z"/></svg>Watch</a></span></div></article>
+    <div class="rv3-top">
+      <div><span class="tt-badge">{TT}<span>Straight off TikTok</span></span><h2>In their words.</h2>
+        <p class="rv3-sub">Real reviews, copied word for word from customers’ own videos. Tap any of them to watch the original.</p></div>
+      <figure class="rv3-hero"><blockquote>“GUYS WHAT THE HECK THESE TASTE <em>INSANEEE</em> OMGGG AHH”</blockquote>
+        <figcaption><span><b>Katie Hennessey</b> · 7 Aug 2026</span> <a class="rv2-watch" href="https://www.tiktok.com/@katie_hennessey_official/video/7671174224802745608" target="_blank" rel="noopener">{TT}<span>Watch</span></a></figcaption></figure>
     </div>
+    <div class="rv3-grid">{cards}</div>
+    <div class="rv3-cta"><p><b>Half of these</b> are about the cinnamon.</p><a class="btn" href="{B}build-a-box.html?size=6">Try the Cinnamon Scroll</a></div>
   </div>
-</section>'''
+</section>"""
 
 CAL = [
     # (start, end, title, date tab line1, line2, description, theme, icon, cta label, cta href)
@@ -288,7 +301,7 @@ home = f'''
   </div>
 </div></section>
 
-{reviews_block()}
+{reviews_block(B)}
 
 {calendar_block(B)}
 
