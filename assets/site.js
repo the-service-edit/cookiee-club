@@ -294,14 +294,12 @@
       li.classList.remove('done', 'now', 'next', 'up'); li.classList.add(st);
       var chip = $('.tl-chip', li);
       if (st === 'next' && !nextSet) { li.classList.add('up'); nextSet = true; chip.textContent = 'Up next'; }
-      else chip.textContent = st === 'done' ? 'Done' : st === 'now' ? 'On now' : 'Coming up';
+      else chip.textContent = st === 'done' ? 'Done' : st === 'now' ? 'On now' : '';
+      if (st === 'now') {
+        var days = Math.round((new Date(e + 'T00:00:00') - new Date(today + 'T00:00:00')) / 864e5) + 1;
+        var c = $('[data-countdown]', li); if (c) { c.textContent = days; c.nextElementSibling.textContent = days === 1 ? 'last day' : 'days left'; }
+      }
     });
-    var cn = $('.cal-now');
-    if (cn) {
-      var end = cn.getAttribute('data-end');
-      var days = Math.round((new Date(end + 'T00:00:00') - new Date(today + 'T00:00:00')) / 864e5) + 1;
-      if (days < 1) cn.hidden = true; else { $('[data-countdown]', cn).textContent = days; $('.cn-u', cn).textContent = days === 1 ? 'last day' : 'days left'; }
-    }
   })();
 
   render();

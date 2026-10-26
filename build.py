@@ -33,6 +33,7 @@ ICON = {
  'card': '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/>',
  'check': '<path d="M5 12l5 5L20 7"/>',
  'bag': '<path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
+ 'insta': '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>',
  'tiktok': '<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.4 5 4.6"/>',
 }
 def icon(n, s=24, sw=1.9):
@@ -82,7 +83,7 @@ def page(path, title, body, desc, active='', extra_head=''):
 <footer class="site">
   <div class="wrap fcols">
     <div class="fbrand"><img src="{B}img/logo_old.png" alt="The Cookiee Club" width="96" height="96"><p>Nut and egg free cookies, baked to order from Mum’s recipe by sisters Ruby and Rachel. Posted Australia wide.</p>
-      <a class="icon-btn" style="align-self:flex-start;border-color:#fff;color:#fff" href="https://www.tiktok.com/@rubyrosedemiroski" aria-label="Ruby on TikTok">{icon('tiktok', 22, 2)}</a></div>
+      <div class="fsocial"><a class="icon-btn" href="https://www.instagram.com/thecookieeclub_/" aria-label="The Cookiee Club on Instagram">{icon('insta', 22, 2)}</a><a class="icon-btn" href="https://www.tiktok.com/@rubyrosedemiroski" aria-label="Ruby on TikTok">{icon('tiktok', 22, 2)}</a></div></div>
     <div><h3>Shop</h3><ul><li><a href="{B}build-a-box.html?size=12">Box of 12</a></li><li><a href="{B}build-a-box.html?size=6">Box of 6</a></li><li><a href="{B}products/gluten-free-range.html">Gluten Free Range</a></li><li><a href="{B}products/the-little-cookiee-club.html">Little Cookiee Club</a></li><li><a href="{B}products/the-imperfect-box.html">Imperfect Box</a></li></ul></div>
     <div><h3>Help</h3><ul><li><a href="{B}delivery.html">Delivery &amp; shipping</a></li><li><a href="{B}refunds.html">Refunds &amp; damaged orders</a></li><li><a href="{B}faq.html">FAQ</a></li><li><a href="{B}contact.html">Contact us</a></li></ul></div>
     <div><h3>The club</h3><ul><li><a href="{B}our-kitchen.html">Our kitchen &amp; allergens</a></li><li><a href="{B}drops.html">Drops &amp; calendar</a></li><li><a href="{B}corporate.html">Corporate &amp; events</a></li><li><a href="{B}contact.html">Contact us</a></li></ul></div>
@@ -151,14 +152,27 @@ def reviews_block():
 </section>'''
 
 CAL = [
-    # (start, end, title, short date, description, kind, cta label, cta href)
-    ('2026-10-11', '2026-10-25', 'The Haunted Batch', '11 to 25 Oct', 'Four Halloween flavours. That’s a wrap for this year.', 'drop', '', ''),
-    ('2026-10-26', '2026-11-04', 'Christmas, early', '26 Oct to 4 Nov', 'New Chrissy flavours, a week before anyone else.', 'drop', 'Get drop alerts', 'index.html#join'),
-    ('2026-11-12', '2026-11-15', 'Perth pop-up', '12 to 15 Nov', 'Our first interstate pop-up. Come say hi. Venue to be announced.', 'event', 'Get the details', 'drops.html'),
-    ('2026-11-16', '2026-11-16', 'Advent calendars', '16 Nov', '50 boxes only. The club gets the link first.', 'drop', 'Get the link first', 'index.html#join'),
-    ('2026-11-16', '2026-12-05', 'Shop closed', '16 Nov to 6 Dec', 'Resting up before Christmas.', 'closed', '', ''),
-    ('2026-12-06', '2026-12-31', 'Christmas, in full', 'From 6 Dec', 'Every Christmas flavour, back for the season.', 'drop', 'Join for the reminder', 'index.html#join'),
+    # (start, end, title, date tab line1, line2, description, theme, icon, cta label, cta href)
+    ('2026-10-11', '2026-10-25', 'Halloween flavours', '11–25', 'Oct', 'Spooky, sweet and gone on the 25th. That’s a wrap for this year.', 'lilac', 'pumpkin', '', ''),
+    ('2026-10-26', '2026-11-04', 'Christmas, a week early', '26 Oct–', '4 Nov', 'Be the first to try our brand new Chrissy flavours.', 'pink', 'tree', 'Get drop alerts', 'index.html#join'),
+    ('2026-11-05', '2026-11-11', 'Packing for Perth', '5–11', 'Nov', 'Baking, packing and getting everything ready for our first trip west.', 'butter', 'plane', '', ''),
+    ('2026-11-12', '2026-11-15', 'Perth pop-up', '12–15', 'Nov', 'Come say hi in person. Venue announced to the club first.', 'sky', 'pin', 'Get the details', 'drops.html'),
+    ('2026-11-16', '2026-11-16', 'Advent calendars', '16', 'Nov', '50 boxes only. Club members get the link first.', 'pink', 'gift', 'Get the link first', 'index.html#join'),
+    ('2026-11-17', '2026-12-05', 'Chrissy break', '17 Nov–', '5 Dec', 'The online shop’s closed while we take a little break.', 'mint', 'sun', '', ''),
+    ('2026-12-06', '2027-01-06', 'Christmas, in full', 'From', '6 Dec', 'All your favourite Chrissy flavours, back and ready to order.', 'cream', 'cane', 'Join for the reminder', 'index.html#join'),
 ]
+ICONS = {
+ 'pumpkin': '<path d="M32 20c-12 0-20 7-20 17s8 17 20 17 20-7 20-17-8-17-20-17z" fill="#F4A15A"/><path d="M32 20c-5 0-8 7-8 17s3 17 8 17 8-7 8-17-3-17-8-17z" fill="none"/><path d="M32 21c0-5 2-8 6-10" fill="none" stroke-width="3"/><path d="M24 33l3 4 3-4M34 33l3 4 3-4M25 43c4 3 10 3 14 0"/>',
+ 'tree': '<path d="M32 9l-12 16h7l-10 13h8l-9 12h32l-9-12h8L37 25h7z" fill="#7CC28A"/><path d="M28 50v6h8v-6"/><circle cx="29" cy="31" r="2" fill="#E8496A" stroke="none"/><circle cx="37" cy="40" r="2" fill="#F4D35E" stroke="none"/><circle cx="27" cy="44" r="2" fill="#E8496A" stroke="none"/>',
+ 'plane': '<path d="M8 36l20-4 14-16c3-3 8-2 7 2l-6 18 13 6v5l-15-2-6 9h-5l1-10-17-3z" fill="#9BCBEB"/>',
+ 'pin': '<path d="M32 56s-15-15-15-27a15 15 0 0 1 30 0c0 12-15 27-15 27z" fill="#F7A8A0"/><circle cx="32" cy="29" r="6" fill="#fff"/>',
+ 'gift': '<rect x="12" y="26" width="40" height="28" rx="2" fill="#F7A8A0"/><rect x="9" y="19" width="46" height="9" rx="2" fill="#F7A8A0"/><path d="M32 19v35M32 19c-4-8-14-8-12-1 1 3 7 1 12 1zm0 0c4-8 14-8 12-1-1 3-7 1-12 1z" fill="none"/>',
+ 'sun': '<circle cx="32" cy="32" r="11" fill="#F4D35E"/><path d="M32 9v7M32 48v7M9 32h7M48 32h7M16 16l5 5M43 43l5 5M16 48l5-5M43 21l5-5"/>',
+ 'cane': '<path d="M36 56V22a8 8 0 0 0-16 0v4" fill="none" stroke-width="7" stroke="#fff"/><path d="M36 56V22a8 8 0 0 0-16 0v4" fill="none" stroke-width="7" stroke-dasharray="4 5" stroke="#E8496A"/><path d="M32.5 56V22a4.5 4.5 0 0 0-9 0v4M39.5 56V22a11.5 11.5 0 0 0-23 0v4" fill="none" stroke-width="1.6"/>',
+}
+def cal_icon(n):
+    return f'<svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="#160C0C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[n]}</svg>'
+
 import datetime as _dt
 BUILD_DAY = _dt.date(2026, 10, 26)
 
@@ -168,28 +182,24 @@ def _status(st, en, today=BUILD_DAY):
 
 def calendar_block(B, head=True):
     sts = [_status(c[0], c[1]) for c in CAL]
-    cur = sts.index('now') if 'now' in sts else None
     upnext = next((i for i, x in enumerate(sts) if x == 'next'), None)
     def label(i, st):
-        return 'Done' if st == 'done' else 'On now' if st == 'now' else ('Up next' if i == upnext else 'Coming up')
+        return 'Done' if st == 'done' else 'On now' if st == 'now' else ('Up next' if i == upnext else '')
     def item(i, c):
         st = sts[i]
-        cls = st + (' up' if i == upnext else '') + (' closed' if c[5] == 'closed' else '')
-        return (f'<li class="tl-item {cls}" data-start="{c[0]}" data-end="{c[1]}"><span class="tl-dot" aria-hidden="true"></span>'
-                f'<span class="tl-when">{c[3]}</span><span class="tl-chip">{label(i, st)}</span>'
-                f'<b class="tl-title">{c[2]}</b><span class="tl-desc">{c[4]}</span></li>')
-    feat = ''
-    if cur is not None:
-        c = CAL[cur]
+        cls = f'tl-item t-{c[6]} {st}' + (' up' if i == upnext else '')
         days = (_dt.date.fromisoformat(c[1]) - BUILD_DAY).days + 1
-        feat = (f'<div class="cal-now" data-end="{c[1]}"><div class="cn-l"><span class="cn-tag"><i></i>On now</span>'
-                f'<h3>{c[2]}</h3><p>{c[4]}</p>'
-                f'<a class="btn" href="{B}{c[7]}">{c[6]}</a></div>'
-                f'<div class="cn-r"><span class="cn-n" data-countdown>{days}</span><span class="cn-u">days left</span><span class="cn-d">{c[3]}</span></div></div>')
-    h = (f'<div class="sec-head"><h2>The cookie calendar</h2><div class="side"><p>Stick it on the fridge. '
-         f'We email the club before each one opens.</p><a class="btn light" href="{B}index.html#join">Get reminders</a></div></div>') if head else ''
+        cta = f'<a class="tl-cta" href="{B}{c[9]}">{c[8]} →</a>' if c[8] else ''
+        return (f'<li class="{cls}" data-start="{c[0]}" data-end="{c[1]}">'
+                f'<div class="tl-date"><span>{c[3]}</span><b>{c[4]}</b></div>'
+                f'<div class="tl-body"><span class="tl-chip">{label(i, st)}</span><h3 class="tl-title">{c[2]}</h3><p class="tl-desc">{c[5]}</p>{cta}</div>'
+                f'<div class="tl-count"><b data-countdown>{days}</b><span>days left</span></div>'
+                f'<div class="tl-icon">{cal_icon(c[7])}</div>'
+                f'<span class="tl-stamp" aria-hidden="true">Done</span></li>')
+    h = (f'<div class="sec-head"><div><span class="eyebrow">October to Christmas</span><h2>The cookie calendar</h2></div><div class="side"><p>Stick it on the fridge. '
+         f'We email the club before each one opens.</p><a class="btn" href="{B}index.html#join">Get reminders</a></div></div>') if head else ''
     items = ''.join(item(i, c) for i, c in enumerate(CAL))
-    return f'<section class="sec red cal2" id="calendar"><div class="wrap">{h}{feat}<ol class="tl">{items}</ol></div></section>'
+    return f'<section class="sec cream cal3" id="calendar"><div class="wrap">{h}<ol class="tl">{items}</ol></div></section>'
 
 def join_block():
     return '''<section class="sec pink join" id="join"><div class="inner wrap">
