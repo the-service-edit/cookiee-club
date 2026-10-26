@@ -41,6 +41,8 @@ def icon(n, s=24, sw=1.9):
 
 NAV = [('shop.html', 'Shop'), ('build-a-box.html', 'Build a box'), ('our-kitchen.html', 'Our kitchen'), ('drops.html', 'Drops'), ('faq.html', 'Help')]
 
+import time as _time
+VER = str(int(_time.time()))
 def page(path, title, body, desc, active='', extra_head=''):
     depth = path.count('/')
     B = '../' * depth
@@ -60,7 +62,7 @@ def page(path, title, body, desc, active='', extra_head=''):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{B}assets/site.css">
+<link rel="stylesheet" href="{B}assets/site.css?v={VER}">
 {extra_head}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -98,8 +100,8 @@ def page(path, title, body, desc, active='', extra_head=''):
 </aside>
 <nav class="vswitch" aria-label="About this concept"><a href="{B}notes.html">Concept by The Service Edit</a></nav>
 <script>window.TCC_BASE='{B}';</script>
-<script src="{B}assets/data.js"></script>
-<script src="{B}assets/site.js"></script>
+<script src="{B}assets/data.js?v={VER}"></script>
+<script src="{B}assets/site.js?v={VER}"></script>
 </body>
 </html>
 '''
@@ -155,7 +157,7 @@ def reviews_block(B=''):
   <div class="wrap">
     <div class="rv3-top">
       <div><span class="tt-badge">{TT}<span>Straight off TikTok</span></span><h2>In their words.</h2>
-        <p class="rv3-sub">Real reviews, copied word for word from customers’ own videos. Tap any of them to watch the original.</p></div>
+        <p class="rv3-sub">Straight from customers’ own TikToks. Tap any review to watch the video.</p></div>
       <figure class="rv3-hero"><blockquote>“GUYS WHAT THE HECK THESE TASTE <em>INSANEEE</em> OMGGG AHH”</blockquote>
         <figcaption><span><b>Katie Hennessey</b> · 7 Aug 2026</span> <a class="rv2-watch" href="https://www.tiktok.com/@katie_hennessey_official/video/7671174224802745608" target="_blank" rel="noopener">{TT}<span>Watch</span></a></figcaption></figure>
     </div>
@@ -266,7 +268,7 @@ home = f'''
 <div class="band pink" aria-hidden="true"><div class="track">{''.join(f'<span>{e(f["name"])}</span>' for f in D['flavours'])*2}</div></div>
 
 <section class="sec cream" id="flavours"><div class="wrap">
-  <div class="sec-head"><h2>Pick your flavours</h2><div class="side"><p>Nine on the menu right now, with Christmas flavours on the way. Studio shots made from Ruby’s own photos of each cookie.</p><a class="btn" href="build-a-box.html">Build a box</a></div></div>
+  <div class="sec-head"><h2>Pick your flavours</h2><div class="side"><p>Nine on the menu right now, with Christmas flavours on the way.</p><a class="btn" href="build-a-box.html">Build a box</a></div></div>
   <div class="rail">{''.join(f'<a class="fl" href="build-a-box.html" style="text-decoration:none;position:relative">{flav_img(f, B, studio=True)}{best_tag(f)}<div class="t"><b>{e(f["name"])}</b><span>{e(f["desc"])}</span></div></a>' for f in D['flavours'])}</div>
 </div></section>
 
@@ -297,7 +299,7 @@ home = f'''
       <li><b>Express post.</b><span>Usually 1 to 3 business days across Australia. One flat $16.20, whatever you order.</span></li>
       <li><b>We keep you posted.</b><span>An email when your order’s confirmed, when it’s in the oven and when it’s on its way.</span></li>
     </ol>
-    <figure class="arrive"><img src="img/real_packbox.jpg" alt="A real Cookiee Club mailer opened to show hot pink tissue and a thank-you sticker" loading="lazy" width="1000" height="1000"><figcaption>Real box. Real photo.</figcaption></figure>
+    <figure class="arrive"><img src="img/real_packbox.jpg" alt="A Cookiee Club mailer opened to show hot pink tissue and a thank-you sticker" loading="lazy" width="1000" height="1000"></figure>
   </div>
 </div></section>
 
@@ -338,7 +340,6 @@ for p in D['products']:
     B = '../'
     gal = ''.join(f'<img src="{B}img/p/{im}.jpg" alt="{e(p["alt"][i])}" {"fetchpriority=\"high\"" if i == 0 else "loading=\"lazy\""} width="1000" height="1000">' for i, im in enumerate(p['imgs']))
     gal += f'<img src="{B}img/real_packbox.jpg" alt="How it arrives: a mailer box with hot pink tissue and a thank-you sticker" loading="lazy" width="1000" height="1000">' if p['cookies'] else ''
-    gal += '<p class="gal-note">Gallery photos are our real cookies.</p>'
     badge = f'<span class="tag static{" dark" if p.get("badgeDark") else ""}">{e(p["badge"])}</span>' if p.get('badge') else ''
     compare = f'<s>{money(p["compare"])}</s>' if p.get('compare') else ''
     count = f'{p["cookies"]} cookies · ' if p['cookies'] else ''
@@ -561,7 +562,7 @@ notes = '''
 <li>Every product page answers the big questions on the page: what’s in the box, allergens, delivery and refunds.</li>
 <li>Sold out? The buy button becomes a restock alert, so nobody who arrives from a TikTok leaves empty-handed.</li>
 <li>A cookie calendar that updates itself from today’s date: what’s on now, what’s next, and when the shop is closed.</li>
-<li>Real reviews, copied word for word from customers’ own TikToks, each linked to the original video.</li>
+<li>Customer reviews from their own TikToks, each linked to the original video.</li>
 <li>Delivery, refunds, FAQ, contact and corporate pages, written in plain words.</li>
 </ul>
 <h2>About the photos</h2>
