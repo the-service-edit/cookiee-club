@@ -172,7 +172,7 @@
       msg.textContent = kind === 'alert' ? 'Done. We’ll email you the moment it’s back.' :
         kind === 'join' ? 'You’re in. We’ll email you before the next restock.' :
         kind === 'corporate' ? 'Thanks. Ruby or Rachel will reply with what’s possible for your date.' :
-        'Thanks, we’ve got your message. We reply within [X] business days.';
+        'Thanks, we’ve got your message. We’ll get back to you as soon as we can.';
       f.reset();
     });
   });
@@ -303,4 +303,41 @@
   })();
 
   render();
+})();
+
+/* ---------- sold out / closed countdowns (Sydney time) ---------- */
+(function () {
+  var hero = document.querySelector('[data-st-target]'); if (!hero) return;
+  function off(d) {
+    try {
+      var s = new Intl.DateTimeFormat('en-US', { timeZone: 'Australia/Sydney', timeZoneName: 'shortOffset' }).formatToParts(d)
+        .filter(function (p) { return p.type === 'timeZoneName'; })[0].value;
+      var m = s.match(/GMT([+-]\d+)(?::(\d+))?/); return m ? (+m[1]) * 60 + (m[2] ? +m[2] : 0) : 600;
+    } catch (e) { return 600; }
+  }
+  function sydUTC(y, mo, d, h) { var g = Date.UTC(y, mo - 1, d, h); return g - off(new Date(g)) * 6e4; }
+  function sydParts(d) {
+    var o = {}; new Intl.DateTimeFormat('en-AU', { timeZone: 'Australia/Sydney', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', hour12: false, weekday: 'short' })
+      .formatToParts(d).forEach(function (p) { o[p.type] = p.value; }); return o;
+  }
+  var t = hero.getAttribute('data-st-target'), target;
+  if (t === 'sunday') {
+    var now = new Date(), p = sydParts(now), wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday);
+    var add = (7 - wd) % 7; if (add === 0 && +p.hour >= 19) add = 7;
+    var base = Date.UTC(+p.year, +p.month - 1, +p.day + add);
+    var bd = new Date(base); target = sydUTC(bd.getUTCFullYear(), bd.getUTCMonth() + 1, bd.getUTCDate(), 19);
+  } else {
+    var m = t.match(/(\d+)-(\d+)-(\d+)T(\d+)/); target = sydUTC(+m[1], +m[2], +m[3], +m[4]);
+  }
+  var dEl = hero.querySelector('[data-st-days]'), cEl = hero.querySelector('[data-st-clock]'), pill = hero.querySelector('[data-st-pill]');
+  var what = t === 'sunday' ? 'until the next restock' : 'until Christmas opens';
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    var ms = Math.max(0, target - Date.now()), s = Math.floor(ms / 1000);
+    var d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), mi = Math.floor(s % 3600 / 60), se = s % 60;
+    if (dEl) { dEl.textContent = d; dEl.nextElementSibling.textContent = d === 1 ? 'day' : 'days'; }
+    if (cEl) cEl.textContent = pad(h) + ':' + pad(mi) + ':' + pad(se);
+    if (pill) pill.textContent = ms ? d + (d === 1 ? ' day, ' : ' days, ') + h + (h === 1 ? ' hour' : ' hours') + ' and ' + mi + (mi === 1 ? ' minute ' : ' minutes ') + what : 'We’re open. Go, go, go.';
+  }
+  tick(); setInterval(tick, 1000);
 })();

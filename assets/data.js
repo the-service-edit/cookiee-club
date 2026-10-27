@@ -1,10 +1,10 @@
 /* The Cookiee Club: catalogue for the v2 concept.
-   Prices and flavour lists match thecookieeclub.com on 12 Oct 2026.
+   Prices match thecookieeclub.com on 27 Oct 2026; flavour lists as of 12 Oct 2026.
    Stock states are demo values: in Shopify they come from inventory. */
 window.TCC = {
   shipping: 16.20,           // flat express post (per Ruby's FAQ; confirm flat vs weight-based)
   turnaround: '2 to 4 business days',
-  restock: '[day] 7pm AEST',
+  restock: '[day] 7pm Sydney time',
 
   flavours: [
     { id: 'caramello-koala',      name: 'Caramello Koala',      desc: 'Vanilla cookie, a Caramello Koala, milk chocolate and gooey caramel.', img: 'caramello-koala', best: true },
@@ -20,16 +20,30 @@ window.TCC = {
 
   products: [
     { id: 'byo12', handle: 'build-your-own-12', name: 'Build Your Own (12)', short: 'Pick any 12 flavours', cookies: 12,
-      price: 74.95, compare: 79.90, builder: 12, stock: 'in', badge: 'Best value full box', group: ['build'],
+      price: 82.43, builder: 12, stock: 'in', badge: 'Best value full box', group: ['build'],
       imgs: ['byo12_0', 'byo12_1', 'byo12_2', 'byo12_3'],
-      intro: 'Twelve cookies, your flavours, one parcel. It’s two six-boxes for $4.95 less, and you pay for shipping once.',
+      intro: 'Twelve cookies, your flavours, one parcel. It’s two six-boxes for $5.47 less, and you pay for shipping once.',
       alt: ['A tray of Fairy Bread cookies', 'Caramello Koala cookies cooling on a tray', 'Glazed cookies on a board', 'Six sealed cookies with holographic stickers'] },
 
     { id: 'byo6', handle: 'build-your-own-6', name: 'Build Your Own (6)', short: 'Pick any six flavours', cookies: 6,
-      price: 39.95, builder: 6, stock: 'in', group: ['build'],
+      price: 43.95, builder: 6, stock: 'in', group: ['build'],
       imgs: ['byo6_0', 'byo6_1', 'byo6_2', 'byo6_3'],
       intro: 'Six cookies, any mix of the menu. Pick one of everything you’ve been eyeing, or six of the one you can’t stop thinking about.',
       alt: ['Caramello Koala cookies on a board', 'A plate of Mini M&M cookies', 'Marvellous Creations cookies with the chocolate bars', 'A hand holding a Caramello Koala cookie'] },
+
+    { id: 'xmas', handle: 'early-christmas-release', name: 'Early Christmas Release', short: '2 new Christmas flavours + 2 favourites', cookies: 4,
+      price: 30, stock: 'in', badge: '26 Oct to 4 Nov only', badgeDark: true, group: ['specials'],
+      fixed: ['gingerbread-white-choc', 'santas-mix'], fixedNote: 'Plus two of our rotating Cookiee Club favourites.',
+      imgs: ['xmas_1', 'xmas_0', 'xmas_2'],
+      intro: 'A sneak peek at Christmas: two brand new festive flavours, Gingerbread White Chocolate and Santa’s Mix, plus two of our rotating favourites.',
+      alt: ['Four Santa’s Mix cookies with red and green M&M’s and sprinkles', 'A hand holding a Gingerbread White Chocolate cookie', 'Three Gingerbread White Chocolate cookies on a board'] },
+
+    { id: 'jam', handle: 'jam-donut-box', name: 'Jam Donut Box', short: '4 Jam Donut cookies', cookies: 4,
+      price: 22, stock: 'in', badge: 'New', group: ['specials'],
+      fixed: ['jam-donut'],
+      imgs: ['jam_0'],
+      intro: 'Four of our Jam Donut cookies in one box.',
+      alt: ['A hand holding two Jam Donut cookies'] },
 
     { id: 'gf', handle: 'gluten-free-range', name: 'Gluten Free Range', short: 'Choc Chip, Fairy Bread, Churro, Mini M&M', cookies: 4,
       price: 40, stock: 'in', badge: 'Gluten free', group: ['gf'],
@@ -39,15 +53,15 @@ window.TCC = {
       alt: ['Gluten-free Cinnamon Churro cookies', 'Gluten-free Fairy Bread cookies', 'Gluten-free Mini M&M cookies', 'Gluten-free Chocolate Chip cookies'] },
 
     { id: 'little', handle: 'the-little-cookiee-club', name: 'The Little Cookiee Club', short: '4 flavours made for kids', cookies: 4,
-      price: 30, stock: 'in', badge: 'New', group: ['kids'],
+      price: 33, stock: 'in', badge: 'New', group: ['kids'],
       fixed: ['smiley-face', 'mini-mm', 'plain-vanilla', 'fairy-bread'],
       imgs: ['little_0', 'little_1', 'little_2'],
       intro: 'A little box for our littlest cookie lovers: four fun flavours, made without eggs or nuts.',
       alt: ['Smiley Face cookies with banana lollies', 'Pink frosted Fairy Bread cookies', 'Mini M&M cookies'] },
 
     { id: 'imperfect', handle: 'the-imperfect-box', name: 'The Imperfect Box', short: '4 wonky ones. Same taste.', cookies: 4,
-      price: 12.95, stock: 'out', badge: 'One per customer', limit: 1, group: ['extras'],
-      variants: [{ id: 'reg', name: 'Regular', price: 12.95 }, { id: 'gf', name: 'Gluten free', price: 14.95 }],
+      price: 14.25, stock: 'out', badge: 'One per customer', limit: 1, group: ['extras'],
+      variants: [{ id: 'reg', name: 'Regular', price: 14.25 }, { id: 'gf', name: 'Gluten free', price: 14.95 }],
       imgs: ['imperfect_0', 'imperfect_1', 'imperfect_2', 'imperfect_3'],
       intro: 'Every week some cookies break, spread too thin or come out uneven. They taste exactly the same, so they go in here.',
       alt: ['A mix of imperfect cookies, each sealed', 'A cracked Oreo cookie in its bag', 'A broken Mini M&M cookie', 'Imperfect gluten-free cookies'] },
@@ -64,6 +78,9 @@ window.TCC = {
     { id: 'midnight-monster', name: 'Midnight Monster', desc: 'Double chocolate with candy eyes.', img: 'midnight-monster' },
     { id: 'trick-or-treat',   name: 'Trick or Treat',   desc: 'White chocolate drizzle and a lolly on top.', img: 'trick-or-treat' },
     { id: 'cinnamon-churro',  name: 'Cinnamon Churro',  desc: 'Cinnamon buttercream piped in a swirl.', img: 'cinnamon-churro' },
+    { id: 'gingerbread-white-choc', name: 'Gingerbread White Chocolate', desc: 'New for Christmas: gingerbread cookie, white chocolate drizzle and a little gingerbread man.', img: 'gingerbread-white-choc' },
+    { id: 'santas-mix',       name: 'Santa’s Mix',      desc: 'New for Christmas: red and green M&M’s, chocolate and festive sprinkles.', img: 'santas-mix' },
+    { id: 'jam-donut',        name: 'Jam Donut',        desc: 'Four to a box.', img: 'jam-donut' },
     { id: 'smiley-face',      name: 'Smiley Face',      desc: 'Pink icing, sprinkles and a lolly smile.', img: 'smiley-face' }
   ]
 };

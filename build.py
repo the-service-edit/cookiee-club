@@ -43,12 +43,13 @@ NAV = [('shop.html', 'Shop'), ('build-a-box.html', 'Build a box'), ('our-kitchen
 
 import time as _time
 VER = str(int(_time.time()))
-def page(path, title, body, desc, active='', extra_head=''):
+def page(path, title, body, desc, active='', extra_head='', band_items=None):
     depth = path.count('/')
     B = '../' * depth
     nav = ''.join(f'<a href="{B}{h}"{" aria-current=\"page\"" if h == active else ""}>{t}</a>' for h, t in NAV)
     band = ('<span>Baked to order</span><span>Posted in 2 to 4 business days</span><span>Nut &amp; egg free</span>'
             '<span>$16.20 express, Australia wide</span><span>Mum’s recipe</span>')
+    if band_items: band = ''.join(f'<span>{x}</span>' for x in band_items)
     doc = f'''<!doctype html>
 <html lang="en-AU">
 <head>
@@ -86,7 +87,7 @@ def page(path, title, body, desc, active='', extra_head=''):
   <div class="wrap fcols">
     <div class="fbrand"><img src="{B}img/logo_old.png" alt="The Cookiee Club" width="96" height="96"><p>Nut and egg free cookies, baked to order from Mum’s recipe by sisters Ruby and Rachel. Posted Australia wide.</p>
       <div class="fsocial"><a class="icon-btn" href="https://www.instagram.com/thecookieeclub_/" aria-label="The Cookiee Club on Instagram">{icon('insta', 22, 2)}</a><a class="icon-btn" href="https://www.tiktok.com/@rubyrosedemiroski" aria-label="Ruby on TikTok">{icon('tiktok', 22, 2)}</a></div></div>
-    <div><h3>Shop</h3><ul><li><a href="{B}build-a-box.html?size=12">Box of 12</a></li><li><a href="{B}build-a-box.html?size=6">Box of 6</a></li><li><a href="{B}products/gluten-free-range.html">Gluten Free Range</a></li><li><a href="{B}products/the-little-cookiee-club.html">Little Cookiee Club</a></li><li><a href="{B}products/the-imperfect-box.html">Imperfect Box</a></li></ul></div>
+    <div><h3>Shop</h3><ul><li><a href="{B}build-a-box.html?size=12">Box of 12</a></li><li><a href="{B}build-a-box.html?size=6">Box of 6</a></li><li><a href="{B}products/early-christmas-release.html">Early Christmas Release</a></li><li><a href="{B}products/jam-donut-box.html">Jam Donut Box</a></li><li><a href="{B}products/gluten-free-range.html">Gluten Free Range</a></li><li><a href="{B}products/the-little-cookiee-club.html">Little Cookiee Club</a></li><li><a href="{B}products/the-imperfect-box.html">Imperfect Box</a></li></ul></div>
     <div><h3>Help</h3><ul><li><a href="{B}delivery.html">Delivery &amp; shipping</a></li><li><a href="{B}refunds.html">Refunds &amp; damaged orders</a></li><li><a href="{B}faq.html">FAQ</a></li><li><a href="{B}contact.html">Contact us</a></li></ul></div>
     <div><h3>The club</h3><ul><li><a href="{B}our-kitchen.html">Our kitchen &amp; allergens</a></li><li><a href="{B}drops.html">Drops &amp; calendar</a></li><li><a href="{B}corporate.html">Corporate &amp; events</a></li><li><a href="{B}contact.html">Contact us</a></li></ul></div>
   </div>
@@ -169,7 +170,7 @@ def reviews_block(B=''):
 CAL = [
     # (start, end, title, date tab line1, line2, description, theme, icon, cta label, cta href)
     ('2026-10-11', '2026-10-25', 'Halloween flavours', '11–25', 'Oct', 'Spooky, sweet and gone on the 25th. That’s a wrap for this year.', 'lilac', 'pumpkin', '', ''),
-    ('2026-10-26', '2026-11-04', 'Christmas, a week early', '26 Oct–', '4 Nov', 'Be the first to try our brand new Chrissy flavours.', 'pink', 'tree', 'Get drop alerts', 'index.html#join'),
+    ('2026-10-26', '2026-11-04', 'Christmas, a week early', '26 Oct–', '4 Nov', 'Gingerbread White Chocolate and Santa’s Mix, in the Early Christmas Release box.', 'pink', 'tree', 'Shop the Christmas box', 'products/early-christmas-release.html'),
     ('2026-11-05', '2026-11-11', 'Packing for Perth', '5–11', 'Nov', 'Baking, packing and getting everything ready for our first trip west.', 'butter', 'plane', '', ''),
     ('2026-11-12', '2026-11-15', 'Perth pop-up', '12–15', 'Nov', 'Come say hi in person. Venue announced to the club first.', 'sky', 'pin', 'Get the details', 'drops.html'),
     ('2026-11-16', '2026-11-16', 'Advent calendars', '16', 'Nov', '50 boxes only. Club members get the link first.', 'pink', 'gift', 'Get the link first', 'index.html#join'),
@@ -240,7 +241,7 @@ def faq_html(items, B):
 
 # ---------- HOME ----------
 B = ''
-order = ['byo12', 'byo6', 'gf', 'little', 'imperfect']
+order = ['byo12', 'byo6', 'xmas', 'jam', 'gf', 'little', 'imperfect']
 home = f'''
 <section class="hero" id="home">
   <picture><source media="(max-width:700px)" srcset="img/s_hero_mobile2.jpg"><source media="(max-width:900px)" srcset="img/s_hero_mobile.jpg"><img class="hero-bg" src="img/s_hero_wide_icing.jpg" alt="A hand holding a stack of Caramello Koala, Mini M&amp;M and Cinnamon Scroll cookies" width="2600" height="1050" fetchpriority="high"></picture>
@@ -321,11 +322,12 @@ page('index.html', 'The Cookiee Club · Nut and egg free cookies, baked to order
 
 # ---------- SHOP ----------
 shop = f'''
-<section class="page-head wrap"><h1>The menu.</h1><p>Six boxes and one extra. $16.20 express post, Australia wide.</p></section>
+<section class="page-head wrap"><h1>The menu.</h1><p>Seven boxes and one extra. $16.20 express post, Australia wide.</p></section>
 <section class="wrap" style="padding-bottom:88px">
   <div class="chips" role="group" aria-label="Filter the menu">
     <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
     <button class="chip" type="button" data-filter="build" aria-pressed="false">Build your own</button>
+    <button class="chip" type="button" data-filter="specials" aria-pressed="false">Specials</button>
     <button class="chip" type="button" data-filter="gf" aria-pressed="false">Gluten free</button>
     <button class="chip" type="button" data-filter="kids" aria-pressed="false">For kids</button>
     <button class="chip" type="button" data-filter="extras" aria-pressed="false">Extras</button>
@@ -348,7 +350,7 @@ for p in D['products']:
     flist = ''
     if p.get('fixed'):
         flist = '<div><h2 style="font-size:22px;margin-bottom:12px">What’s in the box</h2><div class="flist">' + ''.join(
-            f'<div class="fi"><span class="th">{flav_img(F[i], B, studio=True)}</span><div><b>{e(F[i]["name"])}{' <em class="bs">Best seller</em>' if F[i].get("best") else ''}</b><span>{e(F[i]["desc"])}</span></div></div>' for i in p['fixed']) + '</div></div>'
+            f'<div class="fi"><span class="th">{flav_img(F[i], B, studio=True)}</span><div><b>{e(F[i]["name"])}{' <em class="bs">Best seller</em>' if F[i].get("best") else ''}</b><span>{e(F[i]["desc"])}</span></div></div>' for i in p['fixed']) + '</div>' + (f'<p class="muted" style="font-size:14px;margin-top:10px">{e(p["fixedNote"])}</p>' if p.get('fixedNote') else '') + '</div>'
     variants = ''
     if p.get('variants'):
         variants = '<fieldset style="border:0;padding:0;margin:0"><legend style="font-weight:700;margin-bottom:8px">Choose</legend><div class="variants">' + ''.join(
@@ -363,7 +365,7 @@ for p in D['products']:
                f'<button type="button" id="q-plus" aria-label="Increase quantity">+</button></div><button class="btn red" type="button" id="add-btn">Add to cart</button></div>{lim}')
         sticky = f'<div class="sticky-buy"><div><b>{e(p["name"])}</b><span>{money(p["price"])}</span></div><button class="btn red" type="button" id="sticky-add">Add</button></div>'
     else:
-        buy = (f'{variants}<div class="alert-box"><b>Sold out this week.</b><p>Restocks open at 7pm AEST. Leave your email and we’ll tell you the moment it’s back.</p>'
+        buy = (f'{variants}<div class="alert-box"><b>Sold out this week.</b><p>Restocks open at 7pm Sydney time. Leave your email and we’ll tell you the moment it’s back.</p>'
                f'<form class="inline-form" data-form="alert" novalidate><label class="sr" for="al-email">Email address</label><input id="al-email" type="email" placeholder="Your email" autocomplete="email" required><button class="btn red" type="submit">Tell me</button></form><p class="form-msg" aria-live="polite"></p></div>')
         sticky = ''
     ship = (f'<div class="ship-line">{icon("clock", 22)}<span><b>Baked to order, posted within 2 to 4 business days.</b> Express post usually takes 1 to 3 more. Need it by a date? <a class="link" href="{B}contact.html">Ask before you order</a>.</span></div>') if p['cookies'] else (
@@ -428,7 +430,7 @@ builder = f'''
     <h2>Your box</h2>
     <div class="prog"><div class="lbl"><span class="prog-n">0 of 6</span><span>chosen</span></div><div class="bar"><i></i></div></div>
     <ul class="picked" id="picked"></ul>
-    <div class="sum-price"><span>Box price</span><b id="sum-price">$39.95</b></div>
+    <div class="sum-price"><span>Box price</span><b id="sum-price">$43.95</b></div>
     <p class="sum-note">Plus $16.20 express post. Baked to order, posted within 2 to 4 business days.</p>
     <button class="btn red block bld-add" type="button" disabled>Pick 6 more</button>
   </aside>
@@ -562,14 +564,16 @@ notes = '''
 <li>Every product page answers the big questions on the page: what’s in the box, allergens, delivery and refunds.</li>
 <li>Sold out? The buy button becomes a restock alert, so nobody who arrives from a TikTok leaves empty-handed.</li>
 <li>A cookie calendar that updates itself from today’s date: what’s on now, what’s next, and when the shop is closed.</li>
+<li>A <a class="link" href="sold-out.html">sold out page</a> with a live countdown to the next restock, and a <a class="link" href="closed.html">closed page</a> for breaks, each with an email sign up.</li>
 <li>Customer reviews from their own TikToks, each linked to the original video.</li>
 <li>Delivery, refunds, FAQ, contact and corporate pages, written in plain words.</li>
 </ul>
 <h2>About the photos</h2>
-<p>Product galleries use your own photos. The single-cookie shots in the flavour sections were created from your photos of each cookie, styled to match. The hero image is a styled concept shot.</p>
+<p>Every photo here started as one of your own. Each was reshot digitally from your photo of the real cookies: same cookies, toppings, bags and boxes, cleaned up and relit. The single-cookie shots were made the same way, one flavour at a time. Before anything goes live we check every image against the real thing together.</p>
 <h2>What’s not live yet</h2>
 <p>This is a preview: nothing here takes real orders, forms don’t send, and stock is set by hand. On Shopify, the cart, stock, checkout and Afterpay all run from your store, and the restock can open automatically at 7pm.</p>
 <p><a class="btn" href="index.html">Back to the site</a></p>
 </section>'''
 page('notes.html', 'About this concept · The Cookiee Club', notes, 'A concept website for The Cookiee Club by The Service Edit.')
 print('notes built')
+exec(open(os.path.join(ROOT, 'states.py')).read())
