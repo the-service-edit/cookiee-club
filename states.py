@@ -55,33 +55,23 @@ page('sold-out.html', 'Sold out tonight · The Cookiee Club', sold,
      band_items=['Sold out tonight', 'Next restock Sunday 7pm Sydney time', 'Get the email, don’t miss out', 'Baked to order', 'Nut &amp; egg free'])
 
 # ---------- CLOSED ----------
-import datetime as _dt
-d0 = _dt.date(2026, 11, 16)
-cells = []
-for k in range(20):
-    d = d0 + _dt.timedelta(days=k)
-    mon = d.strftime('%b')
-    if k == 0:
-        cells.append(f'<div class="cal-c shut"><b>{d.day}</b><span>Shop closes</span></div>')
-    else:
-        cells.append(f'<div class="cal-c off"><b>{d.day}</b><span>{mon}</span></div>')
-cells.append('<div class="cal-c xmas"><b>6</b><span>Christmas · 7pm</span></div>')
-days_hd = ''.join(f'<span>{x}</span>' for x in ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
-teaser = ''.join(f'<div class="st-tz"><div class="ph">{flav_img(F[i], "", studio=True)}</div><b>New flavour</b><span>Revealed to the list first</span></div>' for i in ['gingerbread-white-choc', 'santas-mix', 'mini-mm'])
+fav = [F[i] for i in ['caramello-koala', 'mini-mm', 'fairy-bread', 'cinnamon-scroll']]
+come = ''.join(f'<a class="st-fl" href="shop.html">{flav_img(f, "", studio=True)}<span class="tag">Back 6 Dec</span><b>{e(f["name"])}</b></a>' for f in fav)
+come += ''.join(f'<a class="st-fl st-myst" href="#st-email"><span class="ph">{flav_img(F[i], "", studio=True)}<i aria-hidden="true">?</i></span><span class="tag">New for Christmas</span><b>Top secret</b></a>' for i in ['gingerbread-white-choc', 'santas-mix'])
 closed = st_hero('closed', 'On a', 'break.', 's_closed.jpg', 'An open Cookiee Club mailer box with hot pink tissue and a thank you sticker',
                  'Back Sunday 6 December, <em>7pm.</em>',
                  'We’re closed from 16 November to rest up and get the kitchen ready for Christmas. Thank you so, so much for an incredible few months.',
                  'Counting down to Christmas…', '2026-12-06T19:00', 'Get the reopening email',
                  'The list sees the Christmas flavours first.', 'Back 6 Dec · 7pm Sydney', 40,
                  tag='<span class="st-tag">Back 6 Dec</span>') + f'''
-<section class="st-cal"><div class="wrap">
-  <div class="st-cal-head"><h2>Three weeks off. <span>Then Christmas.</span></h2><p>Orders placed before 16 November are baked and posted as normal. Messages are a little slower while we’re away.</p></div>
-  <div class="cal-days">{days_hd}</div>
-  <div class="cal-grid">{''.join(cells)}</div>
+<section class="st-ordered"><div class="wrap">
+  <span class="st-tick" aria-hidden="true">{icon('check', 22, 2.4)}</span>
+  <div><b>Ordered before 16 November? It’s on its way.</b><p>Every order placed before the break is baked and posted as normal, and tracking comes as soon as your box is posted. Messages are a little slower while we’re away.</p></div>
+  <a class="btn pinkbtn" href="contact.html">Check my order</a>
 </div></section>
 <section class="sec cream"><div class="wrap">
-  <div class="sec-head"><div><span class="eyebrow">Coming 6 December</span><h2>Christmas, revealed to the list first</h2></div><div class="side"><p>New festive flavours land on 6 December. The club sees them before anyone else.</p><a class="btn" href="#st-email">Get the reopening email</a></div></div>
-  <div class="st-tzgrid">{teaser}</div>
+  <div class="sec-head"><div><span class="eyebrow">Back on 6 December</span><h2>What’s coming back</h2></div><div class="side"><p>All your favourites, plus brand new Christmas flavours. The list sees them first.</p><a class="btn" href="#st-email">Get the reopening email</a></div></div>
+  <div class="st-flgrid">{come}</div>
 </div></section>
 '''
 page('closed.html', 'On a break until 6 December · The Cookiee Club', closed,

@@ -743,3 +743,8 @@ footer.site{background:var(--crimson);color:#fff}
 }
 @media (max-width:900px){.st-sold .st-pic img{height:min(50vh,390px);object-position:50% 88%}}
 @media (min-width:901px){.gal img:last-child:nth-child(even){grid-column:1/-1;aspect-ratio:5/4}}
+.st-myst .ph{position:relative;display:block;overflow:hidden;background:var(--cream)}
+.st-myst .ph img{filter:blur(16px) saturate(1.15);transform:scale(1.18)}
+.st-myst .ph i{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:900;font-size:64px;color:#fff;text-shadow:0 6px 24px rgba(22,12,12,.25)}
+.st-myst .tag{background:var(--ink)!important}
+.st-myst b{color:var(--crimson)}
