@@ -88,7 +88,7 @@
   function lineHTML(l, editable) {
     var p = prod(l.pid), price = linePrice(l), room = limitLeft(l.pid, load(), l.key);
     var edit = p.builder ? '<a href="' + BASE + 'build-a-box.html?size=' + p.builder + '&edit=' + encodeURIComponent(l.key) + '">Edit flavours</a>' : '';
-    return '<div class="cline"><img src="' + BASE + 'img/p/' + p.imgs[0] + '.jpg" alt="" width="76" height="76">' +
+    return '<div class="cline"><img src="' + BASE + 'img/p/' + p.imgs[0] + '.jpg?v=2" alt="" width="76" height="76">' +
       '<div><div class="nm">' + esc(p.name) + '<span>' + money(price * l.qty) + '</span></div>' +
       '<div class="fls">' + esc(flavText(l)) + '</div>' +
       (editable ? '<div class="ctl"><div class="mini-qty"><button type="button" data-q="-1" data-k="' + esc(l.key) + '" aria-label="One less ' + esc(p.name) + '">−</button><output>' + l.qty + '</output>' +

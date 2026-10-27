@@ -108,6 +108,7 @@ def page(path, title, body, desc, active='', extra_head='', band_items=None):
 '''
     out = os.path.join(ROOT, path)
     os.makedirs(os.path.dirname(out), exist_ok=True)
+    doc = re.sub(r'(img/[\w/.-]+\.(?:jpg|png))(?=["\s])', lambda m: m.group(1) + '?v=' + VER, doc)
     open(out, 'w').write(doc)
 
 def rel(depth): return '../' * depth
