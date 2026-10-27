@@ -749,3 +749,12 @@ footer.site{background:var(--crimson);color:#fff}
 .st-myst .tag{background:var(--ink)!important}
 .st-myst b{color:var(--crimson)}
 img[src*="img/p/moulds_0"]{object-fit:contain!important;background:#F7EDDB!important;padding:4%}
+/* mobile hero: hard-clipped photo box, card always on top (iOS Safari safe) */
+@media (max-width:900px){
+  .st-pic{position:relative;z-index:1;height:min(56vh,420px);overflow:hidden;margin:0 calc(var(--gut) * -1);display:block}
+  .st-pic img,.st-sold .st-pic img,.st-closed .st-pic img{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover;-webkit-mask-image:none!important;mask-image:none!important}
+  .st-sold .st-pic img{object-position:55% 78%}
+  .st-closed .st-pic img{object-position:50% 40%}
+  .st-card{position:relative;z-index:3;margin-top:0}
+  .st-big{position:relative;z-index:3}
+}
