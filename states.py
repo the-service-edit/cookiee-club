@@ -11,12 +11,12 @@ def ring(text, days, label='days'):
   <div class="st-badge-in"><b data-st-days>{days}</b><span>{label}</span><small data-st-clock>00:00:00</small></div>
 </div>'''
 
-def st_hero(kind, word1, word2, img, alt, title, body, pill, target, form_btn, form_note, ring_text, ring_days, tag=''):
+def st_hero(kind, word1, word2, img, alt, title, body, pill, target, form_btn, form_note, ring_text, ring_days, tag='', kick=''):
     return f'''
 <section class="st-hero st-{kind}" data-st-target="{target}">
   <div class="wrap st-grid">
     <div class="st-copy">
-      <h1 class="st-big"><span class="r">{word1}</span><span>{word2}</span></h1>
+      <h1 class="st-big">{f'<span class="st-kick">{kick}</span>' if kick else ''}<span class="r">{word1}</span><span>{word2}</span></h1>
       <div class="st-card">
         {ring(ring_text, ring_days)}
         <h2>{title}</h2>
@@ -39,7 +39,7 @@ sold = st_hero('sold', 'Sold', 'out.', 's_soldout.jpg', 'A hand holding a bitten
                'Thank you so, so much. The next restock opens Sunday at 7pm Sydney time.',
                'Counting down to the next restock…', 'sunday', 'Tell me first',
                'One email when the shop opens. Nothing else unless you join the club.',
-               'Next restock · Sunday 7pm', 5) + f'''
+               'Next restock · Sunday 7pm', 5, kick='The Cookiee Club is') + f'''
 <section class="st-ordered"><div class="wrap">
   <span class="st-tick" aria-hidden="true">{icon('check', 22, 2.4)}</span>
   <div><b>Ordered tonight? You’re all set.</b><p>Your order confirmation is in your inbox now, and tracking comes as soon as your box is posted. Can’t see it? Check your junk folder, then flick us a message.</p></div>
@@ -63,7 +63,7 @@ closed = st_hero('closed', 'On a', 'break.', 's_closed.jpg', 'An open Cookiee Cl
                  'We’re closed from 16 November to rest up and get the kitchen ready for Christmas. Thank you so, so much for an incredible few months.',
                  'Counting down to Christmas…', '2026-12-06T19:00', 'Get the reopening email',
                  'The list sees the Christmas flavours first.', 'Back 6 Dec · 7pm Sydney', 40,
-                 tag='<span class="st-tag">Back 6 Dec</span>') + f'''
+                 tag='<span class="st-tag">Back 6 Dec</span>', kick='The Cookiee Club is') + f'''
 <section class="st-ordered"><div class="wrap">
   <span class="st-tick" aria-hidden="true">{icon('check', 22, 2.4)}</span>
   <div><b>Ordered before 16 November? It’s on its way.</b><p>Every order placed before the break is baked and posted as normal, and tracking comes as soon as your box is posted. Messages are a little slower while we’re away.</p></div>
