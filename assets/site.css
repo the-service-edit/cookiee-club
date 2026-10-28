@@ -782,3 +782,4 @@ img[src*="img/p/moulds_0"]{object-fit:contain!important;background:#F7EDDB!impor
  .grid.cards-2 .price{font-size:15px!important;color:var(--muted)}
  .grid.cards-2 .sub{padding:3px 2px 0;margin:0!important;font-size:14px}
  .grid.cards-2 .tag{font-size:10px!important;top:10px!important;left:10px!important;padding:5px 9px!important}}
+@media(max-width:640px){.grid.cards-2 .tag.out{top:auto!important;bottom:10px!important;left:10px!important;right:auto!important;border-radius:99px}}
