@@ -765,3 +765,20 @@ img[src*="img/p/moulds_0"]{object-fit:contain!important;background:#F7EDDB!impor
 }
 .st-kick{display:block;font-family:var(--display);font-weight:900;font-size:clamp(22px,2.6vw,40px);letter-spacing:-.01em;text-transform:none;color:var(--ink);line-height:1;margin-bottom:.18em}
 @media (max-width:900px){.st-closed .st-pic img{margin-bottom:56px!important}}
+
+/* mobile menu: best sellers full width, roomy 2-col grid (Mel chose option C, 28 Oct) */
+@media(max-width:640px){
+ .grid.cards-2{grid-template-columns:1fr 1fr!important;gap:30px 14px!important}
+ .grid.cards-2 .card{background:transparent!important;border-radius:0!important;gap:0!important}
+ .grid.cards-2 .card:nth-child(-n+2){grid-column:1/-1}
+ .grid.cards-2 .card:nth-child(-n+2) .ph img{aspect-ratio:5/4!important}
+ .grid.cards-2 .card:nth-child(-n+2) .row{flex-direction:row!important;justify-content:space-between;align-items:baseline}
+ .grid.cards-2 .card:nth-child(-n+2) .name{font-size:24px!important}
+ .grid.cards-2 .card:nth-child(-n+2) .sub{display:block!important}
+ .grid.cards-2 .card .ph{border-radius:18px;overflow:hidden}
+ .grid.cards-2 .card .ph img{aspect-ratio:4/5!important}
+ .grid.cards-2 .row{padding:12px 2px 0!important;gap:3px!important}
+ .grid.cards-2 .name{font-size:18px!important}
+ .grid.cards-2 .price{font-size:15px!important;color:var(--muted)}
+ .grid.cards-2 .sub{padding:3px 2px 0;margin:0!important;font-size:14px}
+ .grid.cards-2 .tag{font-size:10px!important;top:10px!important;left:10px!important;padding:5px 9px!important}}
